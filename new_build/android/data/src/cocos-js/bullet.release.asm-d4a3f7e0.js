@@ -1,12 +1,1 @@
-System.register([], (function (exports) {
-	'use strict';
-	return {
-		execute: (function () {
-
-			exports('default', bullet_release_asm);
-
-			function bullet_release_asm () {}
-
-		})
-	};
-}));
+System.register([],(function(t){"use strict";return{execute:function(){t("default",(function(){}))}}}));

@@ -1,8 +1,4 @@
-System.register("chunks:///_virtual/GameRes", [], function () {
-  return {
-    execute: function () {}
-  };
-});
+System.register("chunks:///_virtual/GameRes",[],(function(){return{execute:function(){}}}));
 
 (function(r) {
   r('virtual:///prerequisite-imports/GameRes', 'chunks:///_virtual/GameRes'); 

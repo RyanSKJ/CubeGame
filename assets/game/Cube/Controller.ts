@@ -176,15 +176,19 @@ export class Controller extends Component {
 
     onTouchMove(event: EventTouch) {
         if (!this._isRotating || !this.instantiatedNode) return;
-
+    
         const touch = event.getTouches()[0];
         let deltaX = touch.getLocationX() - this._lastMousePos.x;
         let deltaY = touch.getLocationY() - this._lastMousePos.y;
-
+    
         // 检查滑动距离是否达到设定阈值
         if (!this.currentAxis && Math.sqrt(deltaX * deltaX + deltaY * deltaY) >= this.minSwipeDistance) {
-            // 如果达到最小滑动距离，根据方向锁定旋转轴
-            if (deltaX > 0 && deltaY > 0) {
+            const horizontalThreshold = 2; // 水平滑动的容忍范围
+    
+            if (Math.abs(deltaY) < horizontalThreshold) {
+                // 水平滑动，绕 Y 轴旋转
+                this.currentAxis = 'Y';
+            } else if (deltaX > 0 && deltaY > 0) {
                 this.currentAxis = 'Z'; // 左下到右上，Z轴正方向旋转
             } else if (deltaX < 0 && deltaY < 0) {
                 this.currentAxis = 'Z'; // 右上到左下，Z轴负方向旋转
@@ -192,21 +196,17 @@ export class Controller extends Component {
                 this.currentAxis = 'X'; // 右下到左上，X轴正方向旋转
             } else if (deltaX < 0 && deltaY > 0) {
                 this.currentAxis = 'X'; // 左上到右下，X轴负方向旋转
-            } else if (deltaX > 0 && deltaY === 0) {
-                this.currentAxis = 'Y'; // 水平左往右，Y轴正方向旋转
-            } else if (deltaX < 0 && deltaY === 0) {
-                this.currentAxis = 'Y'; // 水平右往左，Y轴负方向旋转
             }
         }
-
+    
         // 获取摄像机的世界矩阵以定义旋转轴
         let worldMatrix = this.camera.node.worldMatrix;
         let cameraRight = Vec3.RIGHT.clone(); // X轴方向
-        let cameraUp = Vec3.UP.clone();    // Y轴方向
+        let cameraUp = Vec3.UP.clone();      // Y轴方向
         let cameraForward = Vec3.FORWARD.clone(); // Z轴方向
-
+    
         let rotationAmount = Math.sqrt(deltaX * deltaX + deltaY * deltaY) * this._rotationSpeed;
-
+    
         // 根据锁定的 currentAxis 执行旋转
         if (this.currentAxis === 'Z') {
             RotateUtil.rotateAround(this.instantiatedNode, cameraForward, deltaX > 0 ? rotationAmount : -rotationAmount);
@@ -215,7 +215,7 @@ export class Controller extends Component {
         } else if (this.currentAxis === 'Y') {
             RotateUtil.rotateAround(this.instantiatedNode, cameraUp, deltaX > 0 ? rotationAmount : -rotationAmount);
         }
-
+    
         this._lastMousePos.set(touch.getLocationX(), touch.getLocationY(), 0);
     }
 
@@ -265,105 +265,107 @@ export class Controller extends Component {
     }
 
     update(deltaTime: number) {
+        // 累加操作时间
         this.operationTime += deltaTime;
-        //this.operationTimeLabel.string = `已用时: ${this.operationTime.toFixed(2)}s`;
-        //this.operationCountLabel.string = `翻滚次数: ${this.operationCount}`;
-        // 如果按下空格键或点击按钮，并且 instantiatedNode 的名字为 "Node"
+    
+        // 控制上升逻辑
         if (this._isMovingUp && this.instantiatedNode && this.node.name === "Node") {
-            // 上升时，instantiatedNode 向上移动
-            let currentPosition = this.instantiatedNode.getPosition();
-            currentPosition.y += this._moveSpeed;
-            this.instantiatedNode.setPosition(currentPosition);
-        
-            if (this.targetCylinder) {
-                // 获取当前的缩放和位置
-                let currentScale = this.targetCylinder.getScale();
-                let targetPosition = this.targetCylinder.getPosition();
-        
-                // 平滑减少 Cylinder 的高度
-                let heightChange = this._moveSpeed;
-        
-                // 调整 Cylinder 的 scale 和 position，使顶部保持固定
-                currentScale.y -= heightChange/2.3;
-                targetPosition.y += heightChange / 2.3;  // 上移以保持顶部位置不变
-        
-                // 应用更新后的缩放和位置
-                this.targetCylinder.setScale(currentScale);
-                this.targetCylinder.setPosition(targetPosition);
-            }
+            this.moveUp();
         }
-        
+    
+        // 控制下降逻辑
         if (this._isMovingDown && this.instantiatedNode && this.node.name === "Node") {
-            // 下降时，instantiatedNode 向下移动
-            let currentPosition = this.instantiatedNode.getPosition();
-            currentPosition.y -= this._moveSpeed;
-            this.instantiatedNode.setPosition(currentPosition);
-        
-            if (this.targetCylinder) {
-                // 获取当前的缩放和位置
-                let currentScale = this.targetCylinder.getScale();
-                let targetPosition = this.targetCylinder.getPosition();
-        
-                // 平滑增加 Cylinder 的高度
-                let heightChange = this._moveSpeed;
-        
-                // 调整 Cylinder 的 scale 和 position，使顶部保持固定
-                currentScale.y += heightChange/2.3;
-                targetPosition.y -= heightChange / 2.3;  // 下移以保持顶部位置不变
-        
-                // 应用更新后的缩放和位置
-                this.targetCylinder.setScale(currentScale);
-                this.targetCylinder.setPosition(targetPosition);
-            }
+            this.moveDown();
         }
+    
+        // 当节点高度超过 26 时触发场景节点管理逻辑
         if (this.instantiatedNode && this.instantiatedNode.getPosition().y > 26 && this.stop_update) {
-            const scene = director.getScene();
-            if (scene) {
-                    scene.children.forEach(rootNode => {
-                        console.log(`Processing root node: ${rootNode.name}`);
-                        rootNode.children.forEach(child => {
-                            console.log(`Destroying child node: ${child.name}`);
-                            if (child.name && child.isValid) {
-                                // 停止所有调度的更新函数
-                                //director.getScheduler().unscheduleAllForTarget(child);
-                                // 销毁子节点
-                                child.active = false;
-                            }
-                        });
-                    });
-                }
-            // 销毁所有根节点的子节点后，创建新的根节点来容纳新的 Canvas
-                const newRootNode = new Node('NewRoot');
-                scene.addChild(newRootNode);
-
-                // 创建一个新的 Canvas 并添加到新的根节点
-                const canvasNode = new Node('Canvas');
-                const canvas = canvasNode.addComponent(Canvas);
-                newRootNode.addChild(canvasNode);
-
-                // 设置 Canvas 尺寸适应屏幕
-                const uiTransform = canvasNode.addComponent(UITransform);
-                uiTransform.setContentSize(view.getVisibleSize());
-
-                // 创建并配置一个新的摄像机来渲染 Canvas
-                const cameraNode = new Node('UICamera');
-                const camera = cameraNode.addComponent(Camera);
-                camera.priority = 2;  // 确保UI的渲染优先级更高
-                camera.clearFlags = Camera.ClearFlag.DEPTH_ONLY; // 只清理深度
-                camera.projection = Camera.ProjectionType.ORTHO;  // 使用正交投影
-                camera.visibility = Layers.Enum.UI_2D;  // 仅渲染UI层
-                cameraNode.setParent(canvasNode);
-
-                // 设置摄像机的区域和视口
-                camera.orthoHeight = view.getVisibleSize().height / 2;
-                cameraNode.setPosition(0, 0, 1000); // 将摄像机放置在前方
-
-                // 实例化并渲染UI-2D预制体
-                const uiInstance = instantiate(this.uiPrefab);
-                uiInstance.setParent(canvasNode); // 将UI预制体设为Canvas的子节点
-                uiInstance.setPosition(0, 0, 0); // 设置位置
-                this.stop_update = false;
-        
+            this.manageSceneNodes();
+            this.stop_update = false; // 确保只执行一次
+        }
+    }
+    
+    // 上升逻辑
+    private moveUp() {
+        let currentPosition = this.instantiatedNode.getPosition();
+        currentPosition.y += this._moveSpeed;
+        this.instantiatedNode.setPosition(currentPosition);
+    
+        if (this.targetCylinder) {
+            let currentScale = this.targetCylinder.getScale();
+            let targetPosition = this.targetCylinder.getPosition();
+            let heightChange = this._moveSpeed;
+    
+            // 更新目标圆柱体的高度和位置
+            currentScale.y -= heightChange / 2.3;
+            targetPosition.y += heightChange / 2.3;
+    
+            this.targetCylinder.setScale(currentScale);
+            this.targetCylinder.setPosition(targetPosition);
+        }
+    }
+    
+    // 下降逻辑
+    private moveDown() {
+        let currentPosition = this.instantiatedNode.getPosition();
+        currentPosition.y -= this._moveSpeed;
+        this.instantiatedNode.setPosition(currentPosition);
+    
+        if (this.targetCylinder) {
+            let currentScale = this.targetCylinder.getScale();
+            let targetPosition = this.targetCylinder.getPosition();
+            let heightChange = this._moveSpeed;
+    
+            // 更新目标圆柱体的高度和位置
+            currentScale.y += heightChange / 2.3;
+            targetPosition.y -= heightChange / 2.3;
+    
+            this.targetCylinder.setScale(currentScale);
+            this.targetCylinder.setPosition(targetPosition);
+        }
+    }
+    
+    // 管理场景节点逻辑
+    private manageSceneNodes() {
+        const scene = director.getScene();
+        if (!scene) {
+            console.error("Scene not found!");
+            return;
+        }
+    
+        // 获取 Node 节点
+        const rootNode = scene.getChildByName('Node');
+        if (!rootNode) {
+            console.error("Node not found!");
+            return;
+        }
+    
+        // 获取 Canvas 节点
+        const canvasNode = rootNode.getChildByName('Canvas');
+        if (!canvasNode) {
+            console.error("Canvas not found under Node!");
+            return;
+        }
+    
+        // 实例化 UI 预制体并添加到 Canvas
+        if (this.uiPrefab) {
+            const uiInstance = instantiate(this.uiPrefab);
+            uiInstance.setParent(canvasNode);
+            uiInstance.setScale(2, 2, 2); // 正常比例
+            uiInstance.setPosition(0, 0, 0); // 居中
+            uiInstance.setSiblingIndex(canvasNode.children.length - 1); // 放到最顶层
+            console.log('UI Prefab instantiated and added to Canvas.');
+        } else {
+            console.error("UI Prefab is not assigned!");
+        }
+    
+        // 禁用 Main Camera
+        const mainCameraNode = scene.getChildByName('Main Camera');
+        if (mainCameraNode) {
+            mainCameraNode.active = false;
+            console.log('Main Camera disabled.');
+        } else {
+            console.error("Main Camera not found in the scene!");
+        }
     }
     }
-}

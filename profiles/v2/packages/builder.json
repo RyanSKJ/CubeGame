@@ -18,10 +18,6 @@
         "uuid": "f7a61ece-aa9f-4b4f-ae10-0703f3e0ddac"
       },
       {
-        "url": "db://assets/game/adjust.scene",
-        "uuid": "b6d719cb-89f1-4a4e-8e59-48bf4cb6845f"
-      },
-      {
         "url": "db://assets/game/choose.scene",
         "uuid": "dcef1e8f-eefa-4370-b9b3-0871ec139941"
       },
@@ -36,29 +32,34 @@
       {
         "url": "db://assets/catalogasset/Scene/Scene.scene",
         "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
+      },
+      {
+        "url": "db://assets/game/adjust.scene",
+        "uuid": "b6d719cb-89f1-4a4e-8e59-48bf4cb6845f"
       }
     ],
     "bundleConfigs": [],
     "mainBundleIsRemote": false,
     "startSceneAssetBundle": false,
-    "debug": true
+    "debug": false,
+    "useSplashScreen": true
   },
   "BuildTaskManager": {
     "taskMap": {
-      "1733373579275": {
+      "1733398036729": {
         "type": "build",
-        "id": "1733373579275",
+        "id": "1733398036729",
         "progress": 1,
         "state": "success",
         "stage": "build",
-        "message": "2024-12-5 12:39:57 build success in 18 s!",
-        "detailMessage": "Asset DB is resume!\r",
+        "message": "2024-12-5 19:27:24 build success in 7 s!",
+        "detailMessage": "builder:build-project-total (7474ms)\r",
         "options": {
           "name": "Cube_Elimination",
           "server": "",
           "platform": "android",
           "buildPath": "project://new_build",
-          "debug": true,
+          "debug": false,
           "md5Cache": false,
           "skipCompressTexture": false,
           "sourceMaps": false,
@@ -94,10 +95,6 @@
               "uuid": "f7a61ece-aa9f-4b4f-ae10-0703f3e0ddac"
             },
             {
-              "url": "db://assets/game/adjust.scene",
-              "uuid": "b6d719cb-89f1-4a4e-8e59-48bf4cb6845f"
-            },
-            {
               "url": "db://assets/game/choose.scene",
               "uuid": "dcef1e8f-eefa-4370-b9b3-0871ec139941"
             },
@@ -112,15 +109,19 @@
             {
               "url": "db://assets/catalogasset/Scene/Scene.scene",
               "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
+            },
+            {
+              "url": "db://assets/game/adjust.scene",
+              "uuid": "b6d719cb-89f1-4a4e-8e59-48bf4cb6845f"
             }
           ],
           "wasmCompressionMode": false,
           "packages": {},
           "__version__": "1.3.8",
           "buildMode": "normal",
-          "logDest": "project://temp/builder/log/android12-5-2024 12-39.log"
+          "logDest": "project://temp/builder/log/android12-5-2024 19-27.log"
         },
-        "time": "12-5-2024 12:39:39",
+        "time": "12-5-2024 19:27:16",
         "dirty": false
       }
     }
