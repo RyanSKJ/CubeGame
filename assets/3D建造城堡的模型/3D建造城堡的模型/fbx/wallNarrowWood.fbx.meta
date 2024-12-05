@@ -1,0 +1,150 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "28ea4b9f-abc4-4269-af00-389db3a88444",
+  "files": [],
+  "subMetas": {
+    "d382f": {
+      "importer": "gltf-mesh",
+      "uuid": "28ea4b9f-abc4-4269-af00-389db3a88444@d382f",
+      "displayName": "",
+      "id": "d382f",
+      "name": "wallNarrowWood_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 96
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e70d3": {
+      "importer": "gltf-mesh",
+      "uuid": "28ea4b9f-abc4-4269-af00-389db3a88444@e70d3",
+      "displayName": "",
+      "id": "e70d3",
+      "name": "bridge 5_Material0.mesh",
+      "userData": {
+        "gltfIndex": 1,
+        "triangleCount": 688
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d412": {
+      "importer": "gltf-material",
+      "uuid": "28ea4b9f-abc4-4269-af00-389db3a88444@7d412",
+      "displayName": "",
+      "id": "7d412",
+      "name": "wall.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fd8d1": {
+      "importer": "gltf-material",
+      "uuid": "28ea4b9f-abc4-4269-af00-389db3a88444@fd8d1",
+      "displayName": "",
+      "id": "fd8d1",
+      "name": "wallDark.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e4014": {
+      "importer": "gltf-material",
+      "uuid": "28ea4b9f-abc4-4269-af00-389db3a88444@e4014",
+      "displayName": "",
+      "id": "e4014",
+      "name": "wood.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ac3fe": {
+      "importer": "gltf-scene",
+      "uuid": "28ea4b9f-abc4-4269-af00-389db3a88444@ac3fe",
+      "displayName": "",
+      "id": "ac3fe",
+      "name": "wallNarrowWood.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "28ea4b9f-abc4-4269-af00-389db3a88444@d382f",
+        "28ea4b9f-abc4-4269-af00-389db3a88444@e70d3"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "28ea4b9f-abc4-4269-af00-389db3a88444@7d412",
+        "28ea4b9f-abc4-4269-af00-389db3a88444@fd8d1",
+        "28ea4b9f-abc4-4269-af00-389db3a88444@e4014"
+      ],
+      "scenes": [
+        "28ea4b9f-abc4-4269-af00-389db3a88444@ac3fe"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

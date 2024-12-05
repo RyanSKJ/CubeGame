@@ -1,0 +1,815 @@
+{
+  "__version__": "1.0.1",
+  "builder": {
+    "common": {
+      "buildPath": "project://new_build",
+      "outputName": "android",
+      "mainBundleCompressionType": "merge_dep",
+      "platform": "android",
+      "scenes": [
+        {
+          "url": "db://assets/loginscene.scene",
+          "uuid": "f7a61ece-aa9f-4b4f-ae10-0703f3e0ddac"
+        },
+        {
+          "url": "db://assets/game/adjust.scene",
+          "uuid": "b6d719cb-89f1-4a4e-8e59-48bf4cb6845f"
+        },
+        {
+          "url": "db://assets/game/choose.scene",
+          "uuid": "dcef1e8f-eefa-4370-b9b3-0871ec139941"
+        },
+        {
+          "url": "db://assets/game/flip.scene",
+          "uuid": "e8af6817-c319-4e1d-b264-22b129041642"
+        },
+        {
+          "url": "db://assets/game/second.scene",
+          "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b"
+        },
+        {
+          "url": "db://assets/catalogasset/Scene/Scene.scene",
+          "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
+        }
+      ],
+      "startScene": "f7a61ece-aa9f-4b4f-ae10-0703f3e0ddac",
+      "bundleConfigs": [],
+      "debug": true
+    },
+    "options": {
+      "android": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 31,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": true,
+        "__version__": "1.0.1"
+      }
+    },
+    "taskOptionsMap": {
+      "1733201396325": {
+        "packageName": "Cube.test",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 26,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733201488416": {
+        "packageName": "Cube.test",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 26,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733202749896": {
+        "packageName": "Cube.test",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 26,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733293177372": {
+        "packageName": "Cube.test",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 26,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733295040788": {
+        "packageName": "Cube.test",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 26,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733305372972": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": false,
+          "landscapeLeft": false
+        },
+        "apiLevel": 28,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733306188128": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": false,
+          "landscapeLeft": false
+        },
+        "apiLevel": 28,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733309442081": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": false,
+          "landscapeLeft": false
+        },
+        "apiLevel": 28,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733309480024": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": false,
+          "landscapeLeft": false
+        },
+        "apiLevel": 28,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733309539357": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": false,
+          "landscapeLeft": false
+        },
+        "apiLevel": 28,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733311146048": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 28,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733312249029": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 28,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733312779707": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 28,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733314717330": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 33,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": false,
+        "__version__": "1.0.1"
+      },
+      "1733327380388": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 31,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": true,
+        "__version__": "1.0.1"
+      },
+      "1733360992437": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 31,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": true,
+        "__version__": "1.0.1"
+      },
+      "1733361078505": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 31,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": true,
+        "__version__": "1.0.1"
+      },
+      "1733362616917": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 31,
+        "appABIs": [
+          "armeabi-v7a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": true,
+        "__version__": "1.0.1"
+      },
+      "1733362791586": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 31,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": true,
+        "__version__": "1.0.1"
+      },
+      "1733368536951": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 31,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": true,
+        "__version__": "1.0.1"
+      },
+      "1733373579275": {
+        "packageName": "Cube.two",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 31,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": true,
+        "__version__": "1.0.1"
+      }
+    },
+    "__version__": "1.3.8"
+  }
+}

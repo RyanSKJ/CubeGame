@@ -1,0 +1,19 @@
+# Cocos Creator 临时文件夹
+temp/
+library/
+local/
+
+# 构建输出文件夹
+build/
+
+# 忽略脚本依赖
+node_modules/
+
+# 系统文件
+.DS_Store
+
+# 日志和备份文件
+*.log
+*.tmp
+*.bak
+*.old

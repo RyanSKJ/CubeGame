@@ -1,0 +1,97 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "a62a3a4a-cb45-423f-a119-4705ce76de12",
+  "files": [],
+  "subMetas": {
+    "fe936": {
+      "importer": "gltf-mesh",
+      "uuid": "a62a3a4a-cb45-423f-a119-4705ce76de12@fe936",
+      "displayName": "",
+      "id": "fe936",
+      "name": "fishingStand.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 100
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e4014": {
+      "importer": "gltf-material",
+      "uuid": "a62a3a4a-cb45-423f-a119-4705ce76de12@e4014",
+      "displayName": "",
+      "id": "e4014",
+      "name": "wood.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "10a34": {
+      "importer": "gltf-scene",
+      "uuid": "a62a3a4a-cb45-423f-a119-4705ce76de12@10a34",
+      "displayName": "",
+      "id": "10a34",
+      "name": "fishingStand.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "a62a3a4a-cb45-423f-a119-4705ce76de12@fe936"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "a62a3a4a-cb45-423f-a119-4705ce76de12@e4014"
+      ],
+      "scenes": [
+        "a62a3a4a-cb45-423f-a119-4705ce76de12@10a34"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

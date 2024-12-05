@@ -1,0 +1,150 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "d8885ace-decb-4932-8791-8f1908ebd46b",
+  "files": [],
+  "subMetas": {
+    "98950": {
+      "importer": "gltf-mesh",
+      "uuid": "d8885ace-decb-4932-8791-8f1908ebd46b@98950",
+      "displayName": "",
+      "id": "98950",
+      "name": "rail 13.mesh",
+      "userData": {
+        "gltfIndex": 1,
+        "triangleCount": 168
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0403c": {
+      "importer": "gltf-mesh",
+      "uuid": "d8885ace-decb-4932-8791-8f1908ebd46b@0403c",
+      "displayName": "",
+      "id": "0403c",
+      "name": "wallNarrowStairsFence_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 262
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d412": {
+      "importer": "gltf-material",
+      "uuid": "d8885ace-decb-4932-8791-8f1908ebd46b@7d412",
+      "displayName": "",
+      "id": "7d412",
+      "name": "wall.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fd8d1": {
+      "importer": "gltf-material",
+      "uuid": "d8885ace-decb-4932-8791-8f1908ebd46b@fd8d1",
+      "displayName": "",
+      "id": "fd8d1",
+      "name": "wallDark.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e4014": {
+      "importer": "gltf-material",
+      "uuid": "d8885ace-decb-4932-8791-8f1908ebd46b@e4014",
+      "displayName": "",
+      "id": "e4014",
+      "name": "wood.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "44aef": {
+      "importer": "gltf-scene",
+      "uuid": "d8885ace-decb-4932-8791-8f1908ebd46b@44aef",
+      "displayName": "",
+      "id": "44aef",
+      "name": "wallNarrowStairsFence.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "d8885ace-decb-4932-8791-8f1908ebd46b@0403c",
+        "d8885ace-decb-4932-8791-8f1908ebd46b@98950"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "d8885ace-decb-4932-8791-8f1908ebd46b@7d412",
+        "d8885ace-decb-4932-8791-8f1908ebd46b@fd8d1",
+        "d8885ace-decb-4932-8791-8f1908ebd46b@e4014"
+      ],
+      "scenes": [
+        "d8885ace-decb-4932-8791-8f1908ebd46b@44aef"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

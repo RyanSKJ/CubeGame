@@ -1,0 +1,114 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "36c2cff7-0660-45bb-a019-982ebdcc228b",
+  "files": [],
+  "subMetas": {
+    "99038": {
+      "importer": "gltf-material",
+      "uuid": "36c2cff7-0660-45bb-a019-982ebdcc228b@99038",
+      "displayName": "",
+      "id": "99038",
+      "name": "rock.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "106e6": {
+      "importer": "gltf-mesh",
+      "uuid": "36c2cff7-0660-45bb-a019-982ebdcc228b@106e6",
+      "displayName": "",
+      "id": "106e6",
+      "name": "treeFallLarge_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 208
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "def16": {
+      "importer": "gltf-material",
+      "uuid": "36c2cff7-0660-45bb-a019-982ebdcc228b@def16",
+      "displayName": "",
+      "id": "def16",
+      "name": "foliageFall.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d83b0": {
+      "importer": "gltf-scene",
+      "uuid": "36c2cff7-0660-45bb-a019-982ebdcc228b@d83b0",
+      "displayName": "",
+      "id": "d83b0",
+      "name": "treeFallLarge.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "36c2cff7-0660-45bb-a019-982ebdcc228b@106e6"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "36c2cff7-0660-45bb-a019-982ebdcc228b@99038",
+        "36c2cff7-0660-45bb-a019-982ebdcc228b@def16"
+      ],
+      "scenes": [
+        "36c2cff7-0660-45bb-a019-982ebdcc228b@d83b0"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

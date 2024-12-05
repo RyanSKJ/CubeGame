@@ -1,0 +1,114 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "3b4cb76e-9902-4797-8905-38933a24a1cc",
+  "files": [],
+  "subMetas": {
+    "d92c4": {
+      "importer": "gltf-mesh",
+      "uuid": "3b4cb76e-9902-4797-8905-38933a24a1cc@d92c4",
+      "displayName": "",
+      "id": "d92c4",
+      "name": "towerBase_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 332
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d412": {
+      "importer": "gltf-material",
+      "uuid": "3b4cb76e-9902-4797-8905-38933a24a1cc@7d412",
+      "displayName": "",
+      "id": "7d412",
+      "name": "wall.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fd8d1": {
+      "importer": "gltf-material",
+      "uuid": "3b4cb76e-9902-4797-8905-38933a24a1cc@fd8d1",
+      "displayName": "",
+      "id": "fd8d1",
+      "name": "wallDark.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c67cb": {
+      "importer": "gltf-scene",
+      "uuid": "3b4cb76e-9902-4797-8905-38933a24a1cc@c67cb",
+      "displayName": "",
+      "id": "c67cb",
+      "name": "towerBase.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "3b4cb76e-9902-4797-8905-38933a24a1cc@d92c4"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "3b4cb76e-9902-4797-8905-38933a24a1cc@7d412",
+        "3b4cb76e-9902-4797-8905-38933a24a1cc@fd8d1"
+      ],
+      "scenes": [
+        "3b4cb76e-9902-4797-8905-38933a24a1cc@c67cb"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

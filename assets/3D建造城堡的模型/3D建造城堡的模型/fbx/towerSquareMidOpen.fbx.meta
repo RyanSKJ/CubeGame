@@ -1,0 +1,342 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd",
+  "files": [],
+  "subMetas": {
+    "35515": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@35515",
+      "displayName": "",
+      "id": "35515",
+      "name": "plank 14.mesh",
+      "userData": {
+        "gltfIndex": 7,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "45746": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@45746",
+      "displayName": "",
+      "id": "45746",
+      "name": "plank 11.mesh",
+      "userData": {
+        "gltfIndex": 4,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "54948": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@54948",
+      "displayName": "",
+      "id": "54948",
+      "name": "rail 5.mesh",
+      "userData": {
+        "gltfIndex": 9,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "681e2": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@681e2",
+      "displayName": "",
+      "id": "681e2",
+      "name": "towerSquareMidOpen.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 222
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "482cf": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@482cf",
+      "displayName": "",
+      "id": "482cf",
+      "name": "plank 8.mesh",
+      "userData": {
+        "gltfIndex": 1,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "35cd0": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@35cd0",
+      "displayName": "",
+      "id": "35cd0",
+      "name": "plank 9.mesh",
+      "userData": {
+        "gltfIndex": 2,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7b1a8": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@7b1a8",
+      "displayName": "",
+      "id": "7b1a8",
+      "name": "plank 10.mesh",
+      "userData": {
+        "gltfIndex": 3,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bfad4": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@bfad4",
+      "displayName": "",
+      "id": "bfad4",
+      "name": "plank 12.mesh",
+      "userData": {
+        "gltfIndex": 5,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a4d8a": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@a4d8a",
+      "displayName": "",
+      "id": "a4d8a",
+      "name": "plank 13.mesh",
+      "userData": {
+        "gltfIndex": 6,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "25f73": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@25f73",
+      "displayName": "",
+      "id": "25f73",
+      "name": "plank 15.mesh",
+      "userData": {
+        "gltfIndex": 8,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0d218": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@0d218",
+      "displayName": "",
+      "id": "0d218",
+      "name": "rail 6.mesh",
+      "userData": {
+        "gltfIndex": 10,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9d277": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@9d277",
+      "displayName": "",
+      "id": "9d277",
+      "name": "rail 7.mesh",
+      "userData": {
+        "gltfIndex": 11,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "260af": {
+      "importer": "gltf-mesh",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@260af",
+      "displayName": "",
+      "id": "260af",
+      "name": "rail 8.mesh",
+      "userData": {
+        "gltfIndex": 12,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d412": {
+      "importer": "gltf-material",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@7d412",
+      "displayName": "",
+      "id": "7d412",
+      "name": "wall.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e4014": {
+      "importer": "gltf-material",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@e4014",
+      "displayName": "",
+      "id": "e4014",
+      "name": "wood.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "263db": {
+      "importer": "gltf-scene",
+      "uuid": "788c54ce-9bc8-4894-93d5-750c90dae8cd@263db",
+      "displayName": "",
+      "id": "263db",
+      "name": "towerSquareMidOpen.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@681e2",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@482cf",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@35cd0",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@7b1a8",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@45746",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@bfad4",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@a4d8a",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@35515",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@25f73",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@54948",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@0d218",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@9d277",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@260af"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@7d412",
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@e4014"
+      ],
+      "scenes": [
+        "788c54ce-9bc8-4894-93d5-750c90dae8cd@263db"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

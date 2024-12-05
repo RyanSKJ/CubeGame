@@ -1,0 +1,114 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c9d1c74d-1b22-4b0b-ba2e-e6d0db8f2096",
+  "files": [],
+  "subMetas": {
+    "62c0d": {
+      "importer": "gltf-mesh",
+      "uuid": "c9d1c74d-1b22-4b0b-ba2e-e6d0db8f2096@62c0d",
+      "displayName": "",
+      "id": "62c0d",
+      "name": "towerSquareTopRoofHigh_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 116
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d412": {
+      "importer": "gltf-material",
+      "uuid": "c9d1c74d-1b22-4b0b-ba2e-e6d0db8f2096@7d412",
+      "displayName": "",
+      "id": "7d412",
+      "name": "wall.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "accad": {
+      "importer": "gltf-material",
+      "uuid": "c9d1c74d-1b22-4b0b-ba2e-e6d0db8f2096@accad",
+      "displayName": "",
+      "id": "accad",
+      "name": "roof.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1c93e": {
+      "importer": "gltf-scene",
+      "uuid": "c9d1c74d-1b22-4b0b-ba2e-e6d0db8f2096@1c93e",
+      "displayName": "",
+      "id": "1c93e",
+      "name": "towerSquareTopRoofHigh.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "c9d1c74d-1b22-4b0b-ba2e-e6d0db8f2096@62c0d"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "c9d1c74d-1b22-4b0b-ba2e-e6d0db8f2096@7d412",
+        "c9d1c74d-1b22-4b0b-ba2e-e6d0db8f2096@accad"
+      ],
+      "scenes": [
+        "c9d1c74d-1b22-4b0b-ba2e-e6d0db8f2096@1c93e"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

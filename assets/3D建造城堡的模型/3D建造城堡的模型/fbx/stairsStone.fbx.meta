@@ -1,0 +1,97 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "2527bcce-9a28-4bf5-b236-02a84901f64b",
+  "files": [],
+  "subMetas": {
+    "9876e": {
+      "importer": "gltf-mesh",
+      "uuid": "2527bcce-9a28-4bf5-b236-02a84901f64b@9876e",
+      "displayName": "",
+      "id": "9876e",
+      "name": "stairsStone.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 100
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d412": {
+      "importer": "gltf-material",
+      "uuid": "2527bcce-9a28-4bf5-b236-02a84901f64b@7d412",
+      "displayName": "",
+      "id": "7d412",
+      "name": "wall.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ea6e8": {
+      "importer": "gltf-scene",
+      "uuid": "2527bcce-9a28-4bf5-b236-02a84901f64b@ea6e8",
+      "displayName": "",
+      "id": "ea6e8",
+      "name": "stairsStone.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "2527bcce-9a28-4bf5-b236-02a84901f64b@9876e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "2527bcce-9a28-4bf5-b236-02a84901f64b@7d412"
+      ],
+      "scenes": [
+        "2527bcce-9a28-4bf5-b236-02a84901f64b@ea6e8"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

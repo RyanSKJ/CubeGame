@@ -1,0 +1,342 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70",
+  "files": [],
+  "subMetas": {
+    "17808": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@17808",
+      "displayName": "",
+      "id": "17808",
+      "name": "rail 12.mesh",
+      "userData": {
+        "gltfIndex": 12,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "64888": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@64888",
+      "displayName": "",
+      "id": "64888",
+      "name": "plank 23.mesh",
+      "userData": {
+        "gltfIndex": 8,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e4d51": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@e4d51",
+      "displayName": "",
+      "id": "e4d51",
+      "name": "towerSquareMidOpenHalf.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 94
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "760db": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@760db",
+      "displayName": "",
+      "id": "760db",
+      "name": "plank 16.mesh",
+      "userData": {
+        "gltfIndex": 1,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "8240b": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@8240b",
+      "displayName": "",
+      "id": "8240b",
+      "name": "plank 17.mesh",
+      "userData": {
+        "gltfIndex": 2,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fe64f": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@fe64f",
+      "displayName": "",
+      "id": "fe64f",
+      "name": "plank 18.mesh",
+      "userData": {
+        "gltfIndex": 3,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ed424": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@ed424",
+      "displayName": "",
+      "id": "ed424",
+      "name": "plank 19.mesh",
+      "userData": {
+        "gltfIndex": 4,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "643c0": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@643c0",
+      "displayName": "",
+      "id": "643c0",
+      "name": "plank 20.mesh",
+      "userData": {
+        "gltfIndex": 5,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b13ae": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@b13ae",
+      "displayName": "",
+      "id": "b13ae",
+      "name": "plank 21.mesh",
+      "userData": {
+        "gltfIndex": 6,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "ec82d": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@ec82d",
+      "displayName": "",
+      "id": "ec82d",
+      "name": "plank 22.mesh",
+      "userData": {
+        "gltfIndex": 7,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c0d2f": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@c0d2f",
+      "displayName": "",
+      "id": "c0d2f",
+      "name": "rail 9.mesh",
+      "userData": {
+        "gltfIndex": 9,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7e549": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@7e549",
+      "displayName": "",
+      "id": "7e549",
+      "name": "rail 10.mesh",
+      "userData": {
+        "gltfIndex": 10,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d2ebb": {
+      "importer": "gltf-mesh",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@d2ebb",
+      "displayName": "",
+      "id": "d2ebb",
+      "name": "rail 11.mesh",
+      "userData": {
+        "gltfIndex": 11,
+        "triangleCount": 12
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d412": {
+      "importer": "gltf-material",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@7d412",
+      "displayName": "",
+      "id": "7d412",
+      "name": "wall.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e4014": {
+      "importer": "gltf-material",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@e4014",
+      "displayName": "",
+      "id": "e4014",
+      "name": "wood.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "79d19": {
+      "importer": "gltf-scene",
+      "uuid": "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@79d19",
+      "displayName": "",
+      "id": "79d19",
+      "name": "towerSquareMidOpenHalf.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@e4d51",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@760db",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@8240b",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@fe64f",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@ed424",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@643c0",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@b13ae",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@ec82d",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@64888",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@c0d2f",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@7e549",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@d2ebb",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@17808"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@7d412",
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@e4014"
+      ],
+      "scenes": [
+        "ce2fa4d7-45e6-45ba-a321-5dde738c0e70@79d19"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

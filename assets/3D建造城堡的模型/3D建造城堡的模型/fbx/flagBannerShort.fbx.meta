@@ -1,0 +1,114 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "7b9729b3-01d7-4cf7-a1d0-b7ee13d96769",
+  "files": [],
+  "subMetas": {
+    "00401": {
+      "importer": "gltf-mesh",
+      "uuid": "7b9729b3-01d7-4cf7-a1d0-b7ee13d96769@00401",
+      "displayName": "",
+      "id": "00401",
+      "name": "flagBannerShort_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 68
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "43ae5": {
+      "importer": "gltf-material",
+      "uuid": "7b9729b3-01d7-4cf7-a1d0-b7ee13d96769@43ae5",
+      "displayName": "",
+      "id": "43ae5",
+      "name": "cotton.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "accad": {
+      "importer": "gltf-material",
+      "uuid": "7b9729b3-01d7-4cf7-a1d0-b7ee13d96769@accad",
+      "displayName": "",
+      "id": "accad",
+      "name": "roof.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "537f5": {
+      "importer": "gltf-scene",
+      "uuid": "7b9729b3-01d7-4cf7-a1d0-b7ee13d96769@537f5",
+      "displayName": "",
+      "id": "537f5",
+      "name": "flagBannerShort.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "7b9729b3-01d7-4cf7-a1d0-b7ee13d96769@00401"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "7b9729b3-01d7-4cf7-a1d0-b7ee13d96769@43ae5",
+        "7b9729b3-01d7-4cf7-a1d0-b7ee13d96769@accad"
+      ],
+      "scenes": [
+        "7b9729b3-01d7-4cf7-a1d0-b7ee13d96769@537f5"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

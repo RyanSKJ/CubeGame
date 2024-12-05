@@ -1,0 +1,293 @@
+{
+  "__version__": "1.0.4",
+  "builder": {
+    "common": {
+      "buildPath": "project://build",
+      "outputName": "wechatgame",
+      "mainBundleCompressionType": "subpackage",
+      "platform": "wechatgame",
+      "startScene": "cf40d8b9-2421-48c4-bda6-248956ba17bd",
+      "scenes": [
+        {
+          "url": "db://assets/game/adjust.scene",
+          "uuid": "b6d719cb-89f1-4a4e-8e59-48bf4cb6845f",
+          "bundle": "db://assets/game"
+        },
+        {
+          "url": "db://assets/game/choose.scene",
+          "uuid": "2383641c-57ef-4271-89e2-8f526971e848",
+          "bundle": "db://assets/game"
+        },
+        {
+          "url": "db://assets/game/flip.scene",
+          "uuid": "e8af6817-c319-4e1d-b264-22b129041642",
+          "bundle": "db://assets/game"
+        },
+        {
+          "url": "db://assets/game/second.scene",
+          "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b",
+          "bundle": "db://assets/game"
+        },
+        {
+          "url": "db://assets/catalogasset/Scene/Scene.scene",
+          "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
+        }
+      ],
+      "bundleConfigs": [],
+      "mainBundleIsRemote": false,
+      "startSceneAssetBundle": false,
+      "debug": false
+    },
+    "options": {
+      "wechatgame": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      }
+    },
+    "taskOptionsMap": {
+      "1724337802457": {
+        "orientation": "portrait",
+        "appid": "wxae51e61a358502a5",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4"
+      },
+      "1724339822071": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4"
+      },
+      "1724381381083": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4"
+      },
+      "1724381491986": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4"
+      },
+      "1724381676807": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4"
+      },
+      "1724382162637": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4"
+      },
+      "1724382274219": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724382712888": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": true,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724382961707": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724383171204": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": false
+      },
+      "1724384652765": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": false
+      },
+      "1724384852449": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724385018632": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724385669134": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": false
+      },
+      "1724385772312": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": false
+      },
+      "1724386634538": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724409889028": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724409933163": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724500296916": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724500892053": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724501372030": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724501400541": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724501446358": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724502220894": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724502446433": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724517751952": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      },
+      "1724637930875": {
+        "orientation": "portrait",
+        "appid": "wx2cea33a4ff2f611f",
+        "buildOpenDataContextTemplate": "",
+        "separateEngine": false,
+        "highPerformanceMode": false,
+        "__version__": "1.0.4",
+        "wasmSubpackage": true
+      }
+    },
+    "__version__": "1.3.8"
+  }
+}

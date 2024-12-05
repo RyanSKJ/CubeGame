@@ -1,0 +1,51 @@
+{
+    "importBase": "import",
+    "nativeBase": "native",
+    "name": "resources",
+    "deps": [],
+    "uuids": [
+        "092cdeff-e9e8-4e57-9b73-fdf2eee28ddd",
+        "0db663b8c",
+        "0e991b860",
+        "a234e6a3-cfac-4f54-ba4e-53a95739ce19",
+        "b082be35-b03e-4bf8-9c75-25d3053ce14b",
+        "c8f66d17-351a-48da-a12c-0212d28575c4"
+    ],
+    "paths": {
+        "b082be35-b03e-4bf8-9c75-25d3053ce14b": [
+            "BgMoverShader",
+            "cc.EffectAsset",
+            1
+        ],
+        "092cdeff-e9e8-4e57-9b73-fdf2eee28ddd": [
+            "backgroundmaterial",
+            "cc.Material",
+            1
+        ],
+        "a234e6a3-cfac-4f54-ba4e-53a95739ce19": [
+            "effect/colorBar/colorBar",
+            "cc.Material",
+            1
+        ]
+    },
+    "scenes": {},
+    "packs": {
+        "0e991b860": [
+            "092cdeff-e9e8-4e57-9b73-fdf2eee28ddd",
+            "b082be35-b03e-4bf8-9c75-25d3053ce14b"
+        ],
+        "0db663b8c": [
+            "a234e6a3-cfac-4f54-ba4e-53a95739ce19",
+            "c8f66d17-351a-48da-a12c-0212d28575c4"
+        ]
+    },
+    "versions": {
+        "import": [],
+        "native": []
+    },
+    "redirect": [],
+    "debug": true,
+    "extensionMap": {},
+    "hasPreloadScript": true,
+    "dependencyRelationships": {}
+}

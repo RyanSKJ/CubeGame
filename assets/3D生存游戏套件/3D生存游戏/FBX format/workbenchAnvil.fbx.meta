@@ -1,0 +1,150 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "44d99530-63bd-4b4f-858a-7467c37ad0fd",
+  "files": [],
+  "subMetas": {
+    "e747f": {
+      "importer": "gltf-mesh",
+      "uuid": "44d99530-63bd-4b4f-858a-7467c37ad0fd@e747f",
+      "displayName": "",
+      "id": "e747f",
+      "name": "workbenchAnvil_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 210
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "08ff8": {
+      "importer": "gltf-mesh",
+      "uuid": "44d99530-63bd-4b4f-858a-7467c37ad0fd@08ff8",
+      "displayName": "",
+      "id": "08ff8",
+      "name": "hammer_Material0.mesh",
+      "userData": {
+        "gltfIndex": 1,
+        "triangleCount": 48
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "16ef1": {
+      "importer": "gltf-material",
+      "uuid": "44d99530-63bd-4b4f-858a-7467c37ad0fd@16ef1",
+      "displayName": "",
+      "id": "16ef1",
+      "name": "metal.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0ee4f": {
+      "importer": "gltf-material",
+      "uuid": "44d99530-63bd-4b4f-858a-7467c37ad0fd@0ee4f",
+      "displayName": "",
+      "id": "0ee4f",
+      "name": "_defaultMat.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e4014": {
+      "importer": "gltf-material",
+      "uuid": "44d99530-63bd-4b4f-858a-7467c37ad0fd@e4014",
+      "displayName": "",
+      "id": "e4014",
+      "name": "wood.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "cbf2f": {
+      "importer": "gltf-scene",
+      "uuid": "44d99530-63bd-4b4f-858a-7467c37ad0fd@cbf2f",
+      "displayName": "",
+      "id": "cbf2f",
+      "name": "workbenchAnvil.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "44d99530-63bd-4b4f-858a-7467c37ad0fd@e747f",
+        "44d99530-63bd-4b4f-858a-7467c37ad0fd@08ff8"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "44d99530-63bd-4b4f-858a-7467c37ad0fd@16ef1",
+        "44d99530-63bd-4b4f-858a-7467c37ad0fd@0ee4f",
+        "44d99530-63bd-4b4f-858a-7467c37ad0fd@e4014"
+      ],
+      "scenes": [
+        "44d99530-63bd-4b4f-858a-7467c37ad0fd@cbf2f"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

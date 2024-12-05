@@ -1,0 +1,114 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "ccfda8fa-b5c1-486c-a600-90fe011d76fa",
+  "files": [],
+  "subMetas": {
+    "99038": {
+      "importer": "gltf-material",
+      "uuid": "ccfda8fa-b5c1-486c-a600-90fe011d76fa@99038",
+      "displayName": "",
+      "id": "99038",
+      "name": "rock.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a5f21": {
+      "importer": "gltf-mesh",
+      "uuid": "ccfda8fa-b5c1-486c-a600-90fe011d76fa@a5f21",
+      "displayName": "",
+      "id": "a5f21",
+      "name": "rockFlatGrass_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 254
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "feb1e": {
+      "importer": "gltf-material",
+      "uuid": "ccfda8fa-b5c1-486c-a600-90fe011d76fa@feb1e",
+      "displayName": "",
+      "id": "feb1e",
+      "name": "foliage.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7f2ce": {
+      "importer": "gltf-scene",
+      "uuid": "ccfda8fa-b5c1-486c-a600-90fe011d76fa@7f2ce",
+      "displayName": "",
+      "id": "7f2ce",
+      "name": "rockFlatGrass.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "ccfda8fa-b5c1-486c-a600-90fe011d76fa@a5f21"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "ccfda8fa-b5c1-486c-a600-90fe011d76fa@99038",
+        "ccfda8fa-b5c1-486c-a600-90fe011d76fa@feb1e"
+      ],
+      "scenes": [
+        "ccfda8fa-b5c1-486c-a600-90fe011d76fa@7f2ce"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

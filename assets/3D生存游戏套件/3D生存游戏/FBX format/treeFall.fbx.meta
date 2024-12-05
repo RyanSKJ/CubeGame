@@ -1,0 +1,114 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "39938929-95fe-4622-8597-4fd13f08f2ff",
+  "files": [],
+  "subMetas": {
+    "59851": {
+      "importer": "gltf-scene",
+      "uuid": "39938929-95fe-4622-8597-4fd13f08f2ff@59851",
+      "displayName": "",
+      "id": "59851",
+      "name": "treeFall.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "66449": {
+      "importer": "gltf-mesh",
+      "uuid": "39938929-95fe-4622-8597-4fd13f08f2ff@66449",
+      "displayName": "",
+      "id": "66449",
+      "name": "treeFall_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 200
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "99038": {
+      "importer": "gltf-material",
+      "uuid": "39938929-95fe-4622-8597-4fd13f08f2ff@99038",
+      "displayName": "",
+      "id": "99038",
+      "name": "rock.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "def16": {
+      "importer": "gltf-material",
+      "uuid": "39938929-95fe-4622-8597-4fd13f08f2ff@def16",
+      "displayName": "",
+      "id": "def16",
+      "name": "foliageFall.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "39938929-95fe-4622-8597-4fd13f08f2ff@66449"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "39938929-95fe-4622-8597-4fd13f08f2ff@def16",
+        "39938929-95fe-4622-8597-4fd13f08f2ff@99038"
+      ],
+      "scenes": [
+        "39938929-95fe-4622-8597-4fd13f08f2ff@59851"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

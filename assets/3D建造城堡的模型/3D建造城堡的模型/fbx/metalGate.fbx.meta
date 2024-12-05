@@ -1,0 +1,97 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "fcaaa721-bdbf-40a4-b972-ff2f8ea57607",
+  "files": [],
+  "subMetas": {
+    "3752e": {
+      "importer": "gltf-mesh",
+      "uuid": "fcaaa721-bdbf-40a4-b972-ff2f8ea57607@3752e",
+      "displayName": "",
+      "id": "3752e",
+      "name": "metalGate.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 1676
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "43ae5": {
+      "importer": "gltf-material",
+      "uuid": "fcaaa721-bdbf-40a4-b972-ff2f8ea57607@43ae5",
+      "displayName": "",
+      "id": "43ae5",
+      "name": "cotton.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "6a7a2": {
+      "importer": "gltf-scene",
+      "uuid": "fcaaa721-bdbf-40a4-b972-ff2f8ea57607@6a7a2",
+      "displayName": "",
+      "id": "6a7a2",
+      "name": "metalGate.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "fcaaa721-bdbf-40a4-b972-ff2f8ea57607@3752e"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "fcaaa721-bdbf-40a4-b972-ff2f8ea57607@43ae5"
+      ],
+      "scenes": [
+        "fcaaa721-bdbf-40a4-b972-ff2f8ea57607@6a7a2"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

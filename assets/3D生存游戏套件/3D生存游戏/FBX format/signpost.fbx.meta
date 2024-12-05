@@ -1,0 +1,97 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "7cd72787-fead-4a10-bb7c-a4424453b344",
+  "files": [],
+  "subMetas": {
+    "e65cc": {
+      "importer": "gltf-mesh",
+      "uuid": "7cd72787-fead-4a10-bb7c-a4424453b344@e65cc",
+      "displayName": "",
+      "id": "e65cc",
+      "name": "signpost.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 84
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e4014": {
+      "importer": "gltf-material",
+      "uuid": "7cd72787-fead-4a10-bb7c-a4424453b344@e4014",
+      "displayName": "",
+      "id": "e4014",
+      "name": "wood.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "8b220": {
+      "importer": "gltf-scene",
+      "uuid": "7cd72787-fead-4a10-bb7c-a4424453b344@8b220",
+      "displayName": "",
+      "id": "8b220",
+      "name": "signpost.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "7cd72787-fead-4a10-bb7c-a4424453b344@e65cc"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "7cd72787-fead-4a10-bb7c-a4424453b344@e4014"
+      ],
+      "scenes": [
+        "7cd72787-fead-4a10-bb7c-a4424453b344@8b220"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

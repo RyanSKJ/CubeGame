@@ -1,0 +1,186 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "2ba1e0c0-7a14-4517-9056-9401ff0461c3",
+  "files": [],
+  "subMetas": {
+    "99038": {
+      "importer": "gltf-material",
+      "uuid": "2ba1e0c0-7a14-4517-9056-9401ff0461c3@99038",
+      "displayName": "",
+      "id": "99038",
+      "name": "rock.material",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c6e8a": {
+      "importer": "gltf-mesh",
+      "uuid": "2ba1e0c0-7a14-4517-9056-9401ff0461c3@c6e8a",
+      "displayName": "",
+      "id": "c6e8a",
+      "name": "workbench_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 128
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "08ff8": {
+      "importer": "gltf-mesh",
+      "uuid": "2ba1e0c0-7a14-4517-9056-9401ff0461c3@08ff8",
+      "displayName": "",
+      "id": "08ff8",
+      "name": "hammer_Material0.mesh",
+      "userData": {
+        "gltfIndex": 1,
+        "triangleCount": 48
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d2208": {
+      "importer": "gltf-mesh",
+      "uuid": "2ba1e0c0-7a14-4517-9056-9401ff0461c3@d2208",
+      "displayName": "",
+      "id": "d2208",
+      "name": "paper.mesh",
+      "userData": {
+        "gltfIndex": 2,
+        "triangleCount": 50
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "938e8": {
+      "importer": "gltf-material",
+      "uuid": "2ba1e0c0-7a14-4517-9056-9401ff0461c3@938e8",
+      "displayName": "",
+      "id": "938e8",
+      "name": "woodDark.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e4014": {
+      "importer": "gltf-material",
+      "uuid": "2ba1e0c0-7a14-4517-9056-9401ff0461c3@e4014",
+      "displayName": "",
+      "id": "e4014",
+      "name": "wood.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "16ef1": {
+      "importer": "gltf-material",
+      "uuid": "2ba1e0c0-7a14-4517-9056-9401ff0461c3@16ef1",
+      "displayName": "",
+      "id": "16ef1",
+      "name": "metal.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fd8b8": {
+      "importer": "gltf-scene",
+      "uuid": "2ba1e0c0-7a14-4517-9056-9401ff0461c3@fd8b8",
+      "displayName": "",
+      "id": "fd8b8",
+      "name": "workbench.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "2ba1e0c0-7a14-4517-9056-9401ff0461c3@c6e8a",
+        "2ba1e0c0-7a14-4517-9056-9401ff0461c3@08ff8",
+        "2ba1e0c0-7a14-4517-9056-9401ff0461c3@d2208"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "2ba1e0c0-7a14-4517-9056-9401ff0461c3@938e8",
+        "2ba1e0c0-7a14-4517-9056-9401ff0461c3@e4014",
+        "2ba1e0c0-7a14-4517-9056-9401ff0461c3@16ef1",
+        "2ba1e0c0-7a14-4517-9056-9401ff0461c3@99038"
+      ],
+      "scenes": [
+        "2ba1e0c0-7a14-4517-9056-9401ff0461c3@fd8b8"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

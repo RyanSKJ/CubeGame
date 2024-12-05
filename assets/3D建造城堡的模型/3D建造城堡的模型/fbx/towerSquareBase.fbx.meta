@@ -1,0 +1,114 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "218e8edb-d218-45f2-8bbe-44a1f1382b2e",
+  "files": [],
+  "subMetas": {
+    "1b5cb": {
+      "importer": "gltf-mesh",
+      "uuid": "218e8edb-d218-45f2-8bbe-44a1f1382b2e@1b5cb",
+      "displayName": "",
+      "id": "1b5cb",
+      "name": "towerSquareBase_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 32
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d412": {
+      "importer": "gltf-material",
+      "uuid": "218e8edb-d218-45f2-8bbe-44a1f1382b2e@7d412",
+      "displayName": "",
+      "id": "7d412",
+      "name": "wall.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fd8d1": {
+      "importer": "gltf-material",
+      "uuid": "218e8edb-d218-45f2-8bbe-44a1f1382b2e@fd8d1",
+      "displayName": "",
+      "id": "fd8d1",
+      "name": "wallDark.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1f1ab": {
+      "importer": "gltf-scene",
+      "uuid": "218e8edb-d218-45f2-8bbe-44a1f1382b2e@1f1ab",
+      "displayName": "",
+      "id": "1f1ab",
+      "name": "towerSquareBase.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "218e8edb-d218-45f2-8bbe-44a1f1382b2e@1b5cb"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "218e8edb-d218-45f2-8bbe-44a1f1382b2e@7d412",
+        "218e8edb-d218-45f2-8bbe-44a1f1382b2e@fd8d1"
+      ],
+      "scenes": [
+        "218e8edb-d218-45f2-8bbe-44a1f1382b2e@1f1ab"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}

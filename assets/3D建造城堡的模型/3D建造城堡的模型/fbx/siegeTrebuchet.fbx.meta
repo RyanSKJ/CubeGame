@@ -1,0 +1,319 @@
+{
+  "ver": "2.3.13",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "bf92b5d0-d697-43b5-8180-e27546254871",
+  "files": [],
+  "subMetas": {
+    "64268": {
+      "importer": "gltf-mesh",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@64268",
+      "displayName": "",
+      "id": "64268",
+      "name": "flag 27_Material0.mesh",
+      "userData": {
+        "gltfIndex": 3,
+        "triangleCount": 172
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "5c0df": {
+      "importer": "gltf-mesh",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@5c0df",
+      "displayName": "",
+      "id": "5c0df",
+      "name": "body 9_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0,
+        "triangleCount": 1032
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c3539": {
+      "importer": "gltf-mesh",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@c3539",
+      "displayName": "",
+      "id": "c3539",
+      "name": "catapult 5_Material0.mesh",
+      "userData": {
+        "gltfIndex": 1,
+        "triangleCount": 76
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a62d2": {
+      "importer": "gltf-mesh",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@a62d2",
+      "displayName": "",
+      "id": "a62d2",
+      "name": "flag 26_Material0.mesh",
+      "userData": {
+        "gltfIndex": 2,
+        "triangleCount": 172
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "96e87": {
+      "importer": "gltf-mesh",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@96e87",
+      "displayName": "",
+      "id": "96e87",
+      "name": "trebuchet 2.mesh",
+      "userData": {
+        "gltfIndex": 4,
+        "triangleCount": 60
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0e11a": {
+      "importer": "gltf-mesh",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@0e11a",
+      "displayName": "",
+      "id": "0e11a",
+      "name": "weight 2_Material0.mesh",
+      "userData": {
+        "gltfIndex": 5,
+        "triangleCount": 96
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "900da": {
+      "importer": "gltf-mesh",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@900da",
+      "displayName": "",
+      "id": "900da",
+      "name": "wheelBackLeft 11_Material0.mesh",
+      "userData": {
+        "gltfIndex": 6,
+        "triangleCount": 284
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "044ce": {
+      "importer": "gltf-mesh",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@044ce",
+      "displayName": "",
+      "id": "044ce",
+      "name": "wheelBackRight 11_Material0.mesh",
+      "userData": {
+        "gltfIndex": 7,
+        "triangleCount": 284
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9c4cf": {
+      "importer": "gltf-mesh",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@9c4cf",
+      "displayName": "",
+      "id": "9c4cf",
+      "name": "wheelFrontLeft 14_Material0.mesh",
+      "userData": {
+        "gltfIndex": 8,
+        "triangleCount": 284
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fb36d": {
+      "importer": "gltf-mesh",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@fb36d",
+      "displayName": "",
+      "id": "fb36d",
+      "name": "wheelFrontRight 14_Material0.mesh",
+      "userData": {
+        "gltfIndex": 9,
+        "triangleCount": 284
+      },
+      "ver": "1.1.1",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "e4014": {
+      "importer": "gltf-material",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@e4014",
+      "displayName": "",
+      "id": "e4014",
+      "name": "wood.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7d412": {
+      "importer": "gltf-material",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@7d412",
+      "displayName": "",
+      "id": "7d412",
+      "name": "wall.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "accad": {
+      "importer": "gltf-material",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@accad",
+      "displayName": "",
+      "id": "accad",
+      "name": "roof.material",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "43ae5": {
+      "importer": "gltf-material",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@43ae5",
+      "displayName": "",
+      "id": "43ae5",
+      "name": "cotton.material",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d67a4": {
+      "importer": "gltf-scene",
+      "uuid": "bf92b5d0-d697-43b5-8180-e27546254871@d67a4",
+      "displayName": "",
+      "id": "d67a4",
+      "name": "siegeTrebuchet.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "fbx": {
+      "smartMaterialEnabled": true,
+      "matchMeshNames": false
+    },
+    "assetFinder": {
+      "meshes": [
+        "bf92b5d0-d697-43b5-8180-e27546254871@5c0df",
+        "bf92b5d0-d697-43b5-8180-e27546254871@c3539",
+        "bf92b5d0-d697-43b5-8180-e27546254871@a62d2",
+        "bf92b5d0-d697-43b5-8180-e27546254871@64268",
+        "bf92b5d0-d697-43b5-8180-e27546254871@96e87",
+        "bf92b5d0-d697-43b5-8180-e27546254871@0e11a",
+        "bf92b5d0-d697-43b5-8180-e27546254871@900da",
+        "bf92b5d0-d697-43b5-8180-e27546254871@044ce",
+        "bf92b5d0-d697-43b5-8180-e27546254871@9c4cf",
+        "bf92b5d0-d697-43b5-8180-e27546254871@fb36d"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "bf92b5d0-d697-43b5-8180-e27546254871@e4014",
+        "bf92b5d0-d697-43b5-8180-e27546254871@7d412",
+        "bf92b5d0-d697-43b5-8180-e27546254871@accad",
+        "bf92b5d0-d697-43b5-8180-e27546254871@43ae5"
+      ],
+      "scenes": [
+        "bf92b5d0-d697-43b5-8180-e27546254871@d67a4"
+      ]
+    },
+    "lods": {
+      "enable": false,
+      "hasBuiltinLOD": false,
+      "options": [
+        {
+          "screenRatio": 0.25,
+          "faceCount": 1
+        },
+        {
+          "screenRatio": 0.125,
+          "faceCount": 0.25
+        },
+        {
+          "screenRatio": 0.01,
+          "faceCount": 0.1
+        }
+      ]
+    }
+  }
+}
