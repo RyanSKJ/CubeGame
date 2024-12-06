@@ -12,20 +12,20 @@
           "uuid": "f7a61ece-aa9f-4b4f-ae10-0703f3e0ddac"
         },
         {
-          "url": "db://assets/game/choose.scene",
-          "uuid": "dcef1e8f-eefa-4370-b9b3-0871ec139941"
-        },
-        {
-          "url": "db://assets/game/flip.scene",
-          "uuid": "e8af6817-c319-4e1d-b264-22b129041642"
+          "url": "db://assets/catalogasset/Scene/Scene.scene",
+          "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
         },
         {
           "url": "db://assets/game/second.scene",
           "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b"
         },
         {
-          "url": "db://assets/catalogasset/Scene/Scene.scene",
-          "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
+          "url": "db://assets/game/flip.scene",
+          "uuid": "e8af6817-c319-4e1d-b264-22b129041642"
+        },
+        {
+          "url": "db://assets/game/choose.scene",
+          "uuid": "dcef1e8f-eefa-4370-b9b3-0871ec139941"
         },
         {
           "url": "db://assets/game/adjust.scene",
@@ -916,6 +916,41 @@
         "__version__": "1.0.1"
       },
       "1733398036729": {
+        "packageName": "Cube.test.one",
+        "resizeableActivity": true,
+        "maxAspectRatio": "2.4",
+        "orientation": {
+          "portrait": true,
+          "upsideDown": false,
+          "landscapeRight": true,
+          "landscapeLeft": true
+        },
+        "apiLevel": 31,
+        "appABIs": [
+          "arm64-v8a"
+        ],
+        "useDebugKeystore": true,
+        "keystorePath": "",
+        "keystorePassword": "",
+        "keystoreAlias": "",
+        "keystoreAliasPassword": "",
+        "appBundle": false,
+        "androidInstant": false,
+        "inputSDK": false,
+        "remoteUrl": "",
+        "sdkPath": "",
+        "ndkPath": "",
+        "javaHome": "",
+        "javaPath": "",
+        "renderBackEnd": {
+          "vulkan": false,
+          "gles3": true,
+          "gles2": true
+        },
+        "swappy": true,
+        "__version__": "1.0.1"
+      },
+      "1733495404829": {
         "packageName": "Cube.test.one",
         "resizeableActivity": true,
         "maxAspectRatio": "2.4",

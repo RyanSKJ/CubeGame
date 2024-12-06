@@ -55,10 +55,6 @@ private cooldownDuration: number = 0.5; // 冷却时间（秒）
     }
 
     handleMovement({ relation, plane }: { relation: string, plane: string }) {
-        if (this.cooldown) {
-            console.log("Movement cooldown in progress, ignoring this request.");
-            return;
-        }
         // 如果正在移动，直接返回，防止动画重叠
         if (this.isInteracting) {
             console.log("Movement in progress, ignoring this request.");
@@ -66,7 +62,7 @@ private cooldownDuration: number = 0.5; // 冷却时间（秒）
         }
     
         this.isInteracting = true; // 设置锁，防止其他逻辑干扰
-        this.startCooldown(); // 开始冷却
+       // this.startCooldown(); // 开始冷却
     
         let movement = new Vec3();
         let MoveFlag = false; // 默认移动标志为 false
@@ -195,8 +191,8 @@ private cooldownDuration: number = 0.5; // 冷却时间（秒）
 
     shakeNode() {
         const originalPosition = this.node.getPosition();
-        const shakeOffset = 0.1; // 震动的幅度
-        const shakeDuration = 0.05; // 每次震动的时间
+        const shakeOffset = 0.2; // 震动的幅度
+        const shakeDuration = 0.01; // 每次震动的时间
         
     
         // 在动画完成后释放锁

@@ -109,7 +109,7 @@ export class ChessboardGenerator extends Component {
         // 获取当前时间的北京时间
         const now = new Date();
         const offset = 8 * 60 * 60 * 1000; // UTC+8 的时间偏移（毫秒）
-        const beijingTime = new Date(now.getTime() + offset).toISOString().replace('T', ' ').slice(0, 19); // 格式化为 "YYYY-MM-DD HH:mm:ss"
+        const beijingTime = new Date(now.getTime() + offset).toISOString().replace('T', ' ').slice(0, 23); // 格式化为 "YYYY-MM-DD HH:mm:ss"
     
         // 准备发送的数据
         const data = {

@@ -1,5 +1,6 @@
 import { _decorator, Component, physics, Node, RigidBody, Quat,ICollisionEvent, Collider, input, Input, EventMouse, EventTouch, Label, Vec3, instantiate, Prefab, Camera, EventKeyboard, KeyCode, Button,director,Canvas,UITransform,view,Layers } from 'cc';
 import { RotateUtil } from './RotateUtil'; // 引入自定义的 RotateUtil
+import { Global } from '../../catalogasset/Script/Global';
 
 
 const { ccclass, property } = _decorator;
@@ -271,11 +272,36 @@ export class Controller extends Component {
         // 控制上升逻辑
         if (this._isMovingUp && this.instantiatedNode && this.node.name === "Node") {
             this.moveUp();
+            const locationY = this.instantiatedNode.getPosition().y;
+            this.logData('up', 0, locationY, 0);
         }
     
         // 控制下降逻辑
         if (this._isMovingDown && this.instantiatedNode && this.node.name === "Node") {
             this.moveDown();
+            const locationY = this.instantiatedNode.getPosition().y;
+            this.logData('down', 0, locationY, 0);
+        }
+
+        if (this.instantiatedNode && this.currentAxis != null) {
+            const locationY = this.instantiatedNode.getPosition().y;
+    
+            // 获取旋转角度
+            const eulerAngles = new Vec3();
+            this.instantiatedNode.getRotation().getEulerAngles(eulerAngles);
+    
+            // 根据 currentAxis 记录数据
+            switch (this.currentAxis) {
+                case 'X':
+                    this.logData('X', eulerAngles.x, locationY, 0); 
+                    break;
+                case 'Y':
+                    this.logData('Y', eulerAngles.y, locationY, 0); 
+                    break;
+                case 'Z':
+                    this.logData('Z', eulerAngles.z, locationY, 0); 
+                    break;
+            }
         }
     
         // 当节点高度超过 26 时触发场景节点管理逻辑
@@ -368,4 +394,57 @@ export class Controller extends Component {
             console.error("Main Camera not found in the scene!");
         }
     }
+
+    private async logData(axis: string, angle: number, locationY: number, flag: number) {
+        const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
+        const username = localStorage.getItem('currentUsername'); // 从localStorage中获取用户名
+        const sessionToken = localStorage.getItem('sessionToken'); // 从localStorage中获取token
+        const level = Global.currentLevelIndex;
+        const operation = "game";
+        const timestamp = new Date().toISOString(); // 获取 ISO 时间戳
+
+        if (!username || !sessionToken) {
+            console.error('No username or sessionToken found.');
+            return;
+        }
+    
+        // 获取当前时间的北京时间
+        const now = new Date();
+        const offset = 8 * 60 * 60 * 1000; // UTC+8 的时间偏移（毫秒）
+        const beijingTime = new Date(now.getTime() + offset).toISOString().replace('T', ' ').slice(0, 23); // 格式化为 "YYYY-MM-DD HH:mm:ss"
+    
+        const data = {
+            tableName: 'game2',
+            data:{
+                Usr_ID: username,
+                Timestep: beijingTime,
+                Level: level,
+                Operation: operation,
+                Axis: axis,
+                Angle: angle,
+                Location_y: locationY,
+                Flag: flag
+            }
+        };
+    
+        try {
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': `Bearer ${sessionToken}`
+                },
+                body: JSON.stringify(data),
+            });
+    
+            if (response.ok) {
+                console.log("Data logged successfully:", data);
+            } else {
+                console.error("Failed to log data:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error logging data:", error);
+        }
+    }
+
     }

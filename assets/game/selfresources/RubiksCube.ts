@@ -17,6 +17,9 @@ export class RubiksCube extends Component {
     @property([Prefab])
     surfacePrefabs: Prefab[] = [];
 
+    @property([Prefab])
+    roadPrefabs: Prefab = null;
+
     @property(Label)
     public operationTimeLabel: Label = null;
     @property(Label)
@@ -79,7 +82,41 @@ export class RubiksCube extends Component {
         input.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
         input.on(Input.EventType.TOUCH_END, this.onTouchEnd, this);
     }
+
+    placeRoadPrefabs() {
+        if (!this.roadPrefabs) {
+            console.error('Road prefab is not assigned.');
+            return;
+        }
     
+        const offsetY = -0.51; // Y轴偏移量
+        const offsetX = 0.51;  // X轴偏移量（仅当 x === -2.2 时）
+        const rotationZ = 90; // 绕 Z 轴旋转角度（单位：度）
+    
+        this.forbiddenPositions.forEach(position => {
+            let adjustedPosition = new Vec3(position.x, position.y + offsetY, position.z); // 调整 Y 坐标
+    
+            let rotation = new Quat(); // 默认旋转为无旋转
+    
+            // 判断 x 是否为 -2.2
+            if (position.x === -2.2) {
+                adjustedPosition.x += offsetX; // 调整 X 坐标
+                adjustedPosition.y += offsetX; // 调整 X 坐标
+                Quat.fromEuler(rotation, 0, 0, rotationZ); // 设置绕 Z 轴旋转 +90 度
+            } else if (position.z === 2.2) {
+                adjustedPosition.z -= offsetX; // 调整 X 坐标
+                adjustedPosition.y += offsetX; // 调整 X 坐标
+                Quat.fromEuler(rotation, rotationZ, 0, 0); // 设置绕 Z 轴旋转 +90 度
+            }
+    
+            const roadPrefabInstance = instantiate(this.roadPrefabs);
+            roadPrefabInstance.setParent(this.node);
+            roadPrefabInstance.setPosition(adjustedPosition); // 使用调整后的位置
+            roadPrefabInstance.setRotation(rotation); // 设置调整后的旋转
+            console.log(`Road prefab placed at: ${adjustedPosition.toString()}, rotation: ${rotation.toString()}`);
+            this.extraCubes.push(roadPrefabInstance); // 将实例化对象添加到 extraCubes
+        });
+    }
 
     placePrefabsOnSurfaces() {
         const LevelConfigs = [
@@ -139,6 +176,7 @@ export class RubiksCube extends Component {
         const currentConfig = LevelConfigs[Global.currentLevelIndex-10];
         // 更新禁止放置 prefab 的位置
         this.forbiddenPositions = currentConfig.forbiddenPositions;
+        this.placeRoadPrefabs();
         console.log(Global.currentLevelIndex)
         console.log(currentConfig)
         this.trueLumber = currentConfig.lumberPosition
@@ -215,6 +253,7 @@ export class RubiksCube extends Component {
         prefabInstance.setParent(this.node);
         prefabInstance.setPosition(position);
         prefabInstance.setRotation(rotation);
+        prefabInstance.setScale(0.6,0.6,0.6);
         this.extraCubes.push(prefabInstance);
     }
     /*
@@ -403,7 +442,6 @@ export class RubiksCube extends Component {
     
     handleClick() {
         if (!this.selectedCube) return;
-        console.log('nnnnnn')
     
         const ballCube = this.node.getChildByName(this.boxinwhere); // 获取当前盒子所在的立方体节点
         const tempClickedCube = this.selectedCube;
@@ -502,6 +540,7 @@ export class RubiksCube extends Component {
         this.selectedLayer = this.node.children.filter(child =>
             Math.round(child.position[this.currentAxis]) === this.currentLayerIndex
         );
+
     
         // 获取并添加名为 lumbermill 的节点到 extraCubes
         const lumbermillNode = this.node.getChildByName('lumbermill');
