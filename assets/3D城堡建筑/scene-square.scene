@@ -628,7 +628,7 @@
       "__id__": 16
     },
     "asset": {
-      "__uuid__": "d5cfd232-079f-413b-8c34-48e305a946f7@c1e2d",
+      "__uuid__": "c7c25093-1c8a-4aa8-a295-d8c26502599e",
       "__expectedType__": "cc.Prefab"
     },
     "fileId": "8duwTerv1d7YHyRlQmUBl3",
@@ -2959,7 +2959,7 @@
       "__id__": 184
     },
     "asset": {
-      "__uuid__": "e8987dc7-203b-4e32-8d4a-ff6472533939@15b42",
+      "__uuid__": "90bf7ac9-2393-42a7-8317-272dcc67b041",
       "__expectedType__": "cc.Prefab"
     },
     "fileId": "10bpeBQEFTX54SBCa9C8OW",
@@ -5179,7 +5179,7 @@
       "__id__": 344
     },
     "asset": {
-      "__uuid__": "b6bf5845-2788-4a0e-a982-be85d2de63e6@d32b8",
+      "__uuid__": "38739e11-7034-4c58-9213-e64a4511e74e",
       "__expectedType__": "cc.Prefab"
     },
     "fileId": "e4yHpVqEJYvZ7a+S24aXVD",

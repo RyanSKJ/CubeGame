@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f3b0fe87-810d-40f7-89e2-40c293b0a7f0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../assets/3D城堡建筑/scene-build.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/3D城堡建筑/scene-build.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/3D城堡建筑/scene-hex.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/3D城堡建筑/scene-hex.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/3D城堡建筑/scene-square.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/3D城堡建筑/scene-square.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/ShopBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/ShopBox.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/SingleInfo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/SingleInfo.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/StopBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/StopBox.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/square_water_detail_empty.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/square_water_detail_empty.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Scene/Scene.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Scene/Scene.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Script/TopLoad/EndBox.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Script/TopLoad/EndBox.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Cube/Controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Cube/Controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Cube/Cubes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Cube/Cubes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Cube/EstablishFloor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Cube/EstablishFloor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Cube/UI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Cube/UI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/adjust.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/adjust.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/choose.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/choose.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/choose_old.scene" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/choose_old.scene.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/flip.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/flip.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/cubeObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/cubeObject.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube1-minor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube1-minor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube2-minor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube2-minor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube3-minor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube3-minor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/rubicprefab/box.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/rubicprefab/box.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/rubicprefab/boxmovecontroller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/rubicprefab/boxmovecontroller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/rubicprefab/detail_hill.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/rubicprefab/detail_hill.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/rubicprefab/forest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/rubicprefab/forest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/rubicprefab/lumbermill.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/rubicprefab/lumbermill.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/rubicprefab/mountain.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/rubicprefab/mountain.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/second.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/second.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/selfresources/BasePlate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/selfresources/BasePlate.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/selfresources/ChessboardGenerator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/selfresources/ChessboardGenerator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/selfresources/Cubeflip.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/selfresources/Cubeflip.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/selfresources/RubiksCube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/selfresources/RubiksCube.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/selfresources/RubiksCube.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/selfresources/RubiksCube.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/selfresources/boxcolor.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/selfresources/boxcolor.mtl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/loginscene.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/loginscene.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/resources/backgroundmaterial.mtl" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/resources/backgroundmaterial.mtl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/resources/cursorchoose/Sample_Cursor.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/resources/cursorchoose/Sample_Cursor.ts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/proj/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/proj/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/android.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/android.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/builder.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/builder.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/cocos-service.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/cocos-service.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/native.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/native.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/reference-image.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/reference-image.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/scene.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/scene.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2qAiYi909yUIg2LLb3lEAK2yM9I" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/shenkejie/Desktop/Cube_Final/new_build/android-002/proj",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "show.do.not.copy.http.proxy.settings.to.gradle": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Cube_Elimination" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="Cube_Elimination.Cube_Elimination.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f3b0fe87-810d-40f7-89e2-40c293b0a7f0" name="Changes" comment="" />
+      <created>1734111829727</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734111829727</updated>
+    </task>
+    <servers />
+  </component>
+</project>

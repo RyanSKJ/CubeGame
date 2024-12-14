@@ -60,9 +60,9 @@ export class EndBox extends Component {
         }
     }
 
-    private ClickRestart() {
+    public ClickRestart() {
         Global.IsDebug && console.log('点击重新开始关卡');
-        AudioMgr.instance.PlayButton();
+        //AudioMgr.instance.PlayButton();
         if (Global.currentLevelIndex >= 0 && Global.currentLevelIndex <= 4) {
             director.loadScene("flip");
         } else if (Global.currentLevelIndex >= 5 && Global.currentLevelIndex <= 9) {

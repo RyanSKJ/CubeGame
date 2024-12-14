@@ -693,7 +693,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "58a3af60-bd22-48ce-a01c-61b9524a1489@f9941",
+      "__uuid__": "70ed1a93-f0f0-45f7-aced-fd0831cf0c98@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -2869,7 +2869,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "17ae3480-f83e-483c-8701-fd14b775f7e5@f9941",
+      "__uuid__": "b0664912-0c6a-419e-9d82-3728553c8eeb@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -2980,7 +2980,7 @@
     "_string": "",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 40,
+    "_actualFontSize": 20,
     "_fontSize": 20,
     "_fontFamily": "Arial",
     "_lineHeight": 40,

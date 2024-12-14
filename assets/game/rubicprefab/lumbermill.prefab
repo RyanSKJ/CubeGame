@@ -117,7 +117,7 @@
     },
     "_materials": [
       {
-        "__uuid__": "df41a1b5-521d-487e-8598-f9f9cd2b0ebe@1f97b",
+        "__uuid__": "fc34dbdb-f361-47e1-837e-3c9fbc7247ae@3fdbc",
         "__expectedType__": "cc.Material"
       },
       {
@@ -129,11 +129,11 @@
         "__expectedType__": "cc.Material"
       },
       {
-        "__uuid__": "df41a1b5-521d-487e-8598-f9f9cd2b0ebe@3fdbc",
+        "__uuid__": "fc34dbdb-f361-47e1-837e-3c9fbc7247ae@3fdbc",
         "__expectedType__": "cc.Material"
       },
       {
-        "__uuid__": "df41a1b5-521d-487e-8598-f9f9cd2b0ebe@710bf",
+        "__uuid__": "5b86b796-b68f-4285-b585-ba3b17b4dee7@16ef1",
         "__expectedType__": "cc.Material"
       }
     ],
@@ -202,6 +202,7 @@
       "__id__": 0
     },
     "fileId": "f16fPRMOlZE75uC/M+GpMx",
+    "instance": null,
     "targetOverrides": null
   }
 ]

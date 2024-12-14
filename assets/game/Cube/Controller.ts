@@ -1,6 +1,7 @@
-import { _decorator, Component, physics, Node, RigidBody, Quat,ICollisionEvent, Collider, input, Input, EventMouse, EventTouch, Label, Vec3, instantiate, Prefab, Camera, EventKeyboard, KeyCode, Button,director,Canvas,UITransform,view,Layers } from 'cc';
+import { _decorator, Component, EventTarget, physics, Node, RigidBody, find, Quat,ICollisionEvent, Collider, input, Input, EventMouse, EventTouch, Label, Vec3, instantiate, Prefab, Camera, EventKeyboard, KeyCode, Button,director,Canvas,UITransform,view,Layers } from 'cc';
 import { RotateUtil } from './RotateUtil'; // 引入自定义的 RotateUtil
 import { Global } from '../../catalogasset/Script/Global';
+import { EndBox } from '../../catalogasset/Script/TopLoad/EndBox';
 
 
 const { ccclass, property } = _decorator;
@@ -31,6 +32,13 @@ export class Controller extends Component {
     @property(Button)
     moveUpButton: Button = null;  // 控制上升的按钮
 
+
+    public tutorchange = false;
+
+    private hasCalledManageScene: boolean = false; // 确保 manageSceneNodes 只调用一次
+
+
+
     private instantiatedNode: Node = null; // 存储实例化后的节点
     private _isRotating: boolean = false;
     private _lastMousePos: Vec3 = new Vec3();
@@ -51,25 +59,48 @@ export class Controller extends Component {
 
     private savedRotation: Quat = new Quat(); // 用于保存旋转姿态
 
+    private hasCollided = false; // ⚠️ 记录是否发生过碰撞
+
+    // 声明 childColliders 和 previousChildYPositions 属性
+private childColliders: Collider[] = []; // 存储所有子物体的碰撞器组件
+private previousChildYPositions: number[] = []; // 存储子物体的前一帧的Y坐标
+
     start() {
         
         // 实例化预制体并添加到场景中
         if (this.prefab) {
-            physics.PhysicsSystem.instance.fixedTimeStep = 1 / 120;
+            //physics.PhysicsSystem.instance.fixedTimeStep = 1 / 120;
             this.instantiatedNode = instantiate(this.prefab);
             this.node.addChild(this.instantiatedNode); // 将实例化的预制体添加到当前节点
             this.instantiatedNode.setPosition(0, 0, 0); // 设置实例化节点的位置
         }
 
-        const rigidBody = this.instantiatedNode.getComponent(RigidBody);
-        if (rigidBody) {
-            rigidBody.useCCD = true;  // 开启 CCD
-        }
+        // 缓存子物体的 Collider 组件（提高性能，避免每帧调用 getComponentsInChildren）
+    if (this.instantiatedNode) {
+        this.childColliders = this.instantiatedNode.getComponentsInChildren(Collider);
+        this.previousChildYPositions = this.childColliders.map(collider => collider.node.getPosition().y);
+    }
 
+        /*
         const colliders = this.instantiatedNode.getComponents(Collider);
         colliders.forEach((collider, index) => {
             console.log(`Collider ${index}:`, collider);
             collider.on('onCollisionEnter', this.onCollisionEnter, this); // 监听碰撞事件
+        });
+        */
+
+        // 2. 获取父节点下的所有子节点的 Collider，并为每个 Collider 添加碰撞监听器
+        const childColliders = this.instantiatedNode.getComponentsInChildren(Collider);
+        childColliders.forEach((collider, index) => {
+            console.log(`子节点 Collider ${index}:`, collider);
+            collider.on('onCollisionEnter', this.onCollisionEnter, this);
+            
+            // 获取子节点的刚体组件
+            const rigidBody = collider.node.getComponent(RigidBody);
+            if (rigidBody) {
+                rigidBody.type = RigidBody.Type.KINEMATIC; // 将子节点的刚体设置为 KINEMATIC（运动型刚体）
+                rigidBody.useGravity = false; // 初始状态不受重力影响
+            }
         });
         
 
@@ -98,7 +129,7 @@ export class Controller extends Component {
             this.moveDownButton.node.on(Input.EventType.TOUCH_CANCEL, this.onMoveDownButtonRelease, this); // 处理取消事件
         }
     }
-
+    /*
     onCollisionEnter(event: ICollisionEvent) {
         console.log("Collision detected, restoring rotation and moving down...");
         
@@ -111,8 +142,8 @@ export class Controller extends Component {
         
         // 将物体位置向下移动
         let currentPosition = this.instantiatedNode.getPosition();
-        const downShiftAmount = 1.0; // 调整下移的量
-        currentPosition.y -= downShiftAmount;
+        const downShiftAmount = 2.3; // 调整下移的量
+        currentPosition.y += downShiftAmount;
         this.instantiatedNode.setPosition(currentPosition);
         
         // 同步 Cylinder 的位置和缩放
@@ -132,13 +163,52 @@ export class Controller extends Component {
         // 停止上升
         this._isMovingUp = false;
     }
+        */
+    onCollisionEnter(event: ICollisionEvent) {
+        if (this.hasCollided) return;
+    
+        this.hasCollided = true;
+    
+        // 正确解绑所有子节点的碰撞监听
+        const childColliders = this.instantiatedNode.getComponentsInChildren(Collider);
+        childColliders.forEach(collider => {
+            collider.off('onCollisionEnter', this.onCollisionEnter, this);
+        });
+    
+        console.log('Collision detected, schedule scene change after 1 second');
+        setTimeout(() => {
+            try {
+                console.log('Changing scene to adjust');
+                this.ClickRestart();
+            } catch (error) {
+                console.error('Error in ClickRestart:', error);
+            }
+        }, 1000); // 1000ms = 1秒
+    }
+    
+    ClickRestart() {
+        console.log('ClickRestart called, loading adjust scene');
+        director.loadScene('adjust');
+    }
+
 
     onMoveDownButtonPress() {
         this._isMovingDown = true;
     }
     
     onMoveDownButtonRelease() {
-        this._isMovingDown = false;
+        if (this.instantiatedNode) {
+            const childColliders = this.instantiatedNode.getComponentsInChildren(Collider);
+        childColliders.forEach((collider, index) => {
+            
+            // 获取子节点的刚体组件
+            const rigidBody = collider.node.getComponent(RigidBody);
+            if (rigidBody) {
+                rigidBody.type = RigidBody.Type.DYNAMIC; // 将子节点的刚体设置为 KINEMATIC（运动型刚体）
+                rigidBody.useGravity = true; // 初始状态不受重力影响
+            }
+        });
+        }
     }
 
     onMouseDown(event: EventMouse) {
@@ -239,6 +309,8 @@ export class Controller extends Component {
             this.instantiatedNode.setRotationFromEuler(euler.x, euler.y, euler.z);
             // 保存旋转姿态
             this.instantiatedNode.getRotation(this.savedRotation);
+            this.tutorchange = true;
+            this.node.emit('turtorchange', this.tutorchange);
         
         }
     }
@@ -265,23 +337,46 @@ export class Controller extends Component {
         this._isMovingUp = false;
     }
 
+
     update(deltaTime: number) {
         // 累加操作时间
-        this.operationTime += deltaTime;
+        //this.operationTime += deltaTime;
+
+        if (this.instantiatedNode && this.stop_update) {
+            const childYPositions = this.childColliders.map((collider, index) => {
+                const currentY = collider.node.worldPosition.y;
+                const previousY = this.previousChildYPositions[index];
+                this.previousChildYPositions[index] = currentY; // 更新前一帧的 Y 值
+                //console.log(`子物体 ${collider.node.name} 当前世界 Y：${currentY}，前一帧 Y：${previousY}`);
+                return currentY;
+            });
     
-        // 控制上升逻辑
+            // 判断所有子物体的 Y 是否都小于等于 -10
+            const allBelowThreshold = childYPositions.every(y => y <= -10);
+            
+            if (allBelowThreshold && !this.hasCalledManageScene) {
+                //console.log('所有子物体的Y位置都小于 -10，调用 manageSceneNodes');
+                this.manageSceneNodes();
+                this.hasCalledManageScene = true; // 确保 manageSceneNodes 只调用一次
+            } else {
+                //console.log('并非所有子物体的Y位置都小于 -10');
+            }
+        }
+    
+        /*
         if (this._isMovingUp && this.instantiatedNode && this.node.name === "Node") {
             this.moveUp();
             const locationY = this.instantiatedNode.getPosition().y;
-            this.logData('up', 0, locationY, 0);
+            //this.logData('up', 0, locationY, 0);
         }
     
         // 控制下降逻辑
         if (this._isMovingDown && this.instantiatedNode && this.node.name === "Node") {
             this.moveDown();
             const locationY = this.instantiatedNode.getPosition().y;
-            this.logData('down', 0, locationY, 0);
+            //this.logData('down', 0, locationY, 0);
         }
+            
 
         if (this.instantiatedNode && this.currentAxis != null) {
             const locationY = this.instantiatedNode.getPosition().y;
@@ -293,18 +388,19 @@ export class Controller extends Component {
             // 根据 currentAxis 记录数据
             switch (this.currentAxis) {
                 case 'X':
-                    this.logData('X', eulerAngles.x, locationY, 0); 
+                    //this.logData('X', eulerAngles.x, locationY, 0); 
                     break;
                 case 'Y':
-                    this.logData('Y', eulerAngles.y, locationY, 0); 
+                    //this.logData('Y', eulerAngles.y, locationY, 0); 
                     break;
                 case 'Z':
-                    this.logData('Z', eulerAngles.z, locationY, 0); 
+                    //this.logData('Z', eulerAngles.z, locationY, 0); 
                     break;
             }
         }
+            */
     
-        // 当节点高度超过 26 时触发场景节点管理逻辑
+        /*
         if (this.instantiatedNode && this.instantiatedNode.getPosition().y > 26 && this.stop_update) {
             this.manageSceneNodes();
             this.stop_update = false; // 确保只执行一次
@@ -349,7 +445,9 @@ export class Controller extends Component {
             this.targetCylinder.setScale(currentScale);
             this.targetCylinder.setPosition(targetPosition);
         }
+            */
     }
+        
     
     // 管理场景节点逻辑
     private manageSceneNodes() {

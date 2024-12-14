@@ -410,6 +410,8 @@
       "__id__": 0
     },
     "fileId": "07Z3/X78BK0Jmq3ETlonkN",
+    "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -726,6 +728,8 @@
       "__id__": 0
     },
     "fileId": "036eKRe6pPLqgkuFSeZx2T",
+    "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -1678,6 +1682,8 @@
       "__id__": 0
     },
     "fileId": "1bRk3DDGVJbqIRorlebwgZ",
+    "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -1693,7 +1699,7 @@
       "__id__": 73
     },
     "_group": 2,
-    "_type": 1,
+    "_type": 2,
     "_mass": 1,
     "_allowSleep": true,
     "_linearDamping": 0.4,
@@ -1866,6 +1872,7 @@
       "__id__": 0
     },
     "fileId": "c46/YsCPVOJYA4mWEpNYRx",
-    "instance": null
+    "instance": null,
+    "targetOverrides": null
   }
 ]

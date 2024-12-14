@@ -1,4 +1,4 @@
-import { _decorator, Component, instantiate, Node, Prefab, Vec3, Vec2, Collider, ITriggerEvent, UITransform, Camera, director, Canvas, view, Layers } from 'cc';
+import { _decorator, Component, instantiate, tween, Node, Prefab, Vec3, Vec2, Collider, ITriggerEvent, UITransform, Camera, director, Canvas, view, Layers } from 'cc';
 import { LevelController } from './LevelController'; // 导入LevelController脚本
 import { RotateAndMoveCubeOnKey } from './Cubeflip'; // 导入LevelController脚本
 import { Global } from '../../catalogasset/Script/Global';
@@ -17,6 +17,8 @@ export class ChessboardGenerator extends Component {
 
     @property(Prefab)
     public uiPrefab: Prefab = null; // 需要渲染的UI-2D预制体
+    @property(Prefab)
+    public houseprefab: Prefab = null; // 需要渲染的UI-2D预制体
 
     @property
     public tileSize: number = 1;
@@ -28,6 +30,7 @@ export class ChessboardGenerator extends Component {
     private triggeredPrefabs2 = 0;
 
     private currentLevel = 0;
+    private blockedTiles: Set<string> = new Set();
 
 
 
@@ -59,15 +62,24 @@ export class ChessboardGenerator extends Component {
                 tile.setParent(this.node);
                 const x = j * this.tileSize - (cols * this.tileSize) / 2 + this.tileSize / 2;
                 const z = i * this.tileSize - (rows * this.tileSize) / 2 + this.tileSize / 2;
-                tile.setPosition(new Vec3(x, 0, z));
+                if (i === 0 && j === 0) {
+                    const obstaclePrefab = instantiate(this.houseprefab); // 替换为你的目标 prefab
+                    obstaclePrefab.setParent(tile);
+                    obstaclePrefab.setPosition(new Vec3(0, this.tileSize, 0));
+                    this.blockedTiles.add(`${i},${j}`);
+                    tile.setPosition(new Vec3(x, -1, z));
+                }
+                else{
+                    tile.setPosition(new Vec3(x, 0, z));
+                }
                 this.tiles[i][j] = tile;
-                console.log(x, z)
 
                 const positionMatch = positions.some(pos => pos.x === x && pos.y === z);
                 if (positionMatch) {
                     console.log('yes')
                     this.placePrefab2AtPosition(new Vec2(j, i));
                 }
+                
             }
         }
     }
@@ -155,38 +167,49 @@ export class ChessboardGenerator extends Component {
 
 
         if (this.triggeredPrefabs2 >= this.totalPrefabs2) {
-            this.logUserAction();
-            //animationInstance.destroy();
-            //director.loadScene("result");
-            //this.onAllPrefabs2Triggered();
-
-            // 获取当前场景中的 Canvas 节点
-            const canvasNode = director.getScene().getChildByName('Canvas');
-
-            // 检查 Canvas 是否存在
-            if (canvasNode) {
-                // 实例化并渲染 UI-2D 预制体
-                const uiInstance = instantiate(this.uiPrefab);
-
-                // 将 UI 预制体设为 Canvas 的子节点，并放在最顶层
-                uiInstance.setParent(canvasNode);
-                uiInstance.setScale(2,2,2);
-                uiInstance.setPosition(0, 0, 0); // 设置位置
-
-                // 确保 UI 预制体在 Canvas 的最顶层
-                uiInstance.setSiblingIndex(canvasNode.children.length - 1);
+            console.log("All prefab2 instances triggered, starting animation");
+        
+            // 找到 i === 0 && j === 0 的 tile
+            const targetTile = this.tiles[0][0];
+            if (targetTile) {
+                const targetPosition = targetTile.position.clone(); // 当前 tile 位置
+                targetPosition.y = 0; // 修改目标位置的 Y 坐标为 0
+        
+                // 使用 tween 动画将 Y 调整到 0
+                tween(targetTile)
+                    .to(1.0, { position: targetPosition }, { easing: 'quadInOut' }) // 动画持续时间 1 秒
+                    .call(() => {
+                        console.log("Animation completed, continuing logic");
+        
+                        // 执行后续逻辑
+                        this.finishLevel();
+                    })
+                    .start();
             } else {
-                console.error("Canvas not found in the current scene!");
+                console.error("Target tile not found!");
             }
+        }
+    }
 
-            // 获取 Main Camera 并设置其 active 为 false
-            const mainCameraNode = director.getScene().getChildByName('Main Camera');
-            if (mainCameraNode) {
-                mainCameraNode.active = false;
-            } else {
-                console.error("Main Camera not found in the current scene!");
-            }
-
+    finishLevel() {
+        this.logUserAction();
+    
+        const canvasNode = director.getScene().getChildByName('Canvas');
+        if (canvasNode) {
+            const uiInstance = instantiate(this.uiPrefab);
+            uiInstance.setParent(canvasNode);
+            uiInstance.setScale(2, 2, 2);
+            uiInstance.setPosition(0, 0, 0);
+            uiInstance.setSiblingIndex(canvasNode.children.length - 1);
+        } else {
+            console.error("Canvas not found in the current scene!");
+        }
+    
+        const mainCameraNode = director.getScene().getChildByName('Main Camera');
+        if (mainCameraNode) {
+            mainCameraNode.active = false;
+        } else {
+            console.error("Main Camera not found in the current scene!");
         }
     }
 

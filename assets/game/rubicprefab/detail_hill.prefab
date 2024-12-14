@@ -117,19 +117,19 @@
     },
     "_materials": [
       {
-        "__uuid__": "dd9becee-d2a8-4453-8196-e167c85b74a9@9f269",
+        "__uuid__": "fc34dbdb-f361-47e1-837e-3c9fbc7247ae@1f97b",
         "__expectedType__": "cc.Material"
       },
       {
-        "__uuid__": "dd9becee-d2a8-4453-8196-e167c85b74a9@3fdbc",
+        "__uuid__": "fc34dbdb-f361-47e1-837e-3c9fbc7247ae@3fdbc",
         "__expectedType__": "cc.Material"
       },
       {
-        "__uuid__": "dd9becee-d2a8-4453-8196-e167c85b74a9@d8c69",
+        "__uuid__": "8a9ba689-0c06-48ce-98c9-3e7f41776538@d8c69",
         "__expectedType__": "cc.Material"
       },
       {
-        "__uuid__": "dd9becee-d2a8-4453-8196-e167c85b74a9@17464",
+        "__uuid__": "fc34dbdb-f361-47e1-837e-3c9fbc7247ae@1f97b",
         "__expectedType__": "cc.Material"
       }
     ],

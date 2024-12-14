@@ -19,6 +19,9 @@ export class GenerateGround extends Component {
     @property(Prefab)
     cubePrefab: Prefab | null = null;  // 引用内置的Cube预制体
 
+    @property([Prefab])
+prefabs: Prefab[] = [];  // 存放 8 个不同的随机放置的预制体
+
     // 定义不同关卡的挖空位置数组
 // 定义不同关卡的挖空位置数组
 // 定义不同关卡的挖空位置数组
@@ -76,6 +79,7 @@ private levels = [
         // 获取当前关卡的挖空配置
         const levelIndex = Global.currentLevelIndex; // 从Global中获取当前关卡索引
         const emptyPositions = this.levels[levelIndex - 5] || []; // 根据关卡索引获取对应的挖空位置，确保索引有效
+
     
         for (let i = 0; i < this.gridSize; i++) {
             for (let j = 0; j < this.gridSize; j++) {
@@ -84,27 +88,37 @@ private levels = [
                 if (isEmpty) {
                     continue;  // 如果需要挖空则跳过
                 }
-    
+        
+                // 生成地面立方体
                 const cube = instantiate(this.cubePrefab!);
                 cube.setScale(this.cubeSize);
-
                 cube.setPosition(new Vec3(
                     startX + i * this.cubeSize.x,
                     this.groundStartPosition.y,
                     startZ + j * this.cubeSize.z
                 ));
-                //const collider = cube.addComponent(BoxCollider);
-                //collider.size = this.cubeSize;  // 设置大小
-                //collider.center = new Vec3(0, 0, 0);
-
-                 // 添加 RigidBody 并设置为静态类型
-                 //const rigidBody = cube.addComponent(RigidBody);
-                 //rigidBody.type = ERigidBodyType.STATIC;
-    
                 this.node.addChild(cube);
-    
-                // 输出调试信息
-                // console.log(`Created cube at position: ${cube.position.toString()} with collider size: ${collider.size.toString()}`);
+                /*
+                // 检查是否靠近挖空的位置（x 和 y 方向±2范围内）
+                const isNearHole = emptyPositions.some(pos => 
+                    Math.abs(i - (centerIndex + pos.iOffset)) <= 2 && Math.abs(j - (centerIndex + pos.jOffset)) <= 2
+                );
+                if (isNearHole) {
+                    continue; // 如果x、y坐标在挖空位置的±2范围内，则不放预制体
+                }
+        
+                // 以 40% 概率生成一个随机预制体
+                if (Math.random() > 0.6) {
+                    const randomPrefab = this.prefabs[Math.floor(Math.random() * this.prefabs.length)];
+                    const randomObject = instantiate(randomPrefab);
+                    randomObject.setPosition(new Vec3(
+                        startX + i * this.cubeSize.x,
+                        this.groundStartPosition.y + this.cubeSize.y,
+                        startZ + j * this.cubeSize.z
+                    ));
+                    this.node.addChild(randomObject);
+                }
+                    */
             }
         }
     }

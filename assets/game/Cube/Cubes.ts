@@ -1,4 +1,4 @@
-import { _decorator, Camera, clamp, Collider, Color, director, Label, Component, geometry, instantiate, Layers, MeshRenderer, Node, NodePool, PhysicsSystem, Prefab, Quat, randomRangeInt, RigidBody, SpriteAtlas, Tween, tween, UIOpacity, Vec3 } from 'cc';
+import { _decorator, Camera, clamp, Collider, Color, gfx, director, TweenSystem, Label, Component, geometry, instantiate, Layers, MeshRenderer, Node, NodePool, PhysicsSystem, Prefab, Quat, randomRangeInt, RigidBody, SpriteAtlas, Tween, tween, UIOpacity, Vec3 } from 'cc';
 import { Levels } from './Levels';
 import { Global } from '../../catalogasset/Script/Global';
 
@@ -28,8 +28,10 @@ export class Cubes extends Component {
   @property(Prefab)
   prefab6: Prefab = null; // 预制体6
   public operationTimeLabel: Label = null;
-  @property(Prefab)
-  uiPrefab: Prefab = null; // 用于显示通关后的UI预制体  
+  @property(Node)
+  activeNode: Node = null!; // 需要激活的目标节点 
+
+  private remainingCubesCount: number = 0; // 记录剩余的立方体数量
 
   private _level:number = 0;
   private _config:any = null;
@@ -68,7 +70,13 @@ export class Cubes extends Component {
     //测试代码
     this.resetLevel();
     this.faPai();
+    this.initializeGame();
   }
+  initializeGame() {
+    const totalCubes = this.node.children.length; // 假设所有的子节点都是游戏中的立方体
+    this.remainingCubesCount = totalCubes;
+    console.log(`初始化完成，立方体总数量为: ${this.remainingCubesCount}`);
+}
   
 
   protected onDestroy () {
@@ -178,6 +186,10 @@ removeFromWorld(node: Node) {
   }
   console.log(`正在移除节点: ${node.name}`);
   node.destroy(); // 确保节点已销毁
+  this.remainingCubesCount--;
+  if (this.remainingCubesCount <= 0) {
+    this.checkWinCondition();
+}
 }
 
   wakeUpOthers(node:Node){ //唤醒周围物体
@@ -510,9 +522,13 @@ getPai(name: string | null = null) {
         if (!node) break;
 
         // 设置固定的初始位置
-        let x = (i % 3 - 1) * 8; // 每行3个
+        let x = (i % 3 - 1) * 10; // 每行3个
         let z = (Math.floor(i / 3) - 1) * 10; // 行间距
-        node.position = new Vec3(x, 0, z);
+        node.position = new Vec3(x, 0, z+10);
+
+        // 遍历 Prefab 内的所有子节点，修改每个子节点的颜色
+    this._changePrefabColor(node, new Color(255, 255, 255, 255)); // 白色
+
 
         // 获取物体类型和旋转配置
         let type = parseInt(node.name);
@@ -546,35 +562,147 @@ getPai(name: string | null = null) {
 
     this._locked = false;
 }
+/**
+ * 递归修改节点及其子节点的颜色
+ * @param parentNode 父节点
+ * @param color 目标颜色
+ */
+private _changePrefabColor(parentNode: Node, color: Color) {
+  // 检查当前节点是否有 MeshRenderer 组件
+  const meshRenderer = parentNode.getComponent(MeshRenderer);
+  if (meshRenderer) {
+
+      // 修改材质的颜色
+      const material = meshRenderer.material;
+      material.setProperty('albedo', new Color(255, 255, 255, 255));
+  }
+
+  // 递归处理所有子节点
+  parentNode.children.forEach(child => {
+      this._changePrefabColor(child, color);
+  });
+}
 
   update(deltaTime: number) {
     this.operationTime += deltaTime;
     this.operationTimeLabel.string = `已用时: ${this.operationTime.toFixed(2)}s`;
   }
 
+
   selectCube(node: Node) {
-    if (this._locked) return false; // 避免重复选择
-    console.log(node.name)
-    if (this._threeErase.some(selectedNode => selectedNode === node)) return false; // 避免重复选择同一个立方体
+    if (this._locked) return false; // 锁定，不能选择新方块
 
-    this._threeErase.push(node);
+    console.log(`🟢 选中的方块: ${node.name}`);
 
-    // 使用 `tween` 逐步放大节点至 2
+    // 1️⃣ 检查是否已经选中过这个 node
+    const existingIndex = this._threeErase.indexOf(node);
+    
+    if (existingIndex !== -1) {
+        // 🎉 如果已经选择过，则取消选择
+        console.log(`🔴 取消选择方块: ${node.name}`);
+        
+        // 1️⃣ 从 _threeErase 中移除
+        this._threeErase.splice(existingIndex, 1);
+        
+        // 2️⃣ 重置透明度和 emissive 效果
+        node.children.forEach((child) => this.resetTransparencyAndEmissive(child));
+        
+        // 3️⃣ 还原缩放大小
+        tween(node)
+            .to(0.2, { scale: new Vec3(1.25, 1.25, 1.25) }) // 缩小到原始大小
+            .start();
+
+        return false; // 取消选择后不继续执行下面的选择逻辑
+    }
+
+    // 2️⃣ 如果当前 node 未被选中，执行选择逻辑
+    if (this._threeErase.length >= 3) {
+        console.warn('🚫 已经选中3个方块，不能继续选择');
+        return false; // 如果已经选择了3个方块，则不允许继续选择
+    }
+
+    // 🎉 选择当前的方块
+    node.children.forEach((child) => {
+        const meshRenderer = child.getComponent(MeshRenderer);
+        if (meshRenderer) {
+            const material = meshRenderer.material;
+            material.setProperty('emissive', new Color(255, 0, 0, 255)); // 发光效果
+            material.overridePipelineStates({
+                blendState: {
+                    targets: [
+                        {
+                            blend: true,
+                            blendSrc: gfx.BlendFactor.SRC_ALPHA,
+                            blendDst: gfx.BlendFactor.ONE_MINUS_SRC_ALPHA,
+                            blendEq: gfx.BlendOp.ADD,
+                        },
+                    ],
+                },
+            });
+
+            // 设定透明度
+            const color = material.getProperty('albedo', 0) as Color;
+            if (color instanceof Color) {
+                color.a = 230; // 半透明
+                material.setProperty('albedo', color);
+            } else {
+                console.warn('Albedo property is not a Color type, check the material configuration.');
+            }
+        }
+    });
+
+    this._threeErase.push(node); // 将选中的立方体放入已选列表
+
+    // 增加放大动画效果
     tween(node)
-        .to(0.2, { scale: new Vec3(1.5, 1.5, 1.5) }) // 放大动画，持续 0.2 秒
+        .to(0.2, { scale: new Vec3(1.5, 1.5, 1.5) }) // 放大
         .call(() => {
-            // 放大完成后检查是否已选择 3 个节点
             if (this._threeErase.length === 3) {
-                this._locked = true; // 临时锁定以进行检查
-                this.checkSelection(this._threeErase); // 检查是否满足消除条件
-
-                // 清空 `threeErase` 数组
-                this._threeErase = [];
+                console.log('🎉 3个方块已被选中，开始检查消除条件');
+                this._locked = true; // 暂时锁定以检查
+                this.checkSelection(this._threeErase); // 进行检查
+                this._threeErase = []; // 清空
             }
         })
         .start();
 
     return true;
+}
+
+resetTransparencyAndEmissive(node:Node) {
+  const meshRenderer = node.getComponent(MeshRenderer);
+  if (meshRenderer) {
+      const material = meshRenderer.material;
+      if (material) {
+          // 1️⃣ 取消透明度（将 alpha 设为 255）
+          const color = new Color(255,255,255,255);
+          if (color instanceof Color) {
+              color.a = 255; // 恢复 alpha 值（完全不透明）
+              material.setProperty('albedo', color);
+          }
+
+          // 2️⃣ 关闭透明混合 (Blend State)
+          material.overridePipelineStates({
+              blendState: {
+                  targets: [
+                      {
+                          blend: false, // 关闭混合
+                          blendSrc: gfx.BlendFactor.ONE, 
+                          blendDst: gfx.BlendFactor.ZERO,
+                          blendEq: gfx.BlendOp.ADD,
+                      },
+                  ],
+              },
+          });
+
+          // 3️⃣ 取消 Emissive 效果 (设置为黑色，黑色不会发光)
+          material.setProperty('emissive', new Color(0, 0, 0, 255)); // 自发光设置为黑色，默认表示不发光
+
+          console.log('Transparency and Emissive have been reset successfully.');
+      }
+  } else {
+      console.warn('MeshRenderer not found on the target node.');
+  }
 }
 
 checkSelection(selectedGroup: Node[]) {
@@ -585,16 +713,13 @@ checkSelection(selectedGroup: Node[]) {
   const allMatch = selectedGroup.every(node => node.name === firstPrefab);
 
   if (allMatch) {
-      // 三者一致，执行消除效果
-      selectedGroup.forEach(node => {
-        // 打印当前节点的名称
-          this.combineEffect(node.getWorldPosition());
-          this.removeFromWorld(node);
-          node.destroy();
-      });
-
-      this.checkWinCondition(); // 检查是否通关
-  } else {
+    // 三者一致，执行消除效果
+    selectedGroup.forEach((node, index) => {
+        this.combineEffect(node.getWorldPosition());
+        this.removeFromWorld(node);
+        
+    });
+} else {
       // 三者不一致，将每个节点逐渐缩小回原始大小
       selectedGroup.forEach(node => {
         const rectSelectNode = node.getChildByName("RectSelect");
@@ -604,6 +729,8 @@ checkSelection(selectedGroup: Node[]) {
         console.log(`Destroying RectSelect node in ${node.name}`);
         rectSelectNode.destroy();
     }
+    node.children.forEach((child, index) => {
+      this.resetTransparencyAndEmissive(child)});
           tween(node)
               .to(0.2, { scale: new Vec3(1.25, 1.25, 1.25) }) // 缩小到原始大小
               .start();
@@ -616,26 +743,17 @@ checkSelection(selectedGroup: Node[]) {
 }
 
 checkWinCondition() {
-  this.scheduleOnce(() => {
-      if (this.node.children.length === 0) {
-          console.log("游戏胜利：已消除所有立方体！");
+  console.log("游戏胜利：已消除所有立方体！");
 
-          const canvasNode = director.getScene().getChildByName('UI');
-          if (canvasNode) {
-              const uiInstance = instantiate(this.uiPrefab);
-              uiInstance.setParent(canvasNode);
-              uiInstance.setPosition(0, 0, 0); 
-              uiInstance.setSiblingIndex(canvasNode.children.length - 1);
-          } else {
-              console.error("Canvas not found in the current scene!");
-          }
-      } else {
-          console.log("当前剩余子节点数量:", this.node.children.length);
-          this.node.children.forEach((child, index) => {
-              console.log(`子节点[${index}]: ${child.name}, active: ${child.active}`);
-          });
-      }
-  }, 0.1); // 延迟 0.1 秒再检查
+  // 暂停 2D 物理系统
+  PhysicsSystem.instance.enable = false;
+
+  // 停止所有定时器
+  this.unscheduleAllCallbacks();
+  
+  // 仅显示胜利界面，并确保其可交互
+  this.activeNode.setScale(2,2,2);
+  this.activeNode.active = true;
 }
 }
 

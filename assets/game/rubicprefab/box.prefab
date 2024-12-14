@@ -117,11 +117,11 @@
     },
     "_materials": [
       {
-        "__uuid__": "647b619d-0d2d-4bdd-84ce-f873ecd9adf8@e4014",
+        "__uuid__": "63e9fd4e-b187-4d94-be55-c1fd430c7414@e4014",
         "__expectedType__": "cc.Material"
       },
       {
-        "__uuid__": "647b619d-0d2d-4bdd-84ce-f873ecd9adf8@99038",
+        "__uuid__": "38dec8e1-ce77-45e0-ab83-468994d66514@99038",
         "__expectedType__": "cc.Material"
       }
     ],
@@ -190,6 +190,7 @@
       "__id__": 0
     },
     "fileId": "e0IYQ+s3JXepO5aZpZpw+R",
+    "instance": null,
     "targetOverrides": null
   }
 ]

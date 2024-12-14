@@ -57,6 +57,7 @@ export class CollisionHandler extends Component {
                     // 将 UI 预制体设为 Canvas 的子节点，并放在最顶层
                     uiInstance.setParent(canvasNode);
                     uiInstance.setPosition(0, 0, 0); // 设置位置
+                    uiInstance.setScale(2,2,2);
     
                     // 确保 UI 预制体在 Canvas 的最顶层
                     uiInstance.setSiblingIndex(canvasNode.children.length - 1);

@@ -253,7 +253,7 @@ export class RubiksCube extends Component {
         prefabInstance.setParent(this.node);
         prefabInstance.setPosition(position);
         prefabInstance.setRotation(rotation);
-        prefabInstance.setScale(0.6,0.6,0.6);
+        prefabInstance.setScale(0.55,0.55,0.55);
         this.extraCubes.push(prefabInstance);
     }
     /*
@@ -498,6 +498,8 @@ export class RubiksCube extends Component {
     
         this.selectLayer(this.selectedCube, this.currentAxis);
         this.rotateLayer();
+        EventSystem.emit('swipeHandled');
+        
     }
 
     // 判断两个立方体之间的位置关系

@@ -122,7 +122,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": 0.1,
       "y": 0,
       "z": 0
     },
@@ -218,7 +218,7 @@
     "node": {
       "__id__": 2
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 7
     },
@@ -374,7 +374,7 @@
     "node": {
       "__id__": 9
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 14
     },
@@ -437,8 +437,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -2,
-      "y": -1,
+      "x": -2.1,
+      "y": -1.1,
       "z": 0
     },
     "_lrot": {
@@ -533,7 +533,7 @@
     "node": {
       "__id__": 16
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 21
     },
@@ -596,7 +596,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -2,
+      "x": -2.1,
       "y": 0,
       "z": 0
     },
@@ -692,7 +692,7 @@
     "node": {
       "__id__": 23
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 28
     },
@@ -755,8 +755,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -2,
-      "y": -2,
+      "x": -2.1,
+      "y": -2.2,
       "z": 0
     },
     "_lrot": {
@@ -851,7 +851,7 @@
     "node": {
       "__id__": 30
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 35
     },
@@ -914,8 +914,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -2,
-      "y": -3,
+      "x": -2.1,
+      "y": -3.3,
       "z": 0
     },
     "_lrot": {
@@ -1010,7 +1010,7 @@
     "node": {
       "__id__": 37
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 42
     },
@@ -1073,9 +1073,9 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -2,
-      "y": -3,
-      "z": 1
+      "x": -2.1,
+      "y": -3.3,
+      "z": 1.1
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1169,7 +1169,7 @@
     "node": {
       "__id__": 44
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 49
     },
@@ -1232,9 +1232,9 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -2,
-      "y": -3,
-      "z": 2
+      "x": -2.1,
+      "y": -3.3,
+      "z": 2.2
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1328,7 +1328,7 @@
     "node": {
       "__id__": 51
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 56
     },
@@ -1391,9 +1391,9 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -2,
-      "y": -3,
-      "z": 3
+      "x": -2.1,
+      "y": -3.3,
+      "z": 3.3
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1487,7 +1487,7 @@
     "node": {
       "__id__": 58
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 63
     },
@@ -1550,9 +1550,9 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -2,
-      "y": -4,
-      "z": 3
+      "x": -2.1,
+      "y": -4.4,
+      "z": 3.3
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1646,7 +1646,7 @@
     "node": {
       "__id__": 65
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 70
     },
@@ -1699,7 +1699,7 @@
       "__id__": 73
     },
     "_group": 2,
-    "_type": 1,
+    "_type": 2,
     "_mass": 1,
     "_allowSleep": true,
     "_linearDamping": 0.4,
@@ -1731,7 +1731,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 75
     },
@@ -1766,7 +1766,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 77
     },
@@ -1801,7 +1801,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 79
     },
@@ -1836,7 +1836,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 81
     },

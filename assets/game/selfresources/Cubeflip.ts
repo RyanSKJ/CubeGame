@@ -177,9 +177,13 @@ const data = {
             default:
                 return; // 如果按键无效，直接返回
         }
+        if(targetPosition.x == -1.5 && targetPosition.z == -2){
+            return;
+        }
     
         // 检查目标位置是否在棋盘范围内
         if (targetPosition.x < minX || targetPosition.x > maxX || targetPosition.z < minZ || targetPosition.z > maxZ) {
+            
             console.log("目标位置超出棋盘范围，操作被取消！");
             return;
         }
