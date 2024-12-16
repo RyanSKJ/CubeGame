@@ -30,7 +30,7 @@ export class RotateAndMoveCubeOnKey extends Component {
         systemEvent.on(SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
 
         this.placeCubeAboveTile(3, 2);  // 假设您想要将立方体放在第一行第一列的格子正上方
-        
+
         this.initialEulerAngles = this.node.eulerAngles.clone();
 
         this.isTiming = true;  // 开始计时
@@ -55,34 +55,41 @@ export class RotateAndMoveCubeOnKey extends Component {
         const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
         const username = localStorage.getItem('currentUsername'); // 从localStorage中获取用户名
         const sessionToken = localStorage.getItem('sessionToken'); // 从localStorage中获取token
-
+    
         if (!username || !sessionToken) {
             console.error('No username or sessionToken found.');
             return;
         }
-
-        // 获取当前时间
-        // 获取当前时间的北京时间
-const now = new Date();
-const offset = 8 * 60 * 60 * 1000; // UTC+8 的时间偏移（毫秒）
-const beijingTime = new Date(now.getTime() + offset).toISOString().replace('T', ' ').slice(0, 19); // 格式化为 "YYYY-MM-DD HH:mm:ss"
-
-
+    
+        // 辅助函数，确保padStart兼容性
+        function padStart(value: string | number, targetLength: number, padChar: string = '0'): string {
+            const str = String(value);
+            if (str.length >= targetLength) {
+                return str;
+            }
+            return padChar.repeat(targetLength - str.length) + str;
+        }
+    
+        // 获取当前时间的北京时间，精确到毫秒
+        const now = new Date();
+        const offset = 8 * 60 * 60 * 1000; // UTC+8 的时间偏移（毫秒）
+        const beijingTime = new Date(now.getTime() + offset);
+        const formattedTime = `${beijingTime.getFullYear()}-${padStart(beijingTime.getMonth() + 1, 2)}-${padStart(beijingTime.getDate(), 2)} ${padStart(beijingTime.getHours(), 2)}:${padStart(beijingTime.getMinutes(), 2)}:${padStart(beijingTime.getSeconds(), 2)}.${padStart(beijingTime.getMilliseconds(), 3)}`;
+    
         // 获取当前关卡（假设从 Global.currentindex 中获取）
         const level = Global.currentLevelIndex;
-
+    
         // 准备发送的数据
-        // 准备发送的数据
-const data = {
-    tableName: 'game1', // 表名
-    data: {
-        Usr_ID: username,
-        Timestep: beijingTime, // 使用北京时间
-        Level: level,
-        Operation: operation,
-    },
-};
-
+        const data = {
+            tableName: 'game1', // 表名
+            data: {
+                Usr_ID: username,
+                Timestep: formattedTime, // 使用精确到毫秒的北京时间
+                Level: level,
+                Operation: operation,
+            },
+        };
+    
         try {
             const response = await fetch(apiUrl, {
                 method: 'POST',
@@ -92,11 +99,11 @@ const data = {
                 },
                 body: JSON.stringify(data),
             });
-
+    
             if (!response.ok) {
                 throw new Error('Failed to log player action');
             }
-
+    
             const result = await response.json();
             console.log('Player action logged successfully:', result);
         } catch (error) {
@@ -114,17 +121,17 @@ const data = {
         // 获取触摸终点
         const touch = event.getTouches()[0];
         const touchEndPos = new Vec3(touch.getLocationX(), touch.getLocationY(), 0);
-    
+
         // 计算滑动的方向和距离
         const deltaX = touchEndPos.x - this.touchStartPos.x;
         const deltaY = touchEndPos.y - this.touchStartPos.y;
-    
+
         const swipeDistance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
         if (swipeDistance < this.minSwipeDistance) {
             console.log("滑动距离不足，忽略事件");
             return; // 如果距离不足，直接返回
         }
-    
+
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
             // 左右滑动
             if (deltaX > 0) {
@@ -147,7 +154,7 @@ const data = {
             //this.operationCount++;
             this.operationTime = 0;  // Reset the operation time for each new operation
         }
-    
+
         // 定义棋盘范围
         const boardWidth = 4; // 棋盘宽度（列数）
         const boardHeight = 5; // 棋盘高度（行数）
@@ -156,11 +163,11 @@ const data = {
         const maxX = (boardWidth * tileSize) / 2;
         const minZ = -(boardHeight * tileSize) / 2;
         const maxZ = (boardHeight * tileSize) / 2;
-    
+
         // 计算目标位置
         const currentPosition = this.node.position.clone();
         let targetPosition: Vec3;
-    
+
         switch (event.keyCode) {
             case KeyCode.KEY_A:
                 targetPosition = currentPosition.clone().add(new Vec3(-tileSize, 0, 0));
@@ -177,17 +184,17 @@ const data = {
             default:
                 return; // 如果按键无效，直接返回
         }
-        if(targetPosition.x == -1.5 && targetPosition.z == -2){
+        if (targetPosition.x == -1.5 && targetPosition.z == -2) {
             return;
         }
-    
+
         // 检查目标位置是否在棋盘范围内
         if (targetPosition.x < minX || targetPosition.x > maxX || targetPosition.z < minZ || targetPosition.z > maxZ) {
-            
+
             console.log("目标位置超出棋盘范围，操作被取消！");
             return;
         }
-    
+
         // 执行翻滚动作
         if (!this.isAnimating) {
             let operation = '';
@@ -245,7 +252,7 @@ const data = {
                 this.isAnimating = false;
             }
         }
-        if(this.isTiming){
+        if (this.isTiming) {
             this.operationTime += deltaTime;
             //this.operationTimeLabel.string = `已用时: ${this.operationTime.toFixed(2)}s`;
             //this.operationCountLabel.string = `翻滚次数: ${this.operationCount}`;
@@ -257,11 +264,11 @@ const data = {
         const cols = 4; // 假设棋盘的列数
         const rows = 5; // 假设棋盘的行数
         const tileSize = 1; // 假设棋盘格子的大小为 1
-    
+
         const posX = col * tileSize - (cols * tileSize) / 2 + tileSize / 2;
         const posY = tileSize / 2;  // 立方体位于格子的正上方
         const posZ = row * tileSize - (rows * tileSize) / 2 + tileSize / 2;
-    
+
         this.node.setPosition(new Vec3(posX, 0, posZ));
     }
 

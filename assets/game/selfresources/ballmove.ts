@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Vec3, input, Input, EventTarget, KeyCode, tween,Button } from 'cc';
 import { EventSystem } from './RubiksCube';
+import {Global} from '../../catalogasset/Script/Global'
 export const EventSysteml = new EventTarget();
 const { ccclass,property } = _decorator;
 
@@ -69,6 +70,7 @@ private cooldownDuration: number = 0.5; // 冷却时间（秒）
     
         // 使用 Node 的当前位置
         const currentPosition = this.node.getPosition();
+
     
         // 根据球体所在的平面和点击的面判断移动方向
         if (this.isApproximatelyEqual(currentPosition.y, 2.2) && plane === 'XOZ') {
@@ -125,6 +127,15 @@ private cooldownDuration: number = 0.5; // 冷却时间（秒）
     
         // 计算新的位置
         let newPosition = currentPosition.clone().add(movement);
+        console.log(`🚀 目标位置: ${newPosition.toString()}`);
+
+        const valid = this.isPositionValid(newPosition);
+    const occupied = this.isPositionOccupied(newPosition);
+
+
+    this.logPlayerAction('baxmove',undefined,undefined,undefined,
+        currentPosition,occupied,newPosition,relation,plane
+    )
     
         // 检查新位置是否合法并未被占用
         if (this.isPositionValid(newPosition) && !this.isPositionOccupied(newPosition)) {
@@ -141,6 +152,102 @@ private cooldownDuration: number = 0.5; // 冷却时间（秒）
             console.log("Invalid or occupied position, shaking node.");
             this.shakeNode(); // 如果目标位置不合法或已被占用，执行震动效果
             EventSysteml.emit('changeBox', MoveFlag); // 通知其他组件移动失败
+        }
+    }
+
+    async logPlayerAction(
+        Operation: string,
+        Cube_Axis?: string,
+        Cube_Dimention?: number, 
+        Cube_Direction?: Vec3, 
+        Object_xyz?: Vec3, 
+        Object_judge?: boolean, 
+        Flag_xyz?: Vec3,
+        Object_direction?: string,
+        Object_panel?: string
+    ) {
+        const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
+    
+        // 1️⃣ 获取 localStorage 数据
+        const username = localStorage.getItem('currentUsername');
+        const sessionToken = localStorage.getItem('sessionToken');
+    
+        // 2️⃣ 确保 localStorage 中的用户名和 token 存在
+        if (!username) {
+            console.error('❌ 错误：用户名未找到。请确保玩家已正确登录。');
+            return;
+        }
+        if (!sessionToken) {
+            console.error('❌ 错误：Session token 未找到。请确保玩家已正确认证。');
+            return;
+        }
+    
+        // 3️⃣ 获取当前时间（北京时间，精确到毫秒）
+        function padStart(value: string | number, targetLength: number, padChar: string = '0'): string {
+            const str = String(value);
+            return str.length >= targetLength ? str : padChar.repeat(targetLength - str.length) + str;
+        }
+    
+        const now = new Date();
+        const offset = 8 * 60 * 60 * 1000; // UTC+8 的时间偏移（毫秒）
+        const beijingTime = new Date(now.getTime() + offset);
+        const formattedTime = `${beijingTime.getFullYear()}-${padStart(beijingTime.getMonth() + 1, 2)}-${padStart(beijingTime.getDate(), 2)} ${padStart(beijingTime.getHours(), 2)}:${padStart(beijingTime.getMinutes(), 2)}:${padStart(beijingTime.getSeconds(), 2)}.${padStart(beijingTime.getMilliseconds(), 3)}`;
+    
+        // 4️⃣ 获取当前的关卡
+        const level = Global.currentLevelIndex ?? 0; // 确保 Level 不会是 undefined
+    
+        // 5️⃣ 参数校验：判断提供哪组参数
+        const hasCubeParams = Cube_Dimention !== undefined && Cube_Direction !== undefined;
+        const hasObjectParams = Object_xyz !== undefined && Object_judge !== undefined && Flag_xyz !== undefined && Object_direction !== undefined && Object_panel !== undefined;
+    
+        if (!hasCubeParams && !hasObjectParams) {
+            console.error('❌ 错误：未提供完整的参数。请提供 Cube_Dimention 和 Cube_Direction，或者 Object_xyz, Object_judge 和 Flag_xyz。');
+            return;
+        }
+    
+        // 6️⃣ 组织请求数据
+        const data: any = {
+            tableName: 'game3',
+            data: {
+                Usr_ID: username,          // 玩家ID
+                Timestep: formattedTime,   // 时间戳（北京时间，精确到毫秒）
+                Level: level,              // 当前关卡
+                Operation: Operation,      // 操作类型
+            },
+        };
+    
+        // 根据提供的参数进行数据填充
+        if (hasCubeParams) {
+            data.data.Cube_Axis = Cube_Axis;
+            data.data.Cube_Dimention = Cube_Dimention;
+            data.data.Cube_Direction = Cube_Direction ? Cube_Direction.toString() : null;
+        } else if (hasObjectParams) {
+            data.data.Object_xyz = Object_xyz ? Object_xyz.toString() : null;
+            data.data.Object_judge = Object_judge;
+            data.data.Flag_xyz = Flag_xyz ? Flag_xyz.toString() : null;
+            data.data.Object_direction = Object_direction;
+            data.data.object_panel = Object_panel;
+        }
+    
+        // 7️⃣ 发送请求
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionToken}`,
+                },
+                body: JSON.stringify(data),
+            });
+    
+            if (!response.ok) {
+                throw new Error('❌ 错误：无法记录玩家操作');
+            }
+    
+            const result = await response.json();
+            console.log('✅ 玩家操作记录成功：', result);
+        } catch (error) {
+            console.error('❌ 记录玩家操作时发生错误：', error);
         }
     }
 
