@@ -1,4 +1,5 @@
 import { _decorator, AudioClip, Component, Node, Prefab, SpriteFrame } from 'cc';
+
 const { ccclass, property } = _decorator;
 
 /**
@@ -14,6 +15,7 @@ export const AssetList = {
         AdBox: "AdBox",
         EndBox: "EndBox",
         ShopBox: "ShopBox",
+        Nobox: "Noboard"
     },
     Asset: {
         Prefabs: { path: "Prefab", type: Prefab },
@@ -31,8 +33,13 @@ export const PropList = {
     Speed: "arrowbullte"
 }
 
+
+
 @ccclass('Global')
 export class Global {
+
+    public static LoadProgress: number = 0; // 全局加载进度
+
 
     //是否在微信环境中
     static IsWx: boolean = false;
@@ -40,8 +47,7 @@ export class Global {
     //是否是debug模式
     static IsDebug: boolean = true;
 
-    //加载进度
-    static LoadProgress: number = 0;
+
 
     //游戏最底部
     static GameBottom: number = -600;
@@ -59,6 +65,8 @@ export class Global {
 
     //目前第几关
     static currentLevelIndex: number = 0;
+
+    static isAI: number = 0;
 
 }
 

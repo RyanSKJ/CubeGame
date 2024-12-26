@@ -1,4 +1,4 @@
-import { _decorator, Component, EventTarget, physics, Node, RigidBody, find, tween, Quat, ICollisionEvent, Collider, input, Input, EventMouse, EventTouch, Label, Vec3, instantiate, Prefab, Camera, EventKeyboard, KeyCode, Button, director, Canvas, UITransform, view, Layers } from 'cc';
+import { _decorator, Component, EventTarget, physics, Node, RigidBody, find, screen, PhysicsSystem, tween, Quat, ICollisionEvent, Collider, input, Input, EventMouse, EventTouch, Label, Vec3, instantiate, Prefab, Camera, EventKeyboard, KeyCode, Button, director, Canvas, UITransform, view, Layers } from 'cc';
 import { RotateUtil } from './RotateUtil'; // 引入自定义的 RotateUtil
 import { Global } from '../../catalogasset/Script/Global';
 import { EndBox } from '../../catalogasset/Script/TopLoad/EndBox';
@@ -6,10 +6,11 @@ import { EndBox } from '../../catalogasset/Script/TopLoad/EndBox';
 
 const { ccclass, property } = _decorator;
 interface RotationChange {
-    x:number;
-    y:number;
+    x: number;
+    y: number;
     time: number; // 当前段的旋转角度变化
 }
+
 
 interface AngleData {
     Axis: 'X' | 'Y' | 'Z';       // 旋转的轴
@@ -20,10 +21,29 @@ interface AngleData {
 @ccclass('Controller')
 export class Controller extends Component {
 
+
+
+
+
     private touchPath: Array<{ x: number, y: number, time: number }> = [];
     private startTime: number = 0;
     private lastDirectionX: number = 0;
-private lastDirectionY: number = 0;
+    private lastDirectionY: number = 0;
+
+    private maxAngle: number | null = null; // 当前旋转方向的最大角度
+    private minAngle: number | null = null; // 当前旋转方向的最小角度
+    private currentDirection: "clockwise" | "counterclockwise" | null = null; // 当前旋转方向
+    private lastAngle: number = 0; // 上一帧的角度
+    private totalRotation: number = 0; // 总旋转角度
+    private segments: Array<{
+        direction: "clockwise" | "counterclockwise";
+        startAngle: number;
+        endAngle: number;
+        angleChange: number;
+        duration: number;
+    }> = []; // 记录旋转分段
+    private directionThreshold: number = 5; // 方向切换的角度阈值
+
 
     @property(Label)
     public operationCountLabel: Label = null;
@@ -32,6 +52,8 @@ private lastDirectionY: number = 0;
 
     @property({ type: Prefab })
     prefab: Prefab = null;  // 要实例化和旋转的预制体
+    @property({ type: Prefab })
+    prefab_large: Prefab = null;  // 要实例化和旋转的预制体
 
     @property({ type: Camera })
     camera: Camera = null;  // 摄像机对象
@@ -51,12 +73,15 @@ private lastDirectionY: number = 0;
     @property({ type: Prefab })
     coinPrefab: Prefab = null;  // 金币的预制体
 
-    private totalRotation: number = 0; // 总的旋转角度
+    @property(Node)
+    public targetNode: Node = null;
+
+
     private rotationChanges: RotationChange[] = []; // 记录每一段旋转变化
-    private lastAngle: number = 0; // 上一帧的角度
+
     private lastDirection: number = 0; // 记录上一次的旋转方向 (+1 表示顺时针，-1 表示逆时针)
 
-    private maxAngle: number = 0;
+
 
 
     public tutorchange = false;
@@ -96,15 +121,20 @@ private lastDirectionY: number = 0;
     private childColliders: Collider[] = []; // 存储所有子物体的碰撞器组件
     private previousChildYPositions: number[] = []; // 存储子物体的前一帧的Y坐标
 
+    @property(Node)
+    public targetColliderNode: Node | null = null; // 用于检测碰撞的目标节点
+
+    private collisionStates: boolean[] = []; // 用于记录每个子物体是否发生碰撞
+
+
+
     start() {
 
-        // 实例化预制体并添加到场景中
-        if (this.prefab) {
-            //physics.PhysicsSystem.instance.fixedTimeStep = 1 / 120;
-            this.instantiatedNode = instantiate(this.prefab);
-            this.node.addChild(this.instantiatedNode); // 将实例化的预制体添加到当前节点
-            this.instantiatedNode.setPosition(0, 0, 0); // 设置实例化节点的位置
-        }
+        PhysicsSystem.instance.gravity = new Vec3(0, -9.8, 0);
+        this.instantiatedNode = instantiate(this.prefab_large);
+        this.node.addChild(this.instantiatedNode); // 将实例化的预制体添加到当前节点
+        this.instantiatedNode.setPosition(0, 0, 0); // 设置实例化节点的位置
+
 
         // 缓存子物体的 Collider 组件（提高性能，避免每帧调用 getComponentsInChildren）
         if (this.instantiatedNode) {
@@ -144,22 +174,23 @@ private lastDirectionY: number = 0;
         input.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
         input.on(Input.EventType.TOUCH_END, this.onTouchEnd, this);
 
-        // 监听键盘按下和抬起事件
-        input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
-        input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
 
-        // 设置按钮点击事件
-        if (this.moveUpButton) {
-            this.moveUpButton.node.on(Input.EventType.TOUCH_START, this.onMoveUpButtonPress, this);
-            this.moveUpButton.node.on(Input.EventType.TOUCH_END, this.onMoveUpButtonRelease, this);
-            this.moveUpButton.node.on(Input.EventType.TOUCH_CANCEL, this.onMoveUpButtonRelease, this); // 处理取消事件
-        }
+
+
+        // 添加 moveDownButton 的事件监听器
         if (this.moveDownButton) {
             this.moveDownButton.node.on(Input.EventType.TOUCH_START, this.onMoveDownButtonPress, this);
             this.moveDownButton.node.on(Input.EventType.TOUCH_END, this.onMoveDownButtonRelease, this);
-            this.moveDownButton.node.on(Input.EventType.TOUCH_CANCEL, this.onMoveDownButtonRelease, this); // 处理取消事件
+            this.moveDownButton.node.on(Input.EventType.TOUCH_CANCEL, this.onMoveDownButtonRelease, this);
+        }
+
+        if (this.moveUpButton) {
+            this.moveUpButton.node.on(Input.EventType.TOUCH_START, this.onMoveUpButtonPress, this);
+            this.moveUpButton.node.on(Input.EventType.TOUCH_END, this.onMoveUpButtonRelease, this);
+            this.moveUpButton.node.on(Input.EventType.TOUCH_CANCEL, this.onMoveUpButtonRelease, this);
         }
     }
+
 
     onCollisionEnter(event: ICollisionEvent) {
         if (this.hasCollided) return;
@@ -195,16 +226,26 @@ private lastDirectionY: number = 0;
 
     onMoveDownButtonRelease() {
         if (this.instantiatedNode) {
+
             const childColliders = this.instantiatedNode.getComponentsInChildren(Collider);
             childColliders.forEach((collider, index) => {
 
                 // 获取子节点的刚体组件
                 const rigidBody = collider.node.getComponent(RigidBody);
+                console.log(rigidBody.type)
                 if (rigidBody) {
                     rigidBody.type = RigidBody.Type.DYNAMIC; // 将子节点的刚体设置为 KINEMATIC（运动型刚体）
                     rigidBody.useGravity = true; // 初始状态不受重力影响
+
                 }
             });
+            this.logPlayerAction(
+                "Release",
+
+                undefined,
+                undefined,
+                1, undefined
+            );
         }
     }
 
@@ -235,233 +276,28 @@ private lastDirectionY: number = 0;
         this.snapRotationToClosest90Degrees();
     }
 
-    onTouchStart(event: EventTouch) {
-        this._isRotating = true;
-
-        /*
-        this.rotationChanges = [];
-        this.totalRotation = 0;
-        this.lastAngle = 0;
-        this.lastDirection = 0;
-        this.currentAxis = null;
-        this.finalRotation = 0; // 新增变量，记录最终的旋转角度
-        */
-        this.currentAxis = null;
-
-        this.startTime = Date.now(); // 记录触摸的起始时间
-        this.touchPath = []; // 📌 触摸路径 (x, y, time) 的数组
-
-        const touch = event.getTouches()[0];
-        const x = touch.getLocationX();
-        const y = touch.getLocationY();
-
-        /*const eulerAngles = this.instantiatedNode.eulerAngles;
-        this.startAngleX = this.normalizeAngle(eulerAngles.x);
-        this.startAngleY = this.normalizeAngle(eulerAngles.y);
-        this.startAngleZ = this.normalizeAngle(eulerAngles.z);
-        */
-
-
-        // 记录触摸路径的第一个点
-        this.touchPath.push({
-            x,
-            y,
-            time: 0 // 相对时间为 0
-        });
-
-        this._lastMousePos.set(x, y, 0);
-        this._lastMousePos.set(touch.getLocationX(), touch.getLocationY(), 0);
-    }
-
-    onTouchMove(event: EventTouch) {
-        if (!this._isRotating || !this.instantiatedNode) return;
-
-        const touch = event.getTouches()[0];
-    const x = touch.getLocationX();
-    const y = touch.getLocationY();
-    const currentTime = Date.now() - this.startTime; // 计算相对时间（从 touchstart 起的时间）
 
 
 
-    // 1️⃣ **计算 deltaX 和 deltaY**
-    let deltaX = x - this._lastMousePos.x;
-    let deltaY = y - this._lastMousePos.y;
-
-    // 2️⃣ **计算当前的方向**
-    const currentDirectionX = deltaX > 5 ? 1 : deltaX < -5 ? -1 : 0;
-    const currentDirectionY = deltaY > 5 ? 1 : deltaY < -5 ? -1 : 0;
-
-    // 3️⃣ **路径记录逻辑**
-    if (!this.currentAxis) {
-        // 🌐 未锁定的状态，记录所有路径点
-        const lastPoint = this.touchPath[this.touchPath.length - 1];
-        if (!lastPoint || lastPoint.x !== x || lastPoint.y !== y) {
-            this.touchPath.push({ 
-                x, 
-                y, 
-                time: currentTime 
-            });
-        }
-    } else {
-        if (
-            this.currentAxis === 'X' && 
-            currentDirectionY !== 0 && 
-            currentDirectionY !== this.lastDirectionY
-        ) {
-            this.touchPath.push({ 
-                x, 
-                y, 
-                time: currentTime 
-            });
-        } 
-        else if (
-            this.currentAxis === 'Y' && 
-            currentDirectionX !== 0 && 
-            currentDirectionX !== this.lastDirectionX
-        ) {
-            this.touchPath.push({ 
-                x, 
-                y, 
-                time: currentTime 
-            });
-        } 
-        else if (
-            this.currentAxis === 'Z' && 
-            currentDirectionY !== 0 && 
-            currentDirectionY !== this.lastDirectionY
-        ) {
-            this.touchPath.push({ 
-                x, 
-                y, 
-                time: currentTime 
-            });
-            console.log(`📌 Z轴旋转，记录路径点: x=${x}, y=${y}, time=${currentTime}`);
-        }
-    }
-
-    // 4️⃣ **更新方向状态**
-    this.lastDirectionX = currentDirectionX;
-    this.lastDirectionY = currentDirectionY;
-    
-
-
-        // 检查滑动距离是否达到设定阈值
-        if (!this.currentAxis && Math.sqrt(deltaX * deltaX + deltaY * deltaY) >= this.minSwipeDistance) {
-            const horizontalThreshold = 2; // 水平滑动的容忍范围
-
-            if (Math.abs(deltaY) < horizontalThreshold) {
-                // 水平滑动，绕 Y 轴旋转
-                this.currentAxis = 'Y';
-            } else if (deltaX > 0 && deltaY > 0) {
-                this.currentAxis = 'Z'; // 左下到右上，Z轴正方向旋转
-            } else if (deltaX < 0 && deltaY < 0) {
-                this.currentAxis = 'Z'; // 右上到左下，Z轴负方向旋转
-            } else if (deltaX > 0 && deltaY < 0) {
-                this.currentAxis = 'X'; // 右下到左上，X轴正方向旋转
-            } else if (deltaX < 0 && deltaY > 0) {
-                this.currentAxis = 'X'; // 左上到右下，X轴负方向旋转
-            }
-            // ✅ 确定当前轴后，记录该轴的起始角度
-            if (!this.currentAxis) {
-                const eulerAngles = this.instantiatedNode.eulerAngles;
-                this.lastAngle = this.getAxisAngle(eulerAngles, this.currentAxis);
-            }
-        }
-
-        // 获取摄像机的世界矩阵以定义旋转轴
-        let worldMatrix = this.camera.node.worldMatrix;
-        let cameraRight = Vec3.RIGHT.clone(); // X轴方向
-        let cameraUp = Vec3.UP.clone();      // Y轴方向
-        let cameraForward = Vec3.FORWARD.clone(); // Z轴方向
-
-        let rotationAmount = Math.sqrt(deltaX * deltaX + deltaY * deltaY) * this._rotationSpeed;
-
-        // 根据锁定的 currentAxis 执行旋转
-        if (this.currentAxis === 'Z') {
-            RotateUtil.rotateAround(this.instantiatedNode, cameraForward, deltaY > 0 ? rotationAmount : -rotationAmount);
-        } else if (this.currentAxis === 'X') {
-            RotateUtil.rotateAround(this.instantiatedNode, cameraRight, deltaY > 0 ? -rotationAmount : rotationAmount);
-        } else if (this.currentAxis === 'Y') {
-            RotateUtil.rotateAround(this.instantiatedNode, cameraUp, deltaX > 0 ? rotationAmount : -rotationAmount);
-        }
-
-        /*
-        const eulerAngles = this.instantiatedNode.eulerAngles;
-        let currentAngle = this.getAxisAngle(eulerAngles, this.currentAxis);
-
-        // 3️⃣ **计算旋转的变化量**
-        let delta = ((currentAngle - this.lastAngle + 540) % 360) - 180;
-        const currentDirection = delta > 0 ? 1 : -1;
-
-        // 6️⃣ **累加旋转的变化量**
-        this.totalRotation += Math.abs(delta);
-        this.lastAngle += delta;
-
-        this.maxAngle = Math.max(this.maxAngle, currentAngle);
-
-        // 记录旋转方向的变化
-        if (Math.abs(currentAngle - this.maxAngle) > 20) {
-            this.rotationChanges.push({
-                direction: this.lastDirection > 0 ? 'clockwise' : 'counterclockwise',
-                angle: Math.abs(this.lastAngle)
-            });
-            console.log('📌 记录了当前段的旋转:', this.rotationChanges);
-            this.lastAngle = 0; // ⚠️ 方向变化，重置当前段的累计角度
-            this.maxAngle = currentAngle; // ⚠️ 方向变化，重置最大旋转角
-        }
-
-
-        this.lastDirection = currentDirection;
-        */
-        this._lastMousePos.set(touch.getLocationX(), touch.getLocationY(), 0);
-
-    }
-
-    onTouchEnd(event: EventTouch) {
+    resetState() {
         this._isRotating = false;
-
-        const touch = event.getTouches()[0];
-        const x = touch.getLocationX();
-        const y = touch.getLocationY();
-        const currentTime = Date.now() - this.startTime; // 计算相对时间（从 touchstart 起的时间）
-
-        // 记录触摸路径的最后一个点
-        this.touchPath.push({
-            x,
-            y,
-            time: currentTime
-        });
-
-        //console.log('📡 触摸路径 (x, y, time):', this.touchPath);
-
-        /*
-        if (Math.abs(this.lastAngle) > 20) {
-            this.rotationChanges.push({
-                direction: this.lastDirection > 0 ? 'clockwise' : 'counterclockwise',
-                angle: Math.abs(this.lastAngle)
-            });
-        }
-
-        // 计算最终的净旋转角度
-        const eulerAngles = this.instantiatedNode.eulerAngles;
-        const currentAngle = this.getAxisAngle(eulerAngles, this.currentAxis);
-        let startAngle = this[`startAngle${this.currentAxis}`];
-        this.finalRotation = this.normalizeAngle(currentAngle - startAngle);
-
-
-        console.log(`✅ 总旋转角度: ${this.totalRotation}°`);
-        console.log(`✅ 最终的净旋转角度: ${this.finalRotation}°`);
-        console.log(`📡 发送旋转数据: 轴 = ${this.currentAxis}, 变化 =`, this.rotationChanges);
-
         this.currentAxis = null;
-        this.totalRotation = 0;
-        this.rotationChanges = [];
         this.lastAngle = 0;
-        this.lastDirection = 0;
-        */
-        this.snapRotationToClosest90Degrees();
-        this.logPlayerAction(this.currentAxis,this.touchPath,1)
+        this.totalRotation = 0;
+        this.currentDirection = null;
+        this.segments = [];
+        this.maxAngle = null;
+        this.minAngle = null;
+    }
 
+    calculateDelta(currentAngle: number, lastAngle: number): number {
+        let delta = currentAngle - lastAngle;
+        if (delta > 180) {
+            delta -= 360; // 顺时针跨越 360°
+        } else if (delta < -180) {
+            delta += 360; // 逆时针跨越 0°
+        }
+        return Math.abs(delta) > 0.1 ? delta : 0; // 忽略浮点误差
     }
 
     normalizeAngle(angle: number): number {
@@ -475,7 +311,162 @@ private lastDirectionY: number = 0;
         return 0;
     }
 
-    async logPlayerAction(axis: string, angle: RotationChange[], flag: number) {
+    onTouchStart(event: EventTouch) {
+        this._isRotating = true;
+        this.currentAxis = null;
+        this.startTime = Date.now();
+        this.touchPath = []; // 记录触摸路径
+
+        const touch = event.getTouches()[0];
+        const x = touch.getLocationX();
+        const y = touch.getLocationY();
+
+        // 初始化触摸路径
+        this.touchPath.push({
+            x,
+            y,
+            time: 0 // 相对时间从 0 开始
+        });
+
+        this._lastMousePos.set(x, y, 0);
+
+        // 重置状态变量
+        this.lastAngle = 0;
+        this.totalRotation = 0;
+        this.segments = [];
+        this.currentDirection = null;
+    }
+
+    onTouchMove(event: EventTouch) {
+        if (!this._isRotating || !this.instantiatedNode) return;
+
+        const touch = event.getTouches()[0];
+        const x = touch.getLocationX();
+        const y = touch.getLocationY();
+        const currentTime = Date.now() - this.startTime;
+
+        // 计算滑动距离和方向
+        let deltaX = x - this._lastMousePos.x;
+        let deltaY = y - this._lastMousePos.y;
+
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        const currentDirectionX = deltaX > 5 ? 1 : deltaX < -5 ? -1 : 0;
+        const currentDirectionY = deltaY > 5 ? 1 : deltaY < -5 ? -1 : 0;
+
+        // 根据屏幕分辨率动态调整阈值
+        const screenWidth = screen.windowSize.width;  // 获取屏幕宽度
+        const screenHeight = screen.windowSize.height; // 获取屏幕高度
+        const aspectRatio = screenWidth / screenHeight;
+
+        // 动态计算阈值
+        const horizontalThreshold = Math.max(6, aspectRatio * 2); // 根据屏幕宽高比调整
+
+        // 确定旋转轴
+        if (!this.currentAxis && distance >= this.minSwipeDistance) {
+            //const horizontalThreshold = 2.5;
+
+            if (Math.abs(deltaY) < horizontalThreshold) {
+                this.currentAxis = 'Y'; // 绕 Y 轴旋转
+            } else if (deltaX > 0 && deltaY > 0) {
+                this.currentAxis = 'Z';
+            } else if (deltaX < 0 && deltaY < 0) {
+                this.currentAxis = 'Z';
+            } else if (deltaX > 0 && deltaY < 0) {
+                this.currentAxis = 'X';
+            } else if (deltaX < 0 && deltaY > 0) {
+                this.currentAxis = 'X';
+            }
+
+            // 初始化轴的起始角度
+            if (this.currentAxis) {
+                const eulerAngles = this.instantiatedNode.eulerAngles;
+                this.lastAngle = this.getAxisAngle(eulerAngles, this.currentAxis);
+            }
+        }
+
+        // 根据轴执行旋转逻辑
+        const rotationAmount = distance * this._rotationSpeed;
+        if (this.currentAxis === 'Z') {
+            RotateUtil.rotateAround(this.instantiatedNode, Vec3.FORWARD.clone(), deltaY > 0 ? rotationAmount : -rotationAmount);
+        } else if (this.currentAxis === 'X') {
+            RotateUtil.rotateAround(this.instantiatedNode, Vec3.RIGHT.clone(), deltaY > 0 ? -rotationAmount : rotationAmount);
+        } else if (this.currentAxis === 'Y') {
+            RotateUtil.rotateAround(this.instantiatedNode, Vec3.UP.clone(), deltaX > 0 ? rotationAmount : -rotationAmount);
+        }
+
+        // 记录触摸路径
+        if (distance >= this.minSwipeDistance) {
+            this.touchPath.push({
+                x,
+                y,
+                time: currentTime
+            });
+        }
+
+        this._lastMousePos.set(x, y, 0);
+    }
+
+    onTouchEnd(event: EventTouch) {
+        if (!this._isRotating) return;
+
+        const touch = event.getTouches()[0];
+        const x = touch.getLocationX();
+        const y = touch.getLocationY();
+        const currentTime = Date.now() - this.startTime;
+
+        // 记录触摸路径的最后点
+        this.touchPath.push({
+            x,
+            y,
+            time: currentTime
+        });
+
+        // 记录最后的旋转信息
+        const eulerAngles = this.instantiatedNode.eulerAngles;
+        const currentAngle = this.getAxisAngle(eulerAngles, this.currentAxis!);
+
+        this.recordSegment(this.lastAngle, currentAngle, Date.now() - this.startTime);
+
+        // 上传数据
+        this.logPlayerAction(
+            "Rotate",
+            this.currentAxis,
+            // 直接传递数组
+            JSON.stringify({
+                axis: this.currentAxis,
+                //totalRotation: this.totalRotation,
+                segments: this.segments,
+            }, null, 2), // 这里的 JSON.stringify 仍然有效
+            1, this.touchPath
+        );
+
+        // 重置状态
+        this.resetState();
+        this.snapRotationToClosest90Degrees();
+    }
+
+    recordSegment(startAngle: number, endAngle: number, duration: number) {
+        const angleChange = this.calculateDelta(endAngle, startAngle);
+        const segment: { direction: "clockwise" | "counterclockwise"; startAngle: number; endAngle: number; angleChange: number; duration: number } = {
+            direction: angleChange > 0 ? "clockwise" : "counterclockwise", // 明确指定方向类型
+            startAngle: this.normalizeAngle(startAngle),
+            endAngle: this.normalizeAngle(endAngle),
+            angleChange: Math.abs(angleChange),
+            duration
+        };
+
+        this.segments.push(segment);
+        console.log("记录旋转段：", segment);
+
+        this.startTime = Date.now(); // 更新起始时间
+    }
+
+
+    async logPlayerAction(Operation: string,
+        axis: string,
+        segment: string,
+        flag: number,
+        angle?: RotationChange[]) {
         const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
 
         // 1️⃣ 获取 localStorage 数据
@@ -492,11 +483,6 @@ private lastDirectionY: number = 0;
             return;
         }
 
-        // 4️⃣ 确保 angle 是一个 JSON 数组
-        if (!Array.isArray(angle)) {
-            console.error(`❌ 错误：Angle 必须是 JSON 数组，但得到了: `, angle);
-            return;
-        }
 
         // 5️⃣ 确保 flag 是一个数字
         if (typeof flag !== 'number') {
@@ -525,9 +511,10 @@ private lastDirectionY: number = 0;
                 Usr_ID: username,          // 玩家ID
                 Timestep: formattedTime,   // 时间戳（北京时间，精确到毫秒）
                 Level: level,              // 当前关卡
-                Operation: 'rotate',       // 操作类型（固定为 rotate）
+                Operation: Operation,       // 操作类型（固定为 rotate）
                 Axis: axis,                // 旋转轴（X, Y, Z）
-                Angle: angle,              // 旋转角度变化的 JSON 数组
+                Angle: angle ?? null,              // 旋转角度变化的 JSON 数组
+                Segment: segment,
                 Flag: flag                 // 其他标志位，通常为 0 或 1
             },
         };
@@ -572,19 +559,7 @@ private lastDirectionY: number = 0;
         }
     }
 
-    onKeyDown(event: EventKeyboard) {
-        // 检测空格键
-        if (event.keyCode === KeyCode.SPACE) {
-            this._isMovingUp = true;
-        }
-    }
 
-    onKeyUp(event: EventKeyboard) {
-        // 释放空格键
-        if (event.keyCode === KeyCode.SPACE) {
-            this._isMovingUp = false;
-        }
-    }
 
     onMoveUpButtonPress() {
         this._isMovingUp = true;
@@ -619,6 +594,10 @@ private lastDirectionY: number = 0;
             const allBelowThreshold = childYPositions.every(y => y <= -10);
 
             if (allBelowThreshold && !this.hasCalledManageScene) {
+                if (parseInt(localStorage.getItem('maxLevel'), 10) < Global.currentLevelIndex) {
+                    localStorage.setItem('maxLevel', Global.currentLevelIndex.toString())
+                }
+                this.logUserAction();
                 // 1. 生成金币并设置位置
                 if (this.coinPrefab) {
                     const coinNode = instantiate(this.coinPrefab);
@@ -739,9 +718,43 @@ private lastDirectionY: number = 0;
             */
     }
 
-
-    // 管理场景节点逻辑
     private manageSceneNodes() {
+        if (this.targetNode) {
+            this.targetNode.active = true;
+            this.targetNode.setSiblingIndex(this.targetNode.parent.children.length - 1); // 设置为顶层
+            console.log(`Node "${this.targetNode.name}" has been activated and moved to the top layer.`);
+
+            // 等待用户点击“我知道了”按钮
+            this._setupIKnowButtonListener();
+        } else {
+            console.error("Target node is not set!");
+        }
+    }
+    private _setupIKnowButtonListener() {
+        const iKnowButtonNode = this.targetNode.getChildByName("Finish"); // 假设按钮名称是 "IKnowButton"
+        if (!iKnowButtonNode) {
+            console.error("IKnowButton node not found!");
+            return;
+        }
+
+        const iKnowButton = iKnowButtonNode.getComponent(Button);
+        if (!iKnowButton) {
+            console.error("Button component not found on IKnowButton node!");
+            return;
+        }
+
+        // 添加点击事件监听
+        iKnowButton.node.on('click', () => {
+            console.log("User clicked '我知道了', continuing to render prefabs");
+
+            // 隐藏目标 Node
+            this.targetNode.active = false;
+
+            // 渲染 Prefab
+            this._renderFinalPrefab();
+        }, this);
+    }
+    private _renderFinalPrefab() {
         const scene = director.getScene();
         if (!scene) {
             console.error("Scene not found!");
@@ -784,5 +797,54 @@ private lastDirectionY: number = 0;
         }
     }
 
+    async logUserAction() {
+        const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
+        const username = localStorage.getItem('currentUsername'); // 从localStorage中获取用户名
+        const sessionToken = localStorage.getItem('sessionToken'); // 从localStorage中获取token
+        const level = Global.currentLevelIndex;
+
+        if (!username || !sessionToken) {
+            console.error('No username or sessionToken found.');
+            return;
+        }
+
+        // 获取当前时间的北京时间
+        const now = new Date();
+        const offset = 8 * 60 * 60 * 1000; // UTC+8 的时间偏移（毫秒）
+        const beijingTime = new Date(now.getTime() + offset).toISOString().replace('T', ' ').slice(0, 23); // 格式化为 "YYYY-MM-DD HH:mm:ss"
+
+        // 准备发送的数据
+        const data = {
+            tableName: 'user_pass', // 表名
+            data: {
+                Usr_ID: username,
+                Level: level,
+                Timestep: beijingTime, // 使用北京时间
+            },
+        };
+
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionToken}`,
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to log user action');
+            }
+
+            const result = await response.json();
+            console.log('User action logged successfully:', result);
+        } catch (error) {
+            console.error('Error logging user action:', error);
+        }
+    }
 
 }
+
+
+

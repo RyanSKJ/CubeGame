@@ -2,11 +2,13 @@ import { _decorator, Component, Node, AssetManager, assetManager, Prefab, Textur
 import { Global } from '../Global';
 const { ccclass, property } = _decorator;
 
+
 @ccclass('ResMgr')
 /**
  * 资源加载管理
  */
 export class ResMgr {
+    public isResourcesLoaded: boolean = false; // 标志位：是否已经加载资源
     //
     private static _instance: ResMgr = null;
     //
@@ -38,6 +40,7 @@ export class ResMgr {
      * @oaran 完成进度
      */
     public async LoadBundle(_bundlename: string, _completeprogress: number = 0) {
+
         return new Promise<void>((_resolve, _reject) => {
             assetManager.loadBundle(_bundlename, (err, bundle) => {
                 Global.IsDebug && console.log(_bundlename + "包加载包完成", err, bundle);
@@ -56,6 +59,7 @@ export class ResMgr {
      * @oaran 完成进度
      */
     public async LoadRes(_bundlename: string, _type: any, _completeprogress: number = 0) {
+
         return new Promise<void>((_resolve, _reject) => {
             // 先加载 game bundle
             assetManager.loadBundle("resources", (err, bundle: AssetManager.Bundle) => {
@@ -106,7 +110,7 @@ export class ResMgr {
     
                     // 资源加载完成后切换场景
                     //director.loadScene("Scene");
-    
+
                     _resolve && _resolve();
                 });
             });

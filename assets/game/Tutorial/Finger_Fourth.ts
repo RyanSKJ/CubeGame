@@ -5,8 +5,8 @@ const { ccclass, property } = _decorator;
 @ccclass('Finger')
 export class Finger extends Component {
 
-
-    private respawnPosition: Vec3 = new Vec3(550, -694, 0); // 重新出现的位置
+    private initialPosition: Vec3 = new Vec3(480, -600, 0); // 动画的初始位置
+    private respawnPosition: Vec3 = new Vec3(550, -600, 0); // 重新出现的位置
     private initialScale: Vec3 = new Vec3(0.5, 0.5, 0.5);
     private smallScale: Vec3 = new Vec3(0.3, 0.3, 0.3);
     private largeScale: Vec3 = new Vec3(0.5, 0.5, 0.5);
@@ -16,13 +16,49 @@ export class Finger extends Component {
     private scaleTween: Tween<Node> | null = null; // 用于缩放动画
     private flag = true;
     private flag2 = true;
+    private isSelectTriggered: boolean = false; // 是否已经监听到 Select
+    private isDragTriggered: boolean = false; // 是否已经监听到 Drag
 
     start() {
-        EventSystem.on('drag', this.onSwipeHandled, this);
 
+        this.node.setPosition(this.initialPosition.clone());
+        this.node.setScale(this.initialScale.clone());
+        this.opacityComponent = this.node.getComponent(UIOpacity) || this.node.addComponent(UIOpacity);
+        this.startScaleAnimation(); // 开启缩放动画
+
+        // 初始监听 Select 事件
+        EventSystem.on('Select', this.onSelectTriggered, this)
+    }
+    private onSelectTriggered() {
+        if (this.isSelectTriggered) {
+            console.warn('Select 已经触发，不需要重复监听！');
+            return;
+        }
+
+        console.log('监听到 Select 事件，开始监听 drag 事件');
+        this.isSelectTriggered = true;
+
+        // 开始监听 drag 事件
+        EventSystem.on('drag', this.onDragTriggered, this);
+        this.stopScaleAnimation()
         this.respawnAtNewPosition();
     }
+    private onDragTriggered() {
+        if (this.isDragTriggered) {
+            console.warn('Drag 已经触发，不需要重复监听！');
 
+            return;
+        }
+        this.isDragTriggered = true;
+        this.onSwipeHandled()
+        this.flag = false
+
+        // 移除 drag 的监听，避免重复触发
+        EventSystem.off('drag', this.onDragTriggered, this);
+
+        // 执行动画逻辑
+        
+    }
     /**
      * 将当前节点置于父节点的最前面
      */
@@ -43,7 +79,6 @@ export class Finger extends Component {
     update(dt: number) {
         if (!this.monitoredNode) return;
 
-        const currentPosition = this.monitoredNode.getPosition();
 
         if (this.flag2) {
             this.respawnAtNewPosition(); // 在 (412, -277) 重新开始动画
@@ -54,21 +89,6 @@ export class Finger extends Component {
         //this.previousNodePosition.set(currentPosition);
     }
 
-    /*
-    startScaleAnimation() {
-        if (this.scaleTween) return;
-
-        this.scaleTween = tween(this.node)
-            .repeatForever(
-                tween()
-                    .to(0.6, { scale: this.smallScale }, { easing: 'smooth' })
-                    .to(0.6, { scale: this.largeScale }, { easing: 'smooth' })
-            )
-            .start();
-        
-        console.log('缩放动画已开始，节点在 (396, -252) 位置持续缩放');
-    }
-        */
     onSwipeHandled() {
         this.flag2 = false
         //this.node.active = false;
@@ -87,7 +107,19 @@ export class Finger extends Component {
         console.log('缩放动画已停止，当前节点已被隐藏');
     }
 
+    startScaleAnimation() {
+        if (this.scaleTween) return;
 
+        this.scaleTween = tween(this.node)
+            .repeatForever(
+                tween()
+                    .to(0.6, { scale: this.smallScale }, { easing: 'smooth' })
+                    .to(0.6, { scale: this.largeScale }, { easing: 'smooth' })
+            )
+            .start();
+
+        console.log('缩放动画已开始，节点在 (396, -252) 位置持续缩放');
+    }
     respawnAtNewPosition() {
         this.node.active = true; // 重新显示节点
         this.node.setPosition(this.respawnPosition.clone()); 
@@ -101,7 +133,7 @@ export class Finger extends Component {
         tween(this.node)
             .to(0.4, { scale: this.smallScale }, { easing: 'smooth' }) // 缩小到 0.3
             .to(1.0, { position: moveTarget }, { easing: 'smooth' }) // Y 从 -277 移动到 -550
-            .to(0.5, { scale: this.largeScale }, { easing: 'smooth' }) // 放大到 0.5
+            .to(0.4, { scale: this.largeScale }, { easing: 'smooth' }) // 放大到 0.5
             .call(() => {
                 // 淡出隐藏
                 if (this.opacityComponent) {
@@ -119,9 +151,7 @@ export class Finger extends Component {
      */
     resetToInitialState() {
         if (this.flag2) {
-        this.node.active = true; 
-        this.node.setPosition(this.respawnPosition.clone()); 
-        this.node.setScale(this.initialScale.clone());
+
         this.opacityComponent.opacity = 255; // 确保不透明
         this.respawnAtNewPosition(); // 重新启动缩放动画
         } else {

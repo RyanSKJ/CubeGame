@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6a748fe6-1bda-45bb-8d4a-74def1bdbc63" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/LoginScene.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/LoginScene.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/SingleInfo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Res/Prefab/SingleInfo.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Scene/Scene.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Scene/Scene.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Script/Global.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Script/Global.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Script/MainLoad/LoginScene/LoginScene.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Script/MainLoad/LoginScene/LoginScene.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Script/Stop.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Script/Stop.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Script/TopLoad/EndBox.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Script/TopLoad/EndBox.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Script/TopLoad/ShopBox/ShopBox.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Script/TopLoad/ShopBox/ShopBox.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/catalogasset/Script/TopLoad/ShopBox/SingleInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/catalogasset/Script/TopLoad/ShopBox/SingleInfo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Cube/Controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Cube/Controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Cube/Cubes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Cube/Cubes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Cube/EstablishFloor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Cube/EstablishFloor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Cube/Levels.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Cube/Levels.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Cube/UI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Cube/UI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/LLM.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/LLM.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Tutorial/Finger_Fourth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Tutorial/Finger_Fourth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Tutorial/Finger_Third.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Tutorial/Finger_Third.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Tutorial/Finger_second.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Tutorial/Finger_second.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Tutorial/Show.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Tutorial/Show.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/Tutorial/typer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/Tutorial/typer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/adjust.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/adjust.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/choose.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/choose.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/flip.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/flip.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/resources/prefabs/Cube4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/rubicprefab/boxmovecontroller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/rubicprefab/boxmovecontroller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/second.scene" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/second.scene" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/selfresources/ChessboardGenerator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/selfresources/ChessboardGenerator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/game/selfresources/RubiksCube.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/game/selfresources/RubiksCube.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../assets/one.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../assets/one.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../native/engine/android/app/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../native/engine/android/app/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../native/engine/android/instantapp/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../native/engine/android/instantapp/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/cocos.compile.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/cocos.compile.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/GameRes/cc.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/data/assets/GameRes/cc.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/GameRes/import/04/0435ed14f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/GameRes/import/07/07b234b40.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/GameRes/import/08/08944b6a4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/GameRes/import/0f/0f1fe7162.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/GameRes/import/93/93402f99-5507-4300-be15-577bf5b7687a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/cc.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/data/assets/main/cc.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/01/01d26533e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/02/02fed8411.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/03/03351246a.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/data/assets/main/import/03/03351246a.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/03/03452ec63.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/data/assets/main/import/03/03452ec63.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/04/046c86a94.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/05/051e5cbc0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/05/0566b87ab.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/06/0699aaa4c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/07/07882d76f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/08/08ac47006.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/data/assets/main/import/08/08ac47006.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/0c/0cb5381bf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/0d/0d3f2932c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/0d/0db10bdd4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/0f/0f0e6d37b.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/data/assets/main/import/0f/0f0e6d37b.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/17/17ae3480-f83e-483c-8701-fd14b775f7e5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/58/58a3af60-bd22-48ce-a01c-61b9524a1489.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/import/fb/fb976b4b-23ca-49c3-818f-ebd3432c06d2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/data/assets/main/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/native/12/1263d74c-8167-4928-91a6-4e2672411f47@fc873.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/native/17/17ae3480-f83e-483c-8701-fd14b775f7e5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/native/58/58a3af60-bd22-48ce-a01c-61b9524a1489.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/native/6c/6c2e5574-bcea-4a03-9e9b-5073d2c08502@22c88.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/native/8b/8b6c2b78-9862-4184-b8cd-5c30c9262a65@7f767.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/main/native/fb/fb976b4b-23ca-49c3-818f-ebd3432c06d2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/resources/import/0e/0e991b860.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/data/assets/resources/import/0e/0e991b860.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/assets/resources/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/data/assets/resources/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/data/src/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/data/src/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/8.0.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/8.0.2/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/8.0.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/8.0.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/deploymentTargetSelector.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/cfg.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/proj/cfg.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-001/proj/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-001/proj/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/assets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/cocos.compile.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/application.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/cc.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/01/01081379f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/01/017c2558-2ecf-46db-877e-ae02c62a04e4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/02/024dc7d0-cc49-4d7f-8c05-dca080250a84.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/02/029a6c670.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/03/031d91aca.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/03/035292870.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/04/04bececec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/05/050267a5b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/05/05d82a24c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/06/0645d58fc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/07/07b234b40.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/08/080b5308c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/09/092926c7f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/0b/0b26ae4e3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/0b/0b3d21233.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/0f/0f1fe7162.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/0f/0fb66fa98.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/17/179a8d87-a8c7-4545-979a-0b8dec48a3b8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/17/17ae3480-f83e-483c-8701-fd14b775f7e5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/28/28210b12-4ba0-42f5-8bb4-58e104b23d2e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/2a/2a55d201-107e-45f7-a0cb-dee258ea7bd4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/32/32c32bce-c45b-4e41-bf4f-76c1b3b727be.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/35/3502f040-4ab9-4739-af51-64b9fcc2e014.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/36/36d43b2b-f45c-4f5b-ae4d-ee442a9aeba8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/36/36d43b2b-f45c-4f5b-ae4d-ee442a9aeba8@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/4a/4aab5d82-f4dc-473d-83b9-70b7e9a6b304.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/4c/4c236496-bde5-4955-8a3a-3d791ec6a066.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/4d/4d168fdd-5fb7-47d3-b5c9-efe247d096c0.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/4d/4d168fdd-5fb7-47d3-b5c9-efe247d096c0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/5b/5bb95895-0fcb-47b4-beea-992842e33b60.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/5c/5cc64ad0-d301-442f-bb8c-f8852ce39651.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/6e/6e518800-8fab-43dc-aaef-440e2572132b.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/6e/6e518800-8fab-43dc-aaef-440e2572132b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/78/780144d1-8dc8-40b1-9805-2f5104590f4d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/7b/7bebcbf9-76e2-463d-9ffe-c772cfe0adfb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/7b/7bebcbf9-76e2-463d-9ffe-c772cfe0adfb@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/90/9080160c-bae6-4edc-b792-174c7e755b39.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/99/99d6d006-ee2e-4207-bca2-bc551e96b42c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/99/99d6d006-ee2e-4207-bca2-bc551e96b42c@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/a7/a707a53e-ba78-437e-a265-d10432213d11.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/a7/a707a53e-ba78-437e-a265-d10432213d11.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/ac/acb036de-5e70-45e2-8d37-576b66a47a79.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/ac/acb036de-5e70-45e2-8d37-576b66a47a79@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/b4/b4d0a3f9-11cd-4575-8915-711c18926293.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/be/be8c38bb-7fb4-4d35-83ae-0a89cd3e9b71.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/be/be8c38bb-7fb4-4d35-83ae-0a89cd3e9b71@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/be/be9e308a-69fb-480f-915e-dd12a194983b.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/be/be9e308a-69fb-480f-915e-dd12a194983b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/d5/d5215c9a-ad83-4527-87e5-59b6a28596f1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/d7/d7ced4af-1a8f-4c2f-9649-905417f5b2e9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/d7/d7ced4af-1a8f-4c2f-9649-905417f5b2e9@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/da/da829522-5e86-40e3-91c2-70e21a76c5e6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/e0/e0ffc843-8516-4637-942e-a9ed167265a1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/ff/fff29e4f-7fad-489e-9f70-135a4b81b4c1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/import/ff/fff29e4f-7fad-489e-9f70-135a4b81b4c1@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/01/017c2558-2ecf-46db-877e-ae02c62a04e4.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/02/024dc7d0-cc49-4d7f-8c05-dca080250a84.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/17/179a8d87-a8c7-4545-979a-0b8dec48a3b8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/17/17ae3480-f83e-483c-8701-fd14b775f7e5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/24/241dd7c9-e617-43f3-b1f6-747ed56c83ef@42e9f.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/28/28210b12-4ba0-42f5-8bb4-58e104b23d2e.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/2a/2a55d201-107e-45f7-a0cb-dee258ea7bd4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/32/32c32bce-c45b-4e41-bf4f-76c1b3b727be.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/35/3502f040-4ab9-4739-af51-64b9fcc2e014.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/36/36d43b2b-f45c-4f5b-ae4d-ee442a9aeba8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/4a/4aab5d82-f4dc-473d-83b9-70b7e9a6b304.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/4c/4c236496-bde5-4955-8a3a-3d791ec6a066.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/59/59515259-f406-42c5-8e74-2de497e5f8de@172cf.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/5b/5bb95895-0fcb-47b4-beea-992842e33b60.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/5c/5cc64ad0-d301-442f-bb8c-f8852ce39651.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/75/75eb6ca8-317a-4a67-a102-8e1592d3c1de@ad1ed.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/78/780144d1-8dc8-40b1-9805-2f5104590f4d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/7b/7bebcbf9-76e2-463d-9ffe-c772cfe0adfb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/83/83fa7c11-812e-4f1c-8b96-734dd161857c@ccc28.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/90/9080160c-bae6-4edc-b792-174c7e755b39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/99/99d6d006-ee2e-4207-bca2-bc551e96b42c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/9d/9d28a187-ac55-49ff-9080-f3eaf2924ac0@7d639.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/9d/9d28a187-ac55-49ff-9080-f3eaf2924ac0@ce677.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/a8/a86f23ad-7a99-4171-99b5-c4323645f5cf@303bf.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/ac/acb036de-5e70-45e2-8d37-576b66a47a79.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/ba/babdd972-7758-4e9d-a1f7-e58b9b1a9807@89988.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/be/be8c38bb-7fb4-4d35-83ae-0a89cd3e9b71.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/d1/d136475d-749a-4434-8361-38cfb07b151d@7cc3a.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/d5/d5215c9a-ad83-4527-87e5-59b6a28596f1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/d7/d7ced4af-1a8f-4c2f-9649-905417f5b2e9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/da/da829522-5e86-40e3-91c2-70e21a76c5e6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/e0/e0ffc843-8516-4637-942e-a9ed167265a1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/e8/e8987dc7-203b-4e32-8d4a-ff6472533939@1eb22.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/fc/fc34dbdb-f361-47e1-837e-3c9fbc7247ae@8a4cd.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/GameRes/native/ff/fff29e4f-7fad-489e-9f70-135a4b81b4c1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/internal/cc.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/internal/import/0b/0b7c9a4b1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/internal/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/cc.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/00/00e81909-98ad-40c6-8855-c8b3bd3f782b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/02/026a13b27.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/03/03351246a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/03/03452ec63.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/04/0446ecf7e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/04/0473a9b09.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/04/04a3a0440.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/05/0566b87ab.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/06/0699aaa4c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/07/07b2247b0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/07/07d57aaca.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/08/080fab245.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/08/08621cb1b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/08/087c7b788.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/08/08ac47006.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/09/0965c6cbc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/0a/0ae340803.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/0d/0d41f1e6b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/0e/0e70aed44.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/0e/0ed9d8bfc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/0f/0f0e6d37b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/0f/0f1db322e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/1b/1b7e66a4-4b5b-431c-9573-ee5b1d64482f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/20/20835ba4-6145-4fbc-a58a-051ce700aa3e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/2c/2ca33319-3c00-453f-8663-9f63f56c382a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/35/35fd029a-2bab-487a-b547-dd63f160f61c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/36/3633f3a9-9341-45ea-971d-d539890b6e13.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/37/37e51843-56a7-4200-90d1-6f3deb339ede.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/3b/3b0d989c-44db-4cc2-8830-b1a6aeec4bb8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/3c/3c3d8386-2a73-4086-9292-f5230a17161c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/44/44084cc9-9ddb-413a-b50b-17f9e32183d8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/54/544e49d6-3f05-4fa8-9a9e-091f98fc2ce8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/69/69b6c0b7-92c7-4ca0-9967-f54adaa65852.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/6b/6beab895-6701-43de-8705-ce37168ee78c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/6d/6ddb64d1-2afb-4f17-bbbb-1855b11c1be0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/70/70ed1a93-f0f0-45f7-aced-fd0831cf0c98.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/73/73deef3f-bf0e-4523-929d-9d1eec0cf8f2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/7c/7c7d5590-0c1c-4503-8a04-61de36ff2c00.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/7d/7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/95/951249e0-9f16-456d-8b85-a6ca954da16b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/9c/9cabab3a-0c49-485e-839a-dee49da639a3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/9e/9e87bbe5-b30c-4832-a550-170afe118078.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/a4/a4a1ce64-8a05-4776-b99a-2439627946b7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/ad/adb100cb-a042-46b3-9914-2fc15946c6aa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/b0/b0664912-0c6a-419e-9d82-3728553c8eeb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/b2/b2a0a7b1-ca6c-4d3a-b29a-c905c6875390.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/b7/b7b765ab-b92d-4516-8c82-4b5f2e30b99b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/bd/bd1bcaba-bd7d-4a71-b143-997c882383e4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/c6/c6feeea8-b087-44dd-af0a-fd16154619b7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/c7/c791c6fe-3808-497a-9d7b-81ef06f782f4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/db/db6ed593-4afd-4d30-b3fa-3ad56dce78fc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/ed/ed0c4705-c247-4b68-8b7c-0b3e8c844a7b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/ee/eea29ffc-4689-46ed-8167-d56b561870fe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/f2/f203b71c-fb39-4c7c-8147-206d077c5ff1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/import/fd/fd8ec536-a354-4a17-9c74-4f3883c378c8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/00/00e81909-98ad-40c6-8855-c8b3bd3f782b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@0a31c.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@11c59.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@1defb.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@4c3c8.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@a7367.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@e26fa.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@f6ba0.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@f8769.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/12/1263d74c-8167-4928-91a6-4e2672411f47@38fd2.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/12/1263d74c-8167-4928-91a6-4e2672411f47@40ece.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/12/1263d74c-8167-4928-91a6-4e2672411f47@8abdc.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/12/1263d74c-8167-4928-91a6-4e2672411f47@a804a.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/1b/1b7e66a4-4b5b-431c-9573-ee5b1d64482f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/1e/1e48760c-b2f6-4b52-9096-2b7e16954e89@ad52c.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/20/20835ba4-6145-4fbc-a58a-051ce700aa3e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/2c/2ca33319-3c00-453f-8663-9f63f56c382a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/2f/2f2d6b3a-bbfe-4c87-8c2f-a0ed0d8a497d@c96c7.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/34/3448a669-2e58-4cb8-ac79-f114a201f770@446db.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/34/3448a669-2e58-4cb8-ac79-f114a201f770@9afc3.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/34/34b99192-6fe5-47f8-958f-53815754733e@52fe5.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/35/35fd029a-2bab-487a-b547-dd63f160f61c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/36/3633f3a9-9341-45ea-971d-d539890b6e13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/37/37e51843-56a7-4200-90d1-6f3deb339ede.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/3b/3b0d989c-44db-4cc2-8830-b1a6aeec4bb8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/3c/3c3d8386-2a73-4086-9292-f5230a17161c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/44/44084cc9-9ddb-413a-b50b-17f9e32183d8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/54/544e49d6-3f05-4fa8-9a9e-091f98fc2ce8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/64/647b619d-0d2d-4bdd-84ce-f873ecd9adf8@09884.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/67/67fddfcf-ea2b-43ac-b6cb-fd5bd4a7e5ea@10222.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/67/67fddfcf-ea2b-43ac-b6cb-fd5bd4a7e5ea@60298.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/67/67fddfcf-ea2b-43ac-b6cb-fd5bd4a7e5ea@db147.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/69/69b6c0b7-92c7-4ca0-9967-f54adaa65852.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/6b/6beab895-6701-43de-8705-ce37168ee78c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/6d/6ddb64d1-2afb-4f17-bbbb-1855b11c1be0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@40c10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@74afd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@7d38f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@8fd34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@bb97f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@e9a6d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/70/70ed1a93-f0f0-45f7-aced-fd0831cf0c98.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/73/73deef3f-bf0e-4523-929d-9d1eec0cf8f2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/7c/7c7d5590-0c1c-4503-8a04-61de36ff2c00.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/7d/7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/8a/8a9ba689-0c06-48ce-98c9-3e7f41776538@55060.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/95/951249e0-9f16-456d-8b85-a6ca954da16b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/9c/9cabab3a-0c49-485e-839a-dee49da639a3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/9e/9e87bbe5-b30c-4832-a550-170afe118078.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/a4/a4a1ce64-8a05-4776-b99a-2439627946b7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/ad/adb100cb-a042-46b3-9914-2fc15946c6aa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/b0/b0664912-0c6a-419e-9d82-3728553c8eeb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/b2/b2a0a7b1-ca6c-4d3a-b29a-c905c6875390.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@40c10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@74afd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@7d38f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@8fd34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@bb97f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@e9a6d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/b6/b6bf5845-2788-4a0e-a982-be85d2de63e6@de26c.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/b7/b7b765ab-b92d-4516-8c82-4b5f2e30b99b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bd/bd1bcaba-bd7d-4a71-b143-997c882383e4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@044ce.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@0e11a.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@5c0df.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@64268.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@900da.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@96e87.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@9c4cf.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@a62d2.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@c3539.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@fb36d.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/c6/c6feeea8-b087-44dd-af0a-fd16154619b7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/c7/c791c6fe-3808-497a-9d7b-81ef06f782f4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@40c10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@74afd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@7d38f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@8fd34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@bb97f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@e9a6d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/d5/d5cfd232-079f-413b-8c34-48e305a946f7@6bb70.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/db/db6ed593-4afd-4d30-b3fa-3ad56dce78fc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/db/dbee203e-aba6-4837-8f4a-f90c03944a01@7fb43.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/dd/dd9becee-d2a8-4453-8196-e167c85b74a9@80fdf.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/df/df41a1b5-521d-487e-8598-f9f9cd2b0ebe@87f79.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/ed/ed0c4705-c247-4b68-8b7c-0b3e8c844a7b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/ee/eea29ffc-4689-46ed-8167-d56b561870fe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/main/native/f2/f203b71c-fb39-4c7c-8147-206d077c5ff1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/resources/cc.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/resources/import/0d/0db663b8c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/resources/import/0e/0e991b860.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/assets/resources/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/jsb-adapter/engine-adapter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/jsb-adapter/web-adapter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/src/chunks/bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/src/cocos-js/assets/bullet.release.wasm-10f8cbd4.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/src/cocos-js/bullet.release.asm-d4a3f7e0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/src/cocos-js/bullet.release.wasm-1adc856c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/src/cocos-js/bullet.release.wasm-e702f478.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/src/cocos-js/cc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/src/import-map.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/src/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/data/src/system.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/8.0.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/8.0.2/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/8.0.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/8.0.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-002/proj/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-002/proj/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android-002/proj/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/cfg.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/libservice/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/libservice/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/libservice/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/libservice/src/com/cocos/service/SDKWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/local.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android-002/proj/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cocos.compile.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/application.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/cc.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/01/017c2558-2ecf-46db-877e-ae02c62a04e4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/02/024dc7d0-cc49-4d7f-8c05-dca080250a84.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/04/0435ed14f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/07/07b234b40.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/08/08944b6a4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/0f/0f1fe7162.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/17/179a8d87-a8c7-4545-979a-0b8dec48a3b8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/28/28210b12-4ba0-42f5-8bb4-58e104b23d2e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/2a/2a55d201-107e-45f7-a0cb-dee258ea7bd4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/32/32c32bce-c45b-4e41-bf4f-76c1b3b727be.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/35/3502f040-4ab9-4739-af51-64b9fcc2e014.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/36/36d43b2b-f45c-4f5b-ae4d-ee442a9aeba8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/36/36d43b2b-f45c-4f5b-ae4d-ee442a9aeba8@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/4a/4aab5d82-f4dc-473d-83b9-70b7e9a6b304.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/4c/4c236496-bde5-4955-8a3a-3d791ec6a066.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/4d/4d168fdd-5fb7-47d3-b5c9-efe247d096c0.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/4d/4d168fdd-5fb7-47d3-b5c9-efe247d096c0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/5b/5bb95895-0fcb-47b4-beea-992842e33b60.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/5c/5cc64ad0-d301-442f-bb8c-f8852ce39651.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/6e/6e518800-8fab-43dc-aaef-440e2572132b.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/6e/6e518800-8fab-43dc-aaef-440e2572132b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/78/780144d1-8dc8-40b1-9805-2f5104590f4d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/7b/7bebcbf9-76e2-463d-9ffe-c772cfe0adfb.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/7b/7bebcbf9-76e2-463d-9ffe-c772cfe0adfb@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/90/9080160c-bae6-4edc-b792-174c7e755b39.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/93/93402f99-5507-4300-be15-577bf5b7687a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/99/99d6d006-ee2e-4207-bca2-bc551e96b42c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/99/99d6d006-ee2e-4207-bca2-bc551e96b42c@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/a7/a707a53e-ba78-437e-a265-d10432213d11.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/a7/a707a53e-ba78-437e-a265-d10432213d11.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/ac/acb036de-5e70-45e2-8d37-576b66a47a79.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/be/be8c38bb-7fb4-4d35-83ae-0a89cd3e9b71.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/be/be8c38bb-7fb4-4d35-83ae-0a89cd3e9b71@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/be/be9e308a-69fb-480f-915e-dd12a194983b.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/be/be9e308a-69fb-480f-915e-dd12a194983b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/d7/d7ced4af-1a8f-4c2f-9649-905417f5b2e9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/d7/d7ced4af-1a8f-4c2f-9649-905417f5b2e9@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/da/da829522-5e86-40e3-91c2-70e21a76c5e6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/e0/e0ffc843-8516-4637-942e-a9ed167265a1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/ff/fff29e4f-7fad-489e-9f70-135a4b81b4c1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/import/ff/fff29e4f-7fad-489e-9f70-135a4b81b4c1@f9941.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/01/017c2558-2ecf-46db-877e-ae02c62a04e4.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/02/024dc7d0-cc49-4d7f-8c05-dca080250a84.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/17/179a8d87-a8c7-4545-979a-0b8dec48a3b8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/28/28210b12-4ba0-42f5-8bb4-58e104b23d2e.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/2a/2a55d201-107e-45f7-a0cb-dee258ea7bd4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/32/32c32bce-c45b-4e41-bf4f-76c1b3b727be.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/35/3502f040-4ab9-4739-af51-64b9fcc2e014.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/36/36d43b2b-f45c-4f5b-ae4d-ee442a9aeba8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/4a/4aab5d82-f4dc-473d-83b9-70b7e9a6b304.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/4c/4c236496-bde5-4955-8a3a-3d791ec6a066.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/5b/5bb95895-0fcb-47b4-beea-992842e33b60.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/5c/5cc64ad0-d301-442f-bb8c-f8852ce39651.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/78/780144d1-8dc8-40b1-9805-2f5104590f4d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/7b/7bebcbf9-76e2-463d-9ffe-c772cfe0adfb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/90/9080160c-bae6-4edc-b792-174c7e755b39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/99/99d6d006-ee2e-4207-bca2-bc551e96b42c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/ac/acb036de-5e70-45e2-8d37-576b66a47a79.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/be/be8c38bb-7fb4-4d35-83ae-0a89cd3e9b71.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/d7/d7ced4af-1a8f-4c2f-9649-905417f5b2e9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/da/da829522-5e86-40e3-91c2-70e21a76c5e6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/e0/e0ffc843-8516-4637-942e-a9ed167265a1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/GameRes/native/ff/fff29e4f-7fad-489e-9f70-135a4b81b4c1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/internal/cc.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/internal/import/0b/0b7c9a4b1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/internal/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/cc.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/00/00e81909-98ad-40c6-8855-c8b3bd3f782b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/01/01d26533e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/02/02fed8411.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/03/03351246a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/03/03452ec63.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/04/0446ecf7e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/04/046c86a94.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/05/0512925e3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/05/051e5cbc0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/05/0549d7966.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/06/0699aaa4c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/07/07882d76f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/08/087c7b788.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/08/08ac47006.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/0d/0d3f2932c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/0d/0db10bdd4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/0e/0e1876289.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/0e/0e70aed44.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/0f/0f0e6d37b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/17/17ae3480-f83e-483c-8701-fd14b775f7e5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/20/20835ba4-6145-4fbc-a58a-051ce700aa3e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/2c/2ca33319-3c00-453f-8663-9f63f56c382a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/36/3633f3a9-9341-45ea-971d-d539890b6e13.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/37/37e51843-56a7-4200-90d1-6f3deb339ede.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/3b/3b0d989c-44db-4cc2-8830-b1a6aeec4bb8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/44/44084cc9-9ddb-413a-b50b-17f9e32183d8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/54/544e49d6-3f05-4fa8-9a9e-091f98fc2ce8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/58/58a3af60-bd22-48ce-a01c-61b9524a1489.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/69/69b6c0b7-92c7-4ca0-9967-f54adaa65852.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/6b/6beab895-6701-43de-8705-ce37168ee78c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/6d/6ddb64d1-2afb-4f17-bbbb-1855b11c1be0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/73/73deef3f-bf0e-4523-929d-9d1eec0cf8f2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/7c/7c7d5590-0c1c-4503-8a04-61de36ff2c00.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/7d/7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/95/951249e0-9f16-456d-8b85-a6ca954da16b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/9c/9cabab3a-0c49-485e-839a-dee49da639a3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/9e/9e87bbe5-b30c-4832-a550-170afe118078.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/a4/a4a1ce64-8a05-4776-b99a-2439627946b7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/ad/adb100cb-a042-46b3-9914-2fc15946c6aa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/b2/b2a0a7b1-ca6c-4d3a-b29a-c905c6875390.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/b7/b7b765ab-b92d-4516-8c82-4b5f2e30b99b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/bd/bd1bcaba-bd7d-4a71-b143-997c882383e4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/c6/c6feeea8-b087-44dd-af0a-fd16154619b7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/c7/c791c6fe-3808-497a-9d7b-81ef06f782f4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/ed/ed0c4705-c247-4b68-8b7c-0b3e8c844a7b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/f2/f203b71c-fb39-4c7c-8147-206d077c5ff1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/fb/fb976b4b-23ca-49c3-818f-ebd3432c06d2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/import/fd/fd8ec536-a354-4a17-9c74-4f3883c378c8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/00/00e81909-98ad-40c6-8855-c8b3bd3f782b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@0a31c.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@11c59.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@1defb.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@4c3c8.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@a7367.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@e26fa.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@f6ba0.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/0b/0b72c151-f0f7-4f6b-8453-82c8c611f8e2@f8769.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/12/1263d74c-8167-4928-91a6-4e2672411f47@38fd2.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/12/1263d74c-8167-4928-91a6-4e2672411f47@40ece.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/12/1263d74c-8167-4928-91a6-4e2672411f47@8abdc.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/12/1263d74c-8167-4928-91a6-4e2672411f47@a804a.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/12/1263d74c-8167-4928-91a6-4e2672411f47@fc873.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/17/17ae3480-f83e-483c-8701-fd14b775f7e5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/20/20835ba4-6145-4fbc-a58a-051ce700aa3e.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/2c/2ca33319-3c00-453f-8663-9f63f56c382a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/2f/2f2d6b3a-bbfe-4c87-8c2f-a0ed0d8a497d@c96c7.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/34/34b99192-6fe5-47f8-958f-53815754733e@52fe5.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/36/3633f3a9-9341-45ea-971d-d539890b6e13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/37/37e51843-56a7-4200-90d1-6f3deb339ede.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/3b/3b0d989c-44db-4cc2-8830-b1a6aeec4bb8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/44/44084cc9-9ddb-413a-b50b-17f9e32183d8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/54/544e49d6-3f05-4fa8-9a9e-091f98fc2ce8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/58/58a3af60-bd22-48ce-a01c-61b9524a1489.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/64/647b619d-0d2d-4bdd-84ce-f873ecd9adf8@09884.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/67/67fddfcf-ea2b-43ac-b6cb-fd5bd4a7e5ea@10222.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/67/67fddfcf-ea2b-43ac-b6cb-fd5bd4a7e5ea@60298.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/67/67fddfcf-ea2b-43ac-b6cb-fd5bd4a7e5ea@db147.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/69/69b6c0b7-92c7-4ca0-9967-f54adaa65852.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/6b/6beab895-6701-43de-8705-ce37168ee78c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/6c/6c2e5574-bcea-4a03-9e9b-5073d2c08502@22c88.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/6d/6ddb64d1-2afb-4f17-bbbb-1855b11c1be0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@40c10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@74afd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@7d38f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@8fd34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@bb97f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/6f/6f01cf7f-81bf-4a7e-bd5d-0afc19696480@b47c0@e9a6d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/73/73deef3f-bf0e-4523-929d-9d1eec0cf8f2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/7c/7c7d5590-0c1c-4503-8a04-61de36ff2c00.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/7d/7d8f9b89-4fd1-4c9f-a3ab-38ec7cded7ca.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/95/951249e0-9f16-456d-8b85-a6ca954da16b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/9c/9cabab3a-0c49-485e-839a-dee49da639a3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/9e/9e87bbe5-b30c-4832-a550-170afe118078.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/a4/a4a1ce64-8a05-4776-b99a-2439627946b7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/ad/adb100cb-a042-46b3-9914-2fc15946c6aa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/b2/b2a0a7b1-ca6c-4d3a-b29a-c905c6875390.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@40c10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@74afd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@7d38f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@8fd34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@bb97f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/b3/b32a74a5-3d28-4ad1-8ba6-e595a19b943a@b47c0@e9a6d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/b7/b7b765ab-b92d-4516-8c82-4b5f2e30b99b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bd/bd1bcaba-bd7d-4a71-b143-997c882383e4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@044ce.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@0e11a.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@5c0df.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@64268.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@900da.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@96e87.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@9c4cf.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@a62d2.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@c3539.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/bf/bf92b5d0-d697-43b5-8180-e27546254871@fb36d.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/c6/c6feeea8-b087-44dd-af0a-fd16154619b7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/c7/c791c6fe-3808-497a-9d7b-81ef06f782f4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@40c10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@74afd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@7d38f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@8fd34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@bb97f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/d0/d032ac98-05e1-4090-88bb-eb640dcb5fc1@b47c0@e9a6d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/db/dbee203e-aba6-4837-8f4a-f90c03944a01@7fb43.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/dd/dd9becee-d2a8-4453-8196-e167c85b74a9@80fdf.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/df/df41a1b5-521d-487e-8598-f9f9cd2b0ebe@87f79.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/ed/ed0c4705-c247-4b68-8b7c-0b3e8c844a7b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/f2/f203b71c-fb39-4c7c-8147-206d077c5ff1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/main/native/fb/fb976b4b-23ca-49c3-818f-ebd3432c06d2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/resources/cc.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/resources/import/0d/0db663b8c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/resources/import/0e/0e991b860.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/assets/resources/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/jsb-adapter/engine-adapter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/jsb-adapter/web-adapter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/src/chunks/bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/src/cocos-js/assets/bullet.release.wasm-10f8cbd4.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/src/cocos-js/bullet.release.asm-d4a3f7e0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/src/cocos-js/bullet.release.wasm-1adc856c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/src/cocos-js/bullet.release.wasm-e702f478.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/src/cocos-js/cc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/src/import-map.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/src/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data/src/system.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cfg.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libservice/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libservice/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libservice/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libservice/src/com/cocos/service/SDKWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/adsense-h5g-plugin.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/adsense-h5g-plugin.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/android.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/android.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/builder.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/builder.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/cocos-service.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/cocos-service.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/native.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/native.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/reference-image.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/reference-image.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/scene.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/scene.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/web-desktop.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/web-desktop.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../profiles/v2/packages/web-mobile.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../profiles/v2/packages/web-mobile.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2qgx55uOQQjTYoJDMeUbRGGBVg5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/shenkejie/Desktop/Cube_Final/new_build/android/proj",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "show.do.not.copy.http.proxy.settings.to.gradle": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Cube_Elimination" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="Cube_Elimination.Cube_Elimination.main" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6a748fe6-1bda-45bb-8d4a-74def1bdbc63" name="Changes" comment="" />
+      <created>1735097832331</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1735097832331</updated>
+    </task>
+    <servers />
+  </component>
+</project>

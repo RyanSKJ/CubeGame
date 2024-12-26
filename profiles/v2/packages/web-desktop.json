@@ -10,7 +10,37 @@
       "buildPath": "project://build",
       "outputName": "web-desktop",
       "mainBundleCompressionType": "merge_dep",
-      "platform": "web-desktop"
+      "platform": "web-desktop",
+      "scenes": [
+        {
+          "url": "db://assets/loginscene.scene",
+          "uuid": "f7a61ece-aa9f-4b4f-ae10-0703f3e0ddac"
+        },
+        {
+          "url": "db://assets/game/StartScene.scene",
+          "uuid": "4f57e74b-5746-4c7c-b432-75809f4087b3"
+        },
+        {
+          "url": "db://assets/game/adjust.scene",
+          "uuid": "b6d719cb-89f1-4a4e-8e59-48bf4cb6845f"
+        },
+        {
+          "url": "db://assets/game/choose.scene",
+          "uuid": "dcef1e8f-eefa-4370-b9b3-0871ec139941"
+        },
+        {
+          "url": "db://assets/game/flip.scene",
+          "uuid": "e8af6817-c319-4e1d-b264-22b129041642"
+        },
+        {
+          "url": "db://assets/game/second.scene",
+          "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b"
+        },
+        {
+          "url": "db://assets/catalogasset/Scene/Scene.scene",
+          "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
+        }
+      ]
     },
     "taskOptionsMap": {
       "1724000648638": {
@@ -49,6 +79,13 @@
         "__version__": "1.0.1"
       },
       "1724501199173": {
+        "resolution": {
+          "designWidth": 1280,
+          "designHeight": 960
+        },
+        "__version__": "1.0.1"
+      },
+      "1734938434520": {
         "resolution": {
           "designWidth": 1280,
           "designHeight": 960

@@ -1,4 +1,4 @@
-import { _decorator, Component, Label, Node, Sprite, director } from 'cc';
+import { _decorator, Component, Label, Node, Sprite, Button, director,assetManager } from 'cc';
 import { AudioMgr } from '../../Mgr/AudioMgr';
 import { ResMgr } from '../../Mgr/ResMgr';
 import { LocalMgr } from '../../Mgr/LocalMgr';
@@ -20,6 +20,17 @@ export class SingleInfo extends Component {
     @property(Label)
     private Coin: Label;
 
+    // 控制按钮点击的状态
+    private isClickable: boolean = true;
+
+    // MaskBg 节点
+    @property(Node)
+    private MaskBg: Node;
+
+    // 点击按钮
+    @property(Button)
+    private button: Button;
+
     /**
      * 更新样式
      */
@@ -28,13 +39,23 @@ export class SingleInfo extends Component {
 
         //this.Cat.spriteFrame = ResMgr.instance.SpriteFrames["cathead" + this.NowIndex.toString()];
         this.Coin.string = LocalMgr.instance.LocalInfo.catinfo["cat" + this.NowIndex.toString()];
+        this.button.interactable = this.isClickable;
+    }
+
+    public setClickable(canClick: boolean) {
+        this.isClickable = canClick;
+        this.button.interactable = canClick;  // 控制按钮是否可点击
+        // 控制 MaskBg 的显示状态
+        if (this.MaskBg) {
+            this.MaskBg.active = !canClick; // 当按钮不可点击时，MaskBg 为开启状态
+        }
     }
 
     /**
      * 使用猫咪
      */
     private CatClick() {
-        AudioMgr.instance.PlayButton();
+        //AudioMgr.instance.PlayButton();
     
         // 设置当前关卡索引
         Global.currentLevelIndex = this.NowIndex;
@@ -52,6 +73,14 @@ export class SingleInfo extends Component {
             console.error("Invalid NowIndex value:", this.NowIndex);
         }
     }
+    private loadSceneWithCleanup(sceneName: string) {
+            assetManager.assets.forEach((asset) => {
+                if (!asset.refCount) {
+                    assetManager.releaseAsset(asset);
+                }
+            });
+            director.loadScene(sceneName);        // 加载新场景
+        }
 
 }
 

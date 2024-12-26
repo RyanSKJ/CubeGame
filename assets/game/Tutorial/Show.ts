@@ -1,72 +1,72 @@
-import { _decorator, Component, Label, Node, tween, Vec3 } from 'cc';
+import { _decorator, Component, Label, Button, tween, Node, Vec3 } from 'cc';
 import { TypewriterEffect } from './typer';
 import { Global } from '../../catalogasset/Script/Global'; // 引入 Global 文件
-
 const { ccclass, property } = _decorator;
 
 @ccclass('SceneController')
 export class SceneController extends Component {
+    @property(Button)
+    public iKnowButton: Button | null = null; // "我知道了" 按钮
 
     @property(Node)
-    public targetNode: Node = null!;
+    public targetNode: Node | null = null; // 对话或引导的父节点
 
     @property(TypewriterEffect)
-    public typewriterEffect: TypewriterEffect = null!;
+    public typewriterEffect: TypewriterEffect | null = null; // 打字机组件
 
     @property
-    public dialogueText: string[] = []; // 动态控制 dialogueText
+    public dialogueText: string[] = []; // 动态控制对话文本
 
-    // 预定义多个对话文本
     private dialogues: { [key: number]: string[] } = {
-        0: [
-            "你好，勇者！\n欢迎来到这个世界！",
-            "滑动屏幕移动立方体\n使得按钮重叠\n救出小房子吧！"
-        ],
-        5: [
-            "我们又见面啦！\n这是全新的挑战！",
-            "滑动屏幕旋转立方体\n点击下降释放立方体！",
-            "让方块都穿过洞口\n获得小金币吧！"
-        ],
-        10: [
-            "恭喜你来到新世界！\n本关你需要移动箱子",
-            "结合魔方的旋转\n使得箱子回到家中！"
-        ],
-        15: ["又见面了！\n你可以移动视角\n连续点击三个相同的立方体\n消除它们吧！",
-        ]
+        0: ["你好，勇者！\n欢迎来到这个世界！\n在这类关卡中\n你需要滑动屏幕翻滚方块\n使得立方体上的按钮与棋盘上的按钮重合\n救出小房子吧！"],
+        5: ["我们又见面啦！\n这是全新的挑战！\n旋转并释放立方体\n使得所有立方体穿越下面的孔洞吧！"],
+        10: ["恭喜你突破了重重关卡！\n在这个世界里\n你需要移动箱子，旋转魔方\n使其顺利回到家中！"],
+        15: ["你真厉害！\n这是最后的挑战了\n点击三个相同的立方体消除它们吧！\n如果感到困难\n可以利用旁边的工具给立方体上色哦！"],
     };
 
     onLoad() {
+        //this.node.active = false;
+        // 确保 "我知道了" 按钮初始隐藏
+        if (this.iKnowButton) {
+            this.iKnowButton.node.active = false;
+        }
         this.targetNode.active = false;
-        this.targetNode.setScale(new Vec3(0, 0, 0)); 
+
     }
+
+
 
     start() {
-        // 根据 Global.index 获取对应的 dialogueText
-        this._setDialogueTextBasedOnIndex();
+        const currentIndex = Global.currentLevelIndex; // 假设当前关卡索引从 Global 获取
+        if (this.dialogues[currentIndex]) {
+            this.targetNode.active = true;
+            this.dialogueText = this.dialogues[currentIndex];
+            // 展示对话框并启动打字机效果
+            if (this.targetNode) {
+                this._showNodeWithAnimation(this.targetNode, () => {
+                    if (this.typewriterEffect) {
+                        // 启动打字机效果
+                        this.typewriterEffect.startTypingQueue(this.dialogueText);
 
-        this.scheduleOnce(() => {
-            this._showNodeWithFadeIn(this.targetNode, () => {
-                this._startTypewriterEffect();
-            });
-        }, 1);
+                        // 在打字机完成后显示按钮
+                        this.typewriterEffect.node.once('dialogue-finished', this._showIKnowButton, this);
+                    }
+                });
+            }
+        } else {
+        }
+
+
     }
+
+
 
     /**
-     * 动态设置 dialogueText
+     * 显示目标节点并添加放大动画
      */
-    private _setDialogueTextBasedOnIndex() {
-        const currentIndex = Global.currentLevelIndex;
-        if (this.dialogues[currentIndex]) {
-            this.dialogueText = this.dialogues[currentIndex]; // 根据 index 动态设置 dialogueText
-            console.log(`当前对话内容为:`, this.dialogueText);
-        } else {
-            console.warn(`未找到与 index = ${currentIndex} 对应的对话内容！`);
-        }
-    }
-
-    private _showNodeWithFadeIn(node: Node, onComplete?: Function) {
+    private _showNodeWithAnimation(node: Node, onComplete?: Function) {
         node.active = true;
-        node.setScale(new Vec3(1, 1, 1));
+        node.setScale(new Vec3(1, 1, 1)); // 初始缩放为 0
         tween(node)
             .to(0.5, { scale: new Vec3(2, 2, 2) }, { easing: 'backOut' })
             .call(() => {
@@ -75,23 +75,55 @@ export class SceneController extends Component {
             .start();
     }
 
-    private _startTypewriterEffect() {
-        if (!this.typewriterEffect) {
-            console.error('TypewriterEffect 组件未绑定！');
+    /**
+     * 显示 "我知道了" 按钮并绑定事件
+     */
+    private _showIKnowButton() {
+        if (!this.iKnowButton) {
+            console.error('iKnowButton 未绑定！');
             return;
         }
-        this.typewriterEffect.node.on('dialogue-finished', this._onDialogueFinished, this);
-        this.typewriterEffect.startTypingQueue(this.dialogueText);
+
+        // 显示按钮
+        this.iKnowButton.node.active = true;
+        this.iKnowButton.node.setScale(new Vec3(0, 0, 0)); // 初始缩放为 0
+        tween(this.iKnowButton.node)
+            .to(0.3, { scale: new Vec3(1, 1, 1) }, { easing: 'backOut' })
+            .start();
+
+        // 绑定按钮点击事件
+        this.iKnowButton.node.on('click', this._onIKnowButtonClicked, this);
     }
 
-    private _onDialogueFinished() {
-        console.log('对话完成，开始执行其他逻辑！');
-    }
+    /**
+     * "我知道了" 按钮点击事件
+     */
+    private _onIKnowButtonClicked() {
+        console.log("用户点击了 '我知道了' 按钮，隐藏引导节点。");
 
-    onDestroy() {
-        // 取消事件监听，防止内存泄露
-        if (this.typewriterEffect && this.typewriterEffect.node) {
-            this.typewriterEffect.node.off('dialogue-finished', this._onDialogueFinished, this);
+        // 隐藏整个对话节点
+        if (this.targetNode) {
+            this._hideNodeWithAnimation(this.targetNode, () => {
+                console.log("引导结束！");
+            });
         }
+
+        // 隐藏按钮本身
+        if (this.iKnowButton) {
+            this._hideNodeWithAnimation(this.iKnowButton.node);
+        }
+    }
+
+    /**
+     * 隐藏节点并添加缩小动画
+     */
+    private _hideNodeWithAnimation(node: Node, onComplete?: Function) {
+        tween(node)
+            .to(0.3, { scale: new Vec3(0, 0, 0) }, { easing: 'backIn' })
+            .call(() => {
+                node.active = false; // 动画完成后隐藏节点
+                if (onComplete) onComplete();
+            })
+            .start();
     }
 }

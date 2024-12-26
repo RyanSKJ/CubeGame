@@ -2757,7 +2757,6 @@
     "__prefab": null,
     "pauseMenu": null,
     "mainCamera": null,
-    "cubeNode": null,
     "_id": "b8h5mObP9CXqfyjInarHZS"
   },
   {
@@ -3222,12 +3221,12 @@
     },
     "_enabled": false,
     "__prefab": null,
-    "responseLabel": {
-      "__id__": 21
-    },
-    "sendButton": {
-      "__id__": 28
-    },
+    "suitableButton": null,
+    "difficultButton": null,
+    "moreStrategiesButton": null,
+    "iKnowButton": null,
+    "npcNode": null,
+    "typewriterEffect": null,
     "_id": "b94ur6MQ1MB6wOvmva9iA3"
   },
   {

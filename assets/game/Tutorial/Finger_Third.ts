@@ -18,19 +18,20 @@ export class Finger extends Component {
     private flag2 = true;
 
     start() {
+        // 监听事件
         EventSystem.on('swipeHandled', this.onSwipeHandled, this);
-        // 1. 设置当前节点的位置和缩放
-        this.node.setPosition(this.initialPosition.clone()); 
+        console.log(this.node.active)
+        // 1. 初始化节点的状态
+        this.node.setPosition(this.initialPosition.clone());
         this.node.setScale(this.initialScale.clone());
         this.opacityComponent = this.node.getComponent(UIOpacity) || this.node.addComponent(UIOpacity);
 
-        // 2. 将节点置于最前面
+        // 2. 确保节点处于最前面
         this.bringToFront();
 
         // 3. 获取场景中需要监听的目标节点
-        this.monitoredNode = find('Cube/RubiksCube/box'); 
+        this.monitoredNode = find('Cube/RubiksCube/box');
         if (this.monitoredNode) {
-            // 记录初始位置
             this.previousNodePosition.set(this.monitoredNode.getPosition());
             console.log('成功找到需要监控的节点，并记录其初始位置:', this.previousNodePosition);
         } else {
@@ -63,7 +64,8 @@ export class Finger extends Component {
 
         const currentPosition = this.monitoredNode.getPosition();
 
-        if (!this.previousNodePosition.equals(currentPosition) && this.flag) {
+        // 添加容差范围，避免浮点误差问题
+        if (this.previousNodePosition.subtract(currentPosition).length() > 0.1 && this.flag) {
             this.flag = false;
             this.stopScaleAnimation();
             this.respawnAtNewPosition(); // 在 (412, -277) 重新开始动画
@@ -85,13 +87,8 @@ export class Finger extends Component {
                     .to(0.6, { scale: this.largeScale }, { easing: 'smooth' })
             )
             .start();
-        
+
         console.log('缩放动画已开始，节点在 (396, -252) 位置持续缩放');
-    }
-    onSwipeHandled() {
-        console.log('检测到 handleSwipe 被调用，停止 Finger 动画！');
-        this.flag2 = false
-        //this.node.active = false;
     }
 
     /**
@@ -103,7 +100,7 @@ export class Finger extends Component {
             this.scaleTween = null;
         }
 
-        this.node.active = false; 
+        this.node.active = false;
         console.log('缩放动画已停止，当前节点已被隐藏');
     }
 
@@ -112,7 +109,7 @@ export class Finger extends Component {
      */
     respawnAtNewPosition() {
         this.node.active = true; // 重新显示节点
-        this.node.setPosition(this.respawnPosition.clone()); 
+        this.node.setPosition(this.respawnPosition.clone());
         this.node.setScale(this.largeScale.clone()); // 设置初始缩放为 0.5
 
         const moveTarget = new Vec3(412, -550, 0); // 目标位置
@@ -141,13 +138,35 @@ export class Finger extends Component {
      */
     resetToInitialState() {
         if (this.flag2) {
-        this.node.active = true; 
-        this.node.setPosition(this.respawnPosition.clone()); 
-        this.node.setScale(this.initialScale.clone());
-        this.opacityComponent.opacity = 255; // 确保不透明
-        this.respawnAtNewPosition(); // 重新启动缩放动画
+            this.node.active = true;
+            this.node.setPosition(this.respawnPosition.clone());
+            this.node.setScale(this.initialScale.clone());
+            if (this.opacityComponent) {
+                this.opacityComponent.opacity = 255; // 确保不透明
+            }
+            this.respawnAtNewPosition(); // 重新启动缩放动画
         } else {
-            this.node.active=false
+            this.node.active = false;
+        }
+    }
+
+    /**
+     * 处理 `swipeHandled` 事件，停止动画
+     */
+    onSwipeHandled() {
+        console.log('检测到 handleSwipe 被调用，停止 Finger 动画！');
+        this.flag2 = false;
+        this.node.active = false; // 隐藏节点
+    }
+
+    onDestroy() {
+        // 清除事件监听，避免内存泄漏
+        EventSystem.off('swipeHandled', this.onSwipeHandled, this);
+
+        // 停止任何可能存在的动画
+        if (this.scaleTween) {
+            this.scaleTween.stop();
+            this.scaleTween = null;
         }
     }
 }

@@ -28,15 +28,23 @@ export class ShopBox extends Component {
     //回调函数
     public Cb: Function;
 
-    protected start(): void {
+
+    protected async start(): Promise<void> {
+        const maxLevel = parseInt(localStorage.getItem('maxLevel'),10)+1;
         TweenTool.Pop(this.Box);
         for (let i = 0; i < 20; i++) {
             let si: Node = instantiate(this.SingleInfo);
             this.MainLoad.addChild(si);
             si.setPosition(0, 0, 0);
+            let singleInfoComp = si.getComponent(SingleInfo);
             si.getComponent(SingleInfo).UpdateStyle(i);
+            singleInfoComp.setClickable(i <= maxLevel - 2);  // 如果关卡小于等于 maxLevel，则可以点击
         }
     }
+    
+    
+    
+        
 
 
     /**
@@ -46,7 +54,13 @@ export class ShopBox extends Component {
         AudioMgr.instance.PlayButton();
         TopLoad.instance.HidePop(AssetList.Pop.ShopBox);
         this.Cb && this.Cb();
-        this.checkAllCameras();
+        //this.checkAllCameras();
+    }
+    private CloseNo() {
+        AudioMgr.instance.PlayButton();
+        TopLoad.instance.HidePop(AssetList.Pop.Nobox);
+        //this.Cb && this.Cb();
+        //this.checkAllCameras();
     }
 
     private checkAllCameras() {

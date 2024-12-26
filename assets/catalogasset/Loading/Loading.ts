@@ -37,6 +37,8 @@ export class Loading extends Component {
      * 加载资源
      */
     private async LoadRes() {
+
+
         await ResMgr.instance.LoadBundle(AssetList.BundleName, 0.1);
         await ResMgr.instance.LoadRes(AssetList.BundleName, AssetList.Asset.Prefabs, 0.6);
         await ResMgr.instance.LoadRes(AssetList.BundleName, AssetList.Asset.Sounds, 0.2);
@@ -48,6 +50,7 @@ export class Loading extends Component {
     }
 
     update(deltaTime: number) {
+
         this.ProgressText.string = "LOADING..." + Math.floor(Global.LoadProgress * 100).toString() + "%";
         this.ProgressBar.progress = Global.LoadProgress;
     }

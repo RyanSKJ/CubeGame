@@ -27,7 +27,7 @@ export class Finger extends Component {
         this.bringToFront();
 
         // 1. 通过 find() 获取 cube4 节点（假设路径为 'Node/Cube4'，根据实际路径调整）
-        this.cube4Node = find('Node/Cube4'); 
+        this.cube4Node = find('Node/Cube4-mini');
         if (this.cube4Node) {
             // 记录 cube4 的初始旋转
             this.previousCube4Rotation.set(this.cube4Node.rotation);
@@ -78,6 +78,27 @@ export class Finger extends Component {
 
         // 更新前一帧的旋转，确保下次更新时进行对比
         this.previousCube4Rotation.set(currentRotation);
+    }
+
+    onDestroy() {
+        console.log('Cleaning up Finger component...');
+    
+        // 停止所有正在进行的动画
+        if (this.scaleTween) {
+            this.scaleTween.stop();
+            this.scaleTween = null;
+        }
+    
+        // 清理与 cube4 节点的引用，避免内存泄漏
+        if (this.cube4Node) {
+            this.cube4Node = null;
+        }
+    
+        // 确保没有未清理的调度或状态
+        this.isOperationActive = false;
+        this.elapsedTime = 0;
+    
+        console.log('Finger component cleanup complete.');
     }
 
     /**

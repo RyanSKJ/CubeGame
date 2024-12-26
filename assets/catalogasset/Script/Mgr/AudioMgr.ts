@@ -17,6 +17,17 @@ export class AudioMgr {
         }
         return this._instance;
     }
+    public DestroyBgSound() {
+        if (this.BgSound) {
+            this.BgSound.stop(); // 停止音乐
+            this.BgSound.clip = null; // 清除音频剪辑
+            if (this.BgSound.node) {
+                this.BgSound.node.destroy(); // 销毁节点
+            }
+            this.BgSound = null; // 释放引用
+            console.log("背景音乐组件已销毁");
+        }
+    }
 
     //背景音乐管理
     private BgSound: AudioSourceComponent = null;
@@ -39,6 +50,10 @@ export class AudioMgr {
      * @param 背景音效声量
      */
     public PlayBgSound(_bgsoundname: string, _volume: number = 0.6) {
+        if (this.BgSound.clip?.name === _bgsoundname && this.BgSound.playing) {
+            console.log("背景音乐正在播放，无法重复播放");
+            return;
+        }
         this.IsMute = false;
         this.BgSound.clip = ResMgr.instance.Audio[_bgsoundname];
         this.BgSound.play();
@@ -65,6 +80,10 @@ export class AudioMgr {
      * @param 播放索引
      */
     public PlayEffect(_sound: string, _name: string) {
+        if (this.EffectSound[_name]?.clip?.name === _sound && this.EffectSound[_name].playing) {
+            console.log(`音效 ${_sound} 正在播放，无法重复播放`);
+            return;
+        }
         if (!this.IsMute) {
             if (this.EffectSound[_name]) {
                 this.EffectSound[_name].clip = ResMgr.instance.Audio[_sound];

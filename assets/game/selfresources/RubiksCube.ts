@@ -66,8 +66,34 @@ export class RubiksCube extends Component {
         EventSysteml.on('changeBox', this.boxchange, this);
     }
     onDestroy() {
-        // 移除事件监听
+        console.log("Cleaning up RubiksCube...");
+    
+        // 1. 移除 EventSysteml 的事件监听
         EventSysteml.off('changeBox', this.boxchange, this);
+    
+        // 2. 移除 Input 事件监听
+        input.off(Input.EventType.TOUCH_START, this.onTouchStart, this);
+        input.off(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
+        input.off(Input.EventType.TOUCH_END, this.onTouchEnd, this);
+    
+        // 3. 销毁动态创建的节点
+        this.extraCubes.forEach(cube => {
+            if (cube && cube.isValid) {
+                cube.destroy();
+            }
+        });
+        this.extraCubes = [];
+    
+        // 4. 停止所有调度
+        this.unscheduleAllCallbacks();
+    
+        // 5. 清理旋转根节点
+        if (this.rotationRoot) {
+            this.rotationRoot.destroy();
+            this.rotationRoot = null;
+        }
+    
+        console.log("RubiksCube cleaned up successfully.");
     }
     boxchange(MoveFlag:boolean){
         console.log(MoveFlag);
@@ -593,6 +619,8 @@ export class RubiksCube extends Component {
         }
         this.selectedLayer = [];
     }
+
+    
 
     rotateLayer() {
         //console.log(`旋转轴: ${this.currentAxis}, 层高度: ${this.currentLayerIndex}, 方向: ${this.rotationDirection}`);

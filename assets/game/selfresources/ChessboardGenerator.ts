@@ -1,4 +1,4 @@
-import { _decorator, Component, instantiate, tween, Node, Prefab, Vec3, Vec2, Collider, ITriggerEvent, UITransform, Camera, director, Canvas, view, Layers } from 'cc';
+import { _decorator, Component, instantiate, tween, Node, Button, Prefab, Vec3, Vec2, Collider, ITriggerEvent, UITransform, Camera, director, Canvas, view, Layers } from 'cc';
 import { LevelController } from './LevelController'; // 导入LevelController脚本
 import { RotateAndMoveCubeOnKey } from './Cubeflip'; // 导入LevelController脚本
 import { Global } from '../../catalogasset/Script/Global';
@@ -32,7 +32,8 @@ export class ChessboardGenerator extends Component {
     private currentLevel = 0;
     private blockedTiles: Set<string> = new Set();
 
-
+    @property(Node)
+    public targetNode: Node = null; // 目标节点，在编辑器中选择
 
     start() {
         const levelController = this.getComponent(LevelController);
@@ -156,33 +157,54 @@ export class ChessboardGenerator extends Component {
 
     onPrefab2CollisionEnter(event: ITriggerEvent) {
         console.log(`${event.otherCollider.node.name} collided with prefab2`);
-
+    
         const prefab2Node = event.selfCollider.node;
         const animationInstance = instantiate(this.animationPrefab);
         animationInstance.setParent(this.node);
         animationInstance.setPosition(prefab2Node.worldPosition);
-
+    
         prefab2Node.active = false;
         this.triggeredPrefabs2++;
-
-
+    
         if (this.triggeredPrefabs2 >= this.totalPrefabs2) {
+            this.logUserAction();
+        // 获取当前的最大关卡值
+const maxLevelString = localStorage.getItem('maxLevel');
+let maxLevel = maxLevelString ? parseInt(maxLevelString, 10) : 0; // 如果没有值则默认为 0
+
+// 将关卡值加 1
+maxLevel += 1;
+
+// 更新 localStorage
+localStorage.setItem('maxLevel', maxLevel.toString());
+            if (parseInt(localStorage.getItem('maxLevel'), 10) < Global.currentLevelIndex) {
+                localStorage.setItem('maxLevel',Global.currentLevelIndex.toString())
+              }
             console.log("All prefab2 instances triggered, starting animation");
-        
+    
             // 找到 i === 0 && j === 0 的 tile
             const targetTile = this.tiles[0][0];
             if (targetTile) {
                 const targetPosition = targetTile.position.clone(); // 当前 tile 位置
                 targetPosition.y = 0; // 修改目标位置的 Y 坐标为 0
-        
-                // 使用 tween 动画将 Y 调整到 0
+    
+                // 先执行 tile 动画
                 tween(targetTile)
                     .to(1.0, { position: targetPosition }, { easing: 'quadInOut' }) // 动画持续时间 1 秒
                     .call(() => {
-                        console.log("Animation completed, continuing logic");
-        
-                        // 执行后续逻辑
-                        this.finishLevel();
+                        console.log("Tile animation completed, now activating the target node");
+    
+                        // 确保目标 Node 激活，并设置为顶层
+                        if (this.targetNode) {
+                            this.targetNode.active = true;
+                            this.targetNode.setSiblingIndex(this.targetNode.parent.children.length - 1); // 设置为顶层
+                            console.log(`Node "${this.targetNode.name}" has been activated and moved to the top layer.`);
+    
+                            // 等待用户点击“我知道了”按钮
+                            this._setupIKnowButtonListener();
+                        } else {
+                            console.error("Target node is not set!");
+                        }
                     })
                     .start();
             } else {
@@ -190,9 +212,46 @@ export class ChessboardGenerator extends Component {
             }
         }
     }
+    
+    /**
+     * 设置“我知道了”按钮的点击监听
+     */
+    private _setupIKnowButtonListener() {
+        const iKnowButtonNode = this.targetNode.getChildByName("Finish"); // 假设按钮名称是 "IKnowButton"
+        if (!iKnowButtonNode) {
+            console.error("IKnowButton node not found!");
+            return;
+        }
+    
+        const iKnowButton = iKnowButtonNode.getComponent(Button);
+        if (!iKnowButton) {
+            console.error("Button component not found on IKnowButton node!");
+            return;
+        }
+    
+        // 添加点击事件监听
+        iKnowButton.node.on('click', () => {
+            console.log("User clicked '我知道了', continuing to render prefabs");
+    
+            // 隐藏目标 Node
+            this.targetNode.active = false;
+    
+            // 渲染 Prefab
+            this._renderFinalPrefab();
+        }, this);
+    }
+    
+    /**
+     * 渲染最终的 Prefab
+     */
+    private _renderFinalPrefab() {
+        console.log("Rendering final Prefab...");
+        // 执行渲染 Prefab 的逻辑
+        this.finishLevel();
+    }
 
     finishLevel() {
-        this.logUserAction();
+        
     
         const canvasNode = director.getScene().getChildByName('Canvas');
         if (canvasNode) {
@@ -212,6 +271,8 @@ export class ChessboardGenerator extends Component {
             console.error("Main Camera not found in the current scene!");
         }
     }
+
+
 
     onAllPrefabs2Triggered() {
         console.log("All prefab2 instances have been triggered! Game Over!");

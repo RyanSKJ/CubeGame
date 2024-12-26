@@ -1,10 +1,14 @@
-import { _decorator, Component, Collider, ICollisionEvent,director,Canvas,Camera,Prefab,Node,UITransform,view,instantiate,Layers } from 'cc';
+import { _decorator, Component, Collider, ICollisionEvent,Button, director,Canvas,Camera,Prefab,Node,UITransform,view,instantiate,Layers, renderer } from 'cc';
+import {Global} from '../../catalogasset/Script/Global'
 const { ccclass, property } = _decorator;
 
 @ccclass('CollisionHandler')
 export class CollisionHandler extends Component {
     @property(Prefab)
     public uiPrefab: Prefab = null; // 需要渲染的UI-2D预制体
+
+    @property(Node)
+    public targetNode: Node = null; // 目标节点，在编辑器中选择
 
     onLoad() {
         // 获取当前节点的 Collider 组件
@@ -20,15 +24,32 @@ export class CollisionHandler extends Component {
     onDestroy() {
         this.unscheduleAllCallbacks();
     }
-    
-    onTriggerEnter(event: ICollisionEvent) {
-        // 发生碰撞时触发
-        console.log('Collision detected with: ', event.otherCollider.node.name);
-    
-        if (event.otherCollider.node.name === 'lumbermill') {
-            // 暂停整个游戏逻辑
-            //director.pause();
-    
+    private _setupIKnowButtonListener() {
+            const iKnowButtonNode = this.targetNode.getChildByName("Finish"); // 假设按钮名称是 "IKnowButton"
+            if (!iKnowButtonNode) {
+                console.error("IKnowButton node not found!");
+                return;
+            }
+        
+            const iKnowButton = iKnowButtonNode.getComponent(Button);
+            if (!iKnowButton) {
+                console.error("Button component not found on IKnowButton node!");
+                return;
+            }
+        
+            // 添加点击事件监听
+            iKnowButton.node.on('click', () => {
+                console.log("User clicked '我知道了', continuing to render prefabs");
+        
+                // 隐藏目标 Node
+                this.targetNode.active = false;
+        
+                // 渲染 Prefab
+                this._renderFinalPrefab();
+            }, this);
+        }
+
+        private _renderFinalPrefab() {
             const scene = director.getScene();
             if (scene) {
                 console.log("当前场景获取成功");
@@ -69,6 +90,79 @@ export class CollisionHandler extends Component {
             } else {
                 console.error("无法获取当前场景");
             }
+        
+    }
+    
+    onTriggerEnter(event: ICollisionEvent) {
+        // 发生碰撞时触发
+
+        console.log('Collision detected with: ', event.otherCollider.node.name);
+    
+        if (event.otherCollider.node.name === 'lumbermill') {
+            if (parseInt(localStorage.getItem('maxLevel'), 10) < Global.currentLevelIndex) {
+                  localStorage.setItem('maxLevel',Global.currentLevelIndex.toString())
+                }
+            // 暂停整个游戏逻辑
+            //director.pause();
+            this.logUserAction();
+            // 确保目标 Node 激活，并设置为顶层
+            if (this.targetNode) {
+                this.targetNode.active = true;
+                this.targetNode.setSiblingIndex(this.targetNode.parent.children.length - 1); // 设置为顶层
+                console.log(`Node "${this.targetNode.name}" has been activated and moved to the top layer.`);
+
+                // 等待用户点击“我知道了”按钮
+                this._setupIKnowButtonListener();
+            } else {
+                console.error("Target node is not set!");
+            }
+    
+        }
+    }
+    async logUserAction() {
+        const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
+        const username = localStorage.getItem('currentUsername'); // 从localStorage中获取用户名
+        const sessionToken = localStorage.getItem('sessionToken'); // 从localStorage中获取token
+        const level = Global.currentLevelIndex;
+    
+        if (!username || !sessionToken) {
+            console.error('No username or sessionToken found.');
+            return;
+        }
+    
+        // 获取当前时间的北京时间
+        const now = new Date();
+        const offset = 8 * 60 * 60 * 1000; // UTC+8 的时间偏移（毫秒）
+        const beijingTime = new Date(now.getTime() + offset).toISOString().replace('T', ' ').slice(0, 23); // 格式化为 "YYYY-MM-DD HH:mm:ss"
+    
+        // 准备发送的数据
+        const data = {
+            tableName: 'user_pass', // 表名
+            data: {
+                Usr_ID: username,
+                Level: level,
+                Timestep: beijingTime, // 使用北京时间
+            },
+        };
+    
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionToken}`,
+                },
+                body: JSON.stringify(data),
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to log user action');
+            }
+    
+            const result = await response.json();
+            console.log('User action logged successfully:', result);
+        } catch (error) {
+            console.error('Error logging user action:', error);
         }
     }
 

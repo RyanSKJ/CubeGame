@@ -1,4 +1,5 @@
 import { _decorator, Component, EditBox, director, assetManager, AssetManager, Director, view, ResolutionPolicy } from 'cc';
+import {Global} from './catalogasset/Script/Global'
 const { ccclass, property } = _decorator;
 
 @ccclass('LoginController')
@@ -21,6 +22,13 @@ export class LoginController extends Component {
 
         // 调用登录函数，进行账号校验
         this.login(username, password);
+    }
+
+    onDestroy() {
+        // 取消事件监听
+        director.off(Director.EVENT_AFTER_SCENE_LAUNCH, this.adjustCanvasResolution, this);
+    
+        console.log("LoginController 已销毁，所有资源已清理。");
     }
 
     async login(username: string, password: string) {
@@ -48,8 +56,13 @@ export class LoginController extends Component {
                 // 记录session或token
                 localStorage.setItem('sessionToken', data.token); // 假设服务器返回token作为session标识
                 localStorage.setItem('currentUsername', username);
+                localStorage.setItem('maxLevel', data.maxLevel);
+                localStorage.setItem('isAI', data.AI);
+                console.log(localStorage.getItem('isAI'))
 
                 // 登录成功后加载游戏场景
+                const maxlevel = await this.fetchMaxLevel() + 2;
+                localStorage.setItem('maxLevel',maxlevel.toString());
                 this.loadGameScene();
             } else {
                 console.error('Login failed:', data.message);
@@ -87,5 +100,29 @@ export class LoginController extends Component {
 
     update(deltaTime: number) {
         // 每帧更新逻辑
+    }
+    private async fetchMaxLevel(): Promise<number> {
+        // 假设你已经实现了获取最大等级的接口，获取 maxLevel
+        try {
+            const usrId = localStorage.getItem('currentUsername'); 
+            const sessionToken = localStorage.getItem('sessionToken');
+            const response = await fetch(`http://124.71.181.62:3000/api/getMaxLevel?Usr_ID=${usrId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${sessionToken}`,
+                }
+            });
+            const result = await response.json();
+            if (response.ok && result.success) {
+                return result.maxLevel || 0;  // 返回最大关卡级别
+            } else {
+                console.error('Failed to fetch maxLevel:', result.message);
+                return 0;  // 如果请求失败，返回 0
+            }
+        } catch (err) {
+            console.error('Error fetching maxLevel:', err);
+            return 0;  // 如果发生错误，返回 0
+        }
     }
 }

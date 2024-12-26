@@ -197,8 +197,59 @@
         "compressZip": false,
         "JobSystem": "none",
         "__version__": "1.0.2"
+      },
+      "1734932955950": {
+        "encrypted": false,
+        "xxteaKey": "35jlAe6U9BxZjgnf",
+        "compressZip": false,
+        "JobSystem": "none",
+        "__version__": "1.0.2"
+      },
+      "1734967911967": {
+        "encrypted": false,
+        "xxteaKey": "bd4sMMfHhFObIxgZ",
+        "compressZip": false,
+        "JobSystem": "none",
+        "__version__": "1.0.2"
+      },
+      "1735039401938": {
+        "encrypted": false,
+        "xxteaKey": "bd4sMMfHhFObIxgZ",
+        "compressZip": false,
+        "JobSystem": "tbb",
+        "__version__": "1.0.2"
+      },
+      "1735058401337": {
+        "encrypted": false,
+        "xxteaKey": "bd4sMMfHhFObIxgZ",
+        "compressZip": false,
+        "JobSystem": "tbb",
+        "__version__": "1.0.2"
+      },
+      "1735097756266": {
+        "encrypted": false,
+        "xxteaKey": "bd4sMMfHhFObIxgZ",
+        "compressZip": false,
+        "JobSystem": "tbb",
+        "__version__": "1.0.2"
+      },
+      "1735125026309": {
+        "encrypted": false,
+        "xxteaKey": "bd4sMMfHhFObIxgZ",
+        "compressZip": false,
+        "JobSystem": "tbb",
+        "__version__": "1.0.2"
       }
     },
-    "__version__": "1.3.8"
+    "__version__": "1.3.8",
+    "options": {
+      "android": {
+        "encrypted": false,
+        "xxteaKey": "bd4sMMfHhFObIxgZ",
+        "compressZip": false,
+        "JobSystem": "tbb",
+        "__version__": "1.0.2"
+      }
+    }
   }
 }
