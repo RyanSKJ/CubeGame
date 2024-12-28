@@ -17,6 +17,9 @@ export class LoginScene extends Component {
     @property(Label)
     private ScoreText: Label;
 
+    @property(Label)
+    private NameText: Label;
+
     //金币数量
     @property(Label)
     private CoinText: Label;
@@ -26,7 +29,8 @@ export class LoginScene extends Component {
 
 
     protected start(): void {
-        this.UpdateBest();
+        //this.UpdateBest();
+        this.Name();
     }
 
     /**
@@ -47,6 +51,12 @@ export class LoginScene extends Component {
         Global.IsDebug && console.log("本地信息", LocalMgr.instance.GetInfo())
         this.ScoreText.string = `${parseInt(localStorage.getItem('maxLevel'), 10) -1}`;
         this.CoinText.string = LocalMgr.instance.GetInfo().coin.toString();
+    }
+    private Name() {
+        Global.IsDebug && console.log("本地信息", LocalMgr.instance.GetInfo())
+        this.NameText.string = localStorage.getItem('name');
+        console.log(this.NameText.string)
+        //this.CoinText.string = LocalMgr.instance.GetInfo().coin.toString();
     }
 
     /**

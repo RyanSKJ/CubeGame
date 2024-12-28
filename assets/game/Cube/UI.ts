@@ -1,7 +1,7 @@
-import { _decorator, Camera, Component, EventTarget, EventTouch, Touch, Button, Color, Sprite, MeshRenderer, EventMouse, geometry, Input, input, Node, PhysicsSystem, profiler, toDegree, toRadian, UITransform, Vec3, view, color } from "cc";
+import { _decorator, Camera, Component, EventTarget, EventTouch, screen, Touch, Button, Color, Sprite, MeshRenderer, EventMouse, geometry, Input, input, Node, PhysicsSystem, profiler, toDegree, toRadian, UITransform, Vec3, view, color } from "cc";
 import { Cubes } from "./Cubes";
 import { Sample_Cursor } from "./Sample_Cursor";
-import {Global} from "../../catalogasset/Script/Global"
+import { Global } from "../../catalogasset/Script/Global"
 export const EventSystem = new EventTarget();
 
 const { ccclass, property } = _decorator;
@@ -22,6 +22,12 @@ export class UI extends Component {
 
   @property(Sample_Cursor)
   sampleCursor: Sample_Cursor = null;
+
+  private lastPushX:number = 0;
+    private lastPushY:number = 0;
+
+    private lastRecordedTime: number = 0; // 上次记录触摸点的时间戳
+    private minPointDistance: number = 10; // 两点之间的最小距离（像素）
 
   private _touchStartPos: Vec3 = new Vec3(); // 记录触摸的开始位置
   private _touchEndPos: Vec3 = new Vec3();   // 记录触摸的结束位置
@@ -97,12 +103,19 @@ export class UI extends Component {
     this._lastTouchPos.set(touch.x, touch.y, 0);  // 记录最后的触摸位置
     this._isDragging = false; // 每次触摸开始时，重置拖拽标志
     this._totalDistance = 0; // 重置总位移
+    this.lastRecordedTime = Date.now();
+    this.lastPushX = touch.x;
+    this.lastPushY = touch.y;
   }
 
   private onTouchMove(event: EventTouch) {
     const touch = event.getLocation();
     const deltaX = touch.x - this._lastTouchPos.x;
     const deltaY = touch.y - this._lastTouchPos.y;
+
+    const currentTime = Date.now(); // 使用绝对时间戳
+    const distanceFromLastPoint = Math.sqrt(Math.pow(touch.x-this.lastPushX, 2) + Math.pow(touch.y-this.lastPushY, 2)); // 当前与上一次记录点的距离
+    const timeDelta = currentTime - this.lastRecordedTime; // 使用绝对时间计算间隔
 
     // 计算这次移动的距离
     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -111,7 +124,6 @@ export class UI extends Component {
     // 判断是否进入拖拽模式
     if (!this._isDragging && this._totalDistance > this._touchThreshold) {
       this._isDragging = true; // 一旦总的距离超过了阈值，标记为拖拽
-      console.log('拖拽开始');
       EventSystem.emit('drag');
     }
 
@@ -127,22 +139,23 @@ export class UI extends Component {
 
 
     // 获取当前时间
-    const now = new Date().toISOString();
+    const screenWidth = screen.windowSize.width;  // 获取屏幕宽度
+    const screenHeight = screen.windowSize.height; // 获取屏幕高度
+    const aspectRatio = screenWidth / screenHeight;
+    this.minPointDistance = screenWidth / 10;
 
-    // 仅在超出采样距离阈值时记录
-    if (this._lastSamplePos.equals(new Vec3(0, 0, 0)) || distance >= this._sampleThreshold) {
-        this._dragPath.push({
-            x: touch.x,
-            y: touch.y,
-            time: now,
-        });
-        this._lastSamplePos.set(touch.x, touch.y, 0); // 更新采样点
-    }
 
-this._lastTouchPos.set(touch.x, touch.y, 0); // 更新最后触摸点
 
-    // 更新最后的触摸位置
-    this._lastTouchPos.set(touch.x, touch.y, 0);
+    // 记录触摸路径：时间间隔和距离间隔
+    if (timeDelta >= 50 && distanceFromLastPoint >= this.minPointDistance) {
+      this._dragPath.push({ x:touch.x, y:touch.y, time: currentTime.toString() });
+      this.lastRecordedTime = currentTime; // 更新上次记录的时间
+      this.lastPushX = touch.x;
+      this.lastPushY = touch.y;
+  }
+
+    this._lastTouchPos.set(touch.x, touch.y, 0); // 更新最后触摸点
+
   }
 
   private onTouchEnd(event: EventTouch) {
@@ -156,15 +169,14 @@ this._lastTouchPos.set(touch.x, touch.y, 0); // 更新最后触摸点
     } else {
       console.log('拖拽结束');
       // 打包拖拽路径数据
-    const dragData = {
-      dragPath: this._dragPath,
-      totalDistance: this._totalDistance,
-  };
+      const dragData = {
+        dragPath: this._dragPath,
+        totalDistance: this._totalDistance,
+      };
 
-  // 上传数据
-  this.logPlayerAction("Drag",undefined,undefined,undefined,undefined,JSON.stringify(dragData));
+      // 上传数据
+      this.logPlayerAction("Drag", undefined, undefined, undefined, undefined, JSON.stringify(dragData));
 
-  console.log("上传的数据：", dragData);
     }
 
     // 重置标志位
@@ -206,7 +218,7 @@ this._lastTouchPos.set(touch.x, touch.y, 0); // 更新最后触摸点
         if (namePattern.test(parentName)) {
           this._changeChildrenColor(node, this.selectedColor);
           console.log("颜色已改变，符合规则的父节点为:", parentName);
-          this.logPlayerAction('ChangeColor',undefined,node.name,parentName,this.selectedColor.toHEX())
+          this.logPlayerAction('ChangeColor', undefined, node.name, parentName, this.selectedColor.toHEX())
           return true;
         }
       } else {
@@ -229,12 +241,12 @@ this._lastTouchPos.set(touch.x, touch.y, 0); // 更新最后触摸点
   async logPlayerAction(
     Operation: string,
     Object?: string,
-    Object_Color?: string, 
-    Color_Father?: string, 
-    Color?: string, 
+    Object_Color?: string,
+    Color_Father?: string,
+    Color?: string,
     Drag?: string,
 
-) {
+  ) {
     const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
 
     // 1️⃣ 获取 localStorage 数据
@@ -243,18 +255,18 @@ this._lastTouchPos.set(touch.x, touch.y, 0); // 更新最后触摸点
 
     // 2️⃣ 确保 localStorage 中的用户名和 token 存在
     if (!username) {
-        console.error('❌ 错误：用户名未找到。请确保玩家已正确登录。');
-        return;
+      console.error('❌ 错误：用户名未找到。请确保玩家已正确登录。');
+      return;
     }
     if (!sessionToken) {
-        console.error('❌ 错误：Session token 未找到。请确保玩家已正确认证。');
-        return;
+      console.error('❌ 错误：Session token 未找到。请确保玩家已正确认证。');
+      return;
     }
 
     // 3️⃣ 获取当前时间（北京时间，精确到毫秒）
     function padStart(value: string | number, targetLength: number, padChar: string = '0'): string {
-        const str = String(value);
-        return str.length >= targetLength ? str : padChar.repeat(targetLength - str.length) + str;
+      const str = String(value);
+      return str.length >= targetLength ? str : padChar.repeat(targetLength - str.length) + str;
     }
 
     const now = new Date();
@@ -270,54 +282,54 @@ this._lastTouchPos.set(touch.x, touch.y, 0); // 更新最后触摸点
     const hasObjectParams = Object_Color !== undefined && Color_Father !== undefined && Color !== undefined;
     const hasDrag = Drag !== undefined;
     if (!hasCubeParams && !hasObjectParams && !hasDrag) {
-        console.error('❌ 错误：未提供完整的参数。');
-        return;
+      console.error('❌ 错误：未提供完整的参数。');
+      return;
     }
 
     // 6️⃣ 组织请求数据
     const data: any = {
-        tableName: 'game4',
-        data: {
-            Usr_ID: username,          // 玩家ID
-            Timestep: formattedTime,   // 时间戳（北京时间，精确到毫秒）
-            Level: level,              // 当前关卡
-            Operation: Operation,      // 操作类型
-            Drag: Drag
-        },
+      tableName: 'game4',
+      data: {
+        Usr_ID: username,          // 玩家ID
+        Timestep: formattedTime,   // 时间戳（北京时间，精确到毫秒）
+        Level: level,              // 当前关卡
+        Operation: Operation,      // 操作类型
+        Drag: Drag
+      },
     };
 
     // 根据提供的参数进行数据填充
     if (hasCubeParams) {
-        data.data.Object = Object;
+      data.data.Object = Object;
     } else if (hasObjectParams) {
-        data.data.Object_Color = Object_Color;
-        data.data.Color_Father = Color_Father;
-        data.data.Color = Color;
+      data.data.Object_Color = Object_Color;
+      data.data.Color_Father = Color_Father;
+      data.data.Color = Color;
     } else if (hasDrag) {
       data.drag = Drag;
     }
 
     // 7️⃣ 发送请求
     try {
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${sessionToken}`,
-            },
-            body: JSON.stringify(data),
-        });
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${sessionToken}`,
+        },
+        body: JSON.stringify(data),
+      });
 
-        if (!response.ok) {
-            throw new Error('❌ 错误：无法记录玩家操作');
-        }
+      if (!response.ok) {
+        throw new Error('❌ 错误：无法记录玩家操作');
+      }
 
-        const result = await response.json();
-        console.log('✅ 玩家操作记录成功：', result);
+      const result = await response.json();
+      console.log('✅ 玩家操作记录成功：', result);
     } catch (error) {
-        console.error('❌ 记录玩家操作时发生错误：', error);
+      console.error('❌ 记录玩家操作时发生错误：', error);
     }
-}
+  }
 
 
   public enterSelectMode() {
@@ -358,8 +370,8 @@ this._lastTouchPos.set(touch.x, touch.y, 0); // 更新最后触摸点
     console.log("屏幕宽度：", size.width, "屏幕高度：", size.height);
 
     if (size.width === 0 || size.height === 0) {
-        console.error("视图尺寸为 0，可能是资源加载问题");
-        return;
+      console.error("视图尺寸为 0，可能是资源加载问题");
+      return;
     }
 
     const aspect = size.width / size.height;
@@ -368,22 +380,22 @@ this._lastTouchPos.set(touch.x, touch.y, 0); // 更新最后触摸点
     this.camera0 = this.cameraNode.getChildByName("Camera0").getComponent(Camera);
 
     if (!this.camera0) {
-        console.error("Camera0 未找到或未正确初始化");
-        return;
+      console.error("Camera0 未找到或未正确初始化");
+      return;
     }
 
     if (aspect > 0.5) {
-        const horFOV = this.verticalFOVToHorizontal(45, aspect);
-        this.camera0.fov = horFOV;
-        console.log("设置为水平 FOV：", horFOV);
+      const horFOV = this.verticalFOVToHorizontal(45, aspect);
+      this.camera0.fov = horFOV;
+      console.log("设置为水平 FOV：", horFOV);
     } else {
-        this.camera0.fov = this.horizontalFOVToVertical(45, aspect);
-        console.log("设置为垂直 FOV：", this.camera0.fov);
+      this.camera0.fov = this.horizontalFOVToVertical(45, aspect);
+      console.log("设置为垂直 FOV：", this.camera0.fov);
     }
 
     this.camera0.camera.update(true);
     console.log("摄像机 FOV 更新完成");
-}
+  }
 
 
   verticalFOVToHorizontal(verFOV: number, aspect: number): number {

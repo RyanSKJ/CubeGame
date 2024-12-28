@@ -1,7 +1,8 @@
 import { _decorator, Component, EventTarget, physics, Node, RigidBody, find, screen, PhysicsSystem, tween, Quat, ICollisionEvent, Collider, input, Input, EventMouse, EventTouch, Label, Vec3, instantiate, Prefab, Camera, EventKeyboard, KeyCode, Button, director, Canvas, UITransform, view, Layers } from 'cc';
 import { RotateUtil } from './RotateUtil'; // 引入自定义的 RotateUtil
 import { Global } from '../../catalogasset/Script/Global';
-import { EndBox } from '../../catalogasset/Script/TopLoad/EndBox';
+import {RequestManager} from '../../catalogasset/Scene/RequestManager'
+const manager = RequestManager.getInstance();
 
 
 const { ccclass, property } = _decorator;
@@ -22,19 +23,23 @@ interface AngleData {
 export class Controller extends Component {
 
 
-
+    
 
 
     private touchPath: Array<{ x: number, y: number, time: number }> = [];
     private startTime: number = 0;
-    private lastDirectionX: number = 0;
-    private lastDirectionY: number = 0;
+    private lastRecordedTime: number = 0; // 上次记录触摸点的时间戳
+    private minPointDistance: number = 10; // 两点之间的最小距离（像素）
 
     private maxAngle: number | null = null; // 当前旋转方向的最大角度
     private minAngle: number | null = null; // 当前旋转方向的最小角度
     private currentDirection: "clockwise" | "counterclockwise" | null = null; // 当前旋转方向
     private lastAngle: number = 0; // 上一帧的角度
     private totalRotation: number = 0; // 总旋转角度
+
+    private lastPushX:number = 0;
+    private lastPushY:number = 0;
+
     private segments: Array<{
         direction: "clockwise" | "counterclockwise";
         startAngle: number;
@@ -43,6 +48,8 @@ export class Controller extends Component {
         duration: number;
     }> = []; // 记录旋转分段
     private directionThreshold: number = 5; // 方向切换的角度阈值
+
+    private flag = true;
 
 
     @property(Label)
@@ -145,7 +152,7 @@ export class Controller extends Component {
         /*
         const colliders = this.instantiatedNode.getComponents(Collider);
         colliders.forEach((collider, index) => {
-            console.log(`Collider ${index}:`, collider);
+            //console.log(`Collider ${index}:`, collider);
             collider.on('onCollisionEnter', this.onCollisionEnter, this); // 监听碰撞事件
         });
         */
@@ -153,7 +160,7 @@ export class Controller extends Component {
         // 2. 获取父节点下的所有子节点的 Collider，并为每个 Collider 添加碰撞监听器
         const childColliders = this.instantiatedNode.getComponentsInChildren(Collider);
         childColliders.forEach((collider, index) => {
-            console.log(`子节点 Collider ${index}:`, collider);
+            //console.log(`子节点 Collider ${index}:`, collider);
             collider.on('onCollisionEnter', this.onCollisionEnter, this);
 
             // 获取子节点的刚体组件
@@ -203,19 +210,19 @@ export class Controller extends Component {
             collider.off('onCollisionEnter', this.onCollisionEnter, this);
         });
 
-        console.log('Collision detected, schedule scene change after 1 second');
+        //console.log('Collision detected, schedule scene change after 1 second');
         setTimeout(() => {
             try {
-                console.log('Changing scene to adjust');
+                //console.log('Changing scene to adjust');
                 this.ClickRestart();
             } catch (error) {
-                console.error('Error in ClickRestart:', error);
+                //console.error('Error in ClickRestart:', error);
             }
         }, 1000); // 1000ms = 1秒
     }
 
     ClickRestart() {
-        console.log('ClickRestart called, loading adjust scene');
+        //console.log('ClickRestart called, loading adjust scene');
         director.loadScene('adjust');
     }
 
@@ -232,7 +239,7 @@ export class Controller extends Component {
 
                 // 获取子节点的刚体组件
                 const rigidBody = collider.node.getComponent(RigidBody);
-                console.log(rigidBody.type)
+                //console.log(rigidBody.type)
                 if (rigidBody) {
                     rigidBody.type = RigidBody.Type.DYNAMIC; // 将子节点的刚体设置为 KINEMATIC（运动型刚体）
                     rigidBody.useGravity = true; // 初始状态不受重力影响
@@ -335,36 +342,45 @@ export class Controller extends Component {
         this.totalRotation = 0;
         this.segments = [];
         this.currentDirection = null;
+        this.lastRecordedTime = Date.now();
+        this.lastPushX = x;
+        this.lastPushY = y;
     }
 
     onTouchMove(event: EventTouch) {
         if (!this._isRotating || !this.instantiatedNode) return;
-
+    
         const touch = event.getTouches()[0];
         const x = touch.getLocationX();
         const y = touch.getLocationY();
-        const currentTime = Date.now() - this.startTime;
-
+        const currentTime = Date.now(); // 使用绝对时间戳
+    
         // 计算滑动距离和方向
-        let deltaX = x - this._lastMousePos.x;
-        let deltaY = y - this._lastMousePos.y;
+        // 计算滑动距离和方向
+const referencePoint = this.currentAxis == null 
+? { x: this.lastPushX, y: this.lastPushY } 
+: { x: this._lastMousePos.x, y: this._lastMousePos.y };
 
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        const currentDirectionX = deltaX > 5 ? 1 : deltaX < -5 ? -1 : 0;
-        const currentDirectionY = deltaY > 5 ? 1 : deltaY < -5 ? -1 : 0;
+// 统一计算 deltaX, deltaY, 和距离
+const deltaX = x - referencePoint.x;
+const deltaY = y - referencePoint.y;
+const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    
 
-        // 根据屏幕分辨率动态调整阈值
+        const distanceFromLastPoint = Math.sqrt(Math.pow(x-this.lastPushX, 2) + Math.pow(y-this.lastPushY, 2)); // 当前与上一次记录点的距离
+        const timeDelta = currentTime - this.lastRecordedTime; // 使用绝对时间计算间隔
+
+        
+    
+        // 动态调整阈值
         const screenWidth = screen.windowSize.width;  // 获取屏幕宽度
         const screenHeight = screen.windowSize.height; // 获取屏幕高度
         const aspectRatio = screenWidth / screenHeight;
-
-        // 动态计算阈值
-        const horizontalThreshold = Math.max(6, aspectRatio * 2); // 根据屏幕宽高比调整
-
+        const horizontalThreshold = Math.max(5, aspectRatio * 2);
+        this.minPointDistance = screenWidth / 10;
+    
         // 确定旋转轴
         if (!this.currentAxis && distance >= this.minSwipeDistance) {
-            //const horizontalThreshold = 2.5;
-
             if (Math.abs(deltaY) < horizontalThreshold) {
                 this.currentAxis = 'Y'; // 绕 Y 轴旋转
             } else if (deltaX > 0 && deltaY > 0) {
@@ -376,15 +392,14 @@ export class Controller extends Component {
             } else if (deltaX < 0 && deltaY > 0) {
                 this.currentAxis = 'X';
             }
-
-            // 初始化轴的起始角度
+    
             if (this.currentAxis) {
                 const eulerAngles = this.instantiatedNode.eulerAngles;
                 this.lastAngle = this.getAxisAngle(eulerAngles, this.currentAxis);
             }
         }
-
-        // 根据轴执行旋转逻辑
+    
+        // 执行旋转
         const rotationAmount = distance * this._rotationSpeed;
         if (this.currentAxis === 'Z') {
             RotateUtil.rotateAround(this.instantiatedNode, Vec3.FORWARD.clone(), deltaY > 0 ? rotationAmount : -rotationAmount);
@@ -393,16 +408,16 @@ export class Controller extends Component {
         } else if (this.currentAxis === 'Y') {
             RotateUtil.rotateAround(this.instantiatedNode, Vec3.UP.clone(), deltaX > 0 ? rotationAmount : -rotationAmount);
         }
-
-        // 记录触摸路径
-        if (distance >= this.minSwipeDistance) {
-            this.touchPath.push({
-                x,
-                y,
-                time: currentTime
-            });
+    
+        // 记录触摸路径：时间间隔和距离间隔
+        if (this.currentAxis!= null && timeDelta >= 50 && distanceFromLastPoint >= this.minPointDistance) {
+            this.touchPath.push({ x, y, time: currentTime });
+            this.lastRecordedTime = currentTime; // 更新上次记录的时间
+            this.lastPushX = x;
+            this.lastPushY = y;
         }
-
+    
+        // 更新鼠标位置
         this._lastMousePos.set(x, y, 0);
     }
 
@@ -428,17 +443,20 @@ export class Controller extends Component {
         this.recordSegment(this.lastAngle, currentAngle, Date.now() - this.startTime);
 
         // 上传数据
-        this.logPlayerAction(
-            "Rotate",
-            this.currentAxis,
-            // 直接传递数组
-            JSON.stringify({
-                axis: this.currentAxis,
-                //totalRotation: this.totalRotation,
-                segments: this.segments,
-            }, null, 2), // 这里的 JSON.stringify 仍然有效
-            1, this.touchPath
-        );
+        if (this.currentAxis != null) {
+            this.logPlayerAction(
+                "Rotate",
+                this.currentAxis,
+                // 直接传递数组
+                JSON.stringify({
+                    axis: this.currentAxis,
+                    //totalRotation: this.totalRotation,
+                    segments: this.segments,
+                }, null, 2), // 这里的 JSON.stringify 仍然有效
+                1, this.touchPath
+            );
+        }
+        
 
         // 重置状态
         this.resetState();
@@ -456,89 +474,88 @@ export class Controller extends Component {
         };
 
         this.segments.push(segment);
-        console.log("记录旋转段：", segment);
+        //console.log("记录旋转段：", segment);
 
         this.startTime = Date.now(); // 更新起始时间
     }
 
 
-    async logPlayerAction(Operation: string,
+    async logPlayerAction(
+        Operation: string,
         axis: string,
         segment: string,
         flag: number,
-        angle?: RotationChange[]) {
-        const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
-
+        angle?: RotationChange[]
+    ) {
+        const apiUrl = 'http://124.71.181.62:3000/api/insertData';
+    
         // 1️⃣ 获取 localStorage 数据
         const username = localStorage.getItem('currentUsername');
         const sessionToken = localStorage.getItem('sessionToken');
-
+    
         // 2️⃣ 确保 localStorage 中的用户名和 token 存在
         if (!username) {
-            console.error('❌ 错误：用户名未找到。请确保玩家已正确登录。');
+            console.warn('❌ 错误：用户名未找到。请确保玩家已正确登录。');
             return;
         }
         if (!sessionToken) {
-            console.error('❌ 错误：Session token 未找到。请确保玩家已正确认证。');
+            console.warn('❌ 错误：Session token 未找到。请确保玩家已正确认证。');
             return;
         }
-
-
-        // 5️⃣ 确保 flag 是一个数字
+    
+        // 3️⃣ 确保 flag 是一个数字
         if (typeof flag !== 'number') {
-            console.error(`❌ 错误：Flag 必须是数字，但得到了: `, flag);
+            console.warn(`❌ 错误：Flag 必须是数字，但得到了: `, flag);
             return;
         }
-
-        // 6️⃣ 获取当前时间（北京时间，精确到毫秒）
+    
+        // 4️⃣ 获取当前时间（北京时间，精确到毫秒）
         function padStart(value: string | number, targetLength: number, padChar: string = '0'): string {
             const str = String(value);
             return str.length >= targetLength ? str : padChar.repeat(targetLength - str.length) + str;
         }
-
+    
         const now = new Date();
         const offset = 8 * 60 * 60 * 1000; // UTC+8 的时间偏移（毫秒）
         const beijingTime = new Date(now.getTime() + offset);
-        const formattedTime = `${beijingTime.getFullYear()}-${padStart(beijingTime.getMonth() + 1, 2)}-${padStart(beijingTime.getDate(), 2)} ${padStart(beijingTime.getHours(), 2)}:${padStart(beijingTime.getMinutes(), 2)}:${padStart(beijingTime.getSeconds(), 2)}.${padStart(beijingTime.getMilliseconds(), 3)}`;
-
-        // 7️⃣ 获取当前的关卡
+        const formattedTime = `${beijingTime.getFullYear()}-${padStart(beijingTime.getMonth() + 1, 2)}-${padStart(
+            beijingTime.getDate(),
+            2
+        )} ${padStart(beijingTime.getHours(), 2)}:${padStart(beijingTime.getMinutes(), 2)}:${padStart(
+            beijingTime.getSeconds(),
+            2
+        )}.${padStart(beijingTime.getMilliseconds(), 3)}`;
+    
+        // 5️⃣ 获取当前的关卡
         const level = Global.currentLevelIndex ?? 0; // 确保 Level 不会是 undefined
-
-        // 8️⃣ 组织请求数据
+    
+        // 6️⃣ 组织请求数据
         const data = {
             tableName: 'game2',
             data: {
-                Usr_ID: username,          // 玩家ID
-                Timestep: formattedTime,   // 时间戳（北京时间，精确到毫秒）
-                Level: level,              // 当前关卡
-                Operation: Operation,       // 操作类型（固定为 rotate）
-                Axis: axis,                // 旋转轴（X, Y, Z）
-                Angle: angle ?? null,              // 旋转角度变化的 JSON 数组
+                Usr_ID: username, // 玩家ID
+                Timestep: formattedTime, // 时间戳（北京时间，精确到毫秒）
+                Level: level, // 当前关卡
+                Operation: Operation, // 操作类型（固定为 rotate）
+                Axis: axis, // 旋转轴（X, Y, Z）
+                Angle: angle ?? null, // 旋转角度变化的 JSON 数组
                 Segment: segment,
-                Flag: flag                 // 其他标志位，通常为 0 或 1
+                Flag: flag, // 其他标志位，通常为 0 或 1
             },
         };
-
-        // 9️⃣ 发送请求
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${sessionToken}`,
-                },
-                body: JSON.stringify(data),
-            });
-
-            if (!response.ok) {
-                throw new Error('❌ 错误：无法记录玩家操作');
-            }
-
-            const result = await response.json();
-            console.log('✅ 玩家操作记录成功：', result);
-        } catch (error) {
-            console.error('❌ 记录玩家操作时发生错误：', error);
-        }
+    
+        // 7️⃣ 使用 RequestManager 提交请求
+        const manager = RequestManager.getInstance();
+        manager.addRequest(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionToken}`,
+            },
+            body: JSON.stringify(data),
+        });
+    
+        console.log('✅ 请求已加入队列:', data);
     }
 
     snapRotationToClosest90Degrees() {
@@ -577,6 +594,36 @@ export class Controller extends Component {
             .start();
     }
 
+    async updateMaxLevel(newMaxLevel: number) {
+        const apiUrl = 'http://124.71.181.62:3000/api/updateMaxLevel'; // 替换为你的API地址
+        const username = localStorage.getItem('currentUsername'); // 从 localStorage 中获取用户名
+        const sessionToken = localStorage.getItem('sessionToken'); // 从 localStorage 中获取 token
+    
+        if (!username || !sessionToken) {
+            console.warn('No username or sessionToken found.');
+            return;
+        }
+    
+        // 准备发送的数据
+        const data = {
+            username,
+            maxLevel: newMaxLevel, // 新的 maxLevel
+        };
+    
+        // 使用 RequestManager 提交请求
+        const manager = RequestManager.getInstance();
+        manager.addRequest(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionToken}`,
+            },
+            body: JSON.stringify(data),
+        });
+    
+        console.log('✅ MaxLevel update request has been added to the queue:', data);
+    }
+
     update(deltaTime: number) {
         // 累加操作时间
         //this.operationTime += deltaTime;
@@ -586,17 +633,19 @@ export class Controller extends Component {
                 const currentY = collider.node.worldPosition.y;
                 const previousY = this.previousChildYPositions[index];
                 this.previousChildYPositions[index] = currentY; // 更新前一帧的 Y 值
-                //console.log(`子物体 ${collider.node.name} 当前世界 Y：${currentY}，前一帧 Y：${previousY}`);
+                ////console.log(`子物体 ${collider.node.name} 当前世界 Y：${currentY}，前一帧 Y：${previousY}`);
                 return currentY;
             });
 
             // 判断所有子物体的 Y 是否都小于等于 -10
             const allBelowThreshold = childYPositions.every(y => y <= -10);
 
-            if (allBelowThreshold && !this.hasCalledManageScene) {
-                if (parseInt(localStorage.getItem('maxLevel'), 10) < Global.currentLevelIndex) {
-                    localStorage.setItem('maxLevel', Global.currentLevelIndex.toString())
+            if (allBelowThreshold && !this.hasCalledManageScene && this.flag) {
+                if (parseInt(localStorage.getItem('maxLevel'), 10) < Global.currentLevelIndex + 1) {
+                    localStorage.setItem('maxLevel', (Global.currentLevelIndex + 1).toString())
                 }
+                this.flag = false;
+                this.updateMaxLevel(Global.currentLevelIndex + 1);
                 this.logUserAction();
                 // 1. 生成金币并设置位置
                 if (this.coinPrefab) {
@@ -619,7 +668,7 @@ export class Controller extends Component {
                         .start();
 
                 } else {
-                    console.error("金币预制体未指定，请在编辑器中为 coinPrefab 指定一个预制体。");
+                    //console.error("金币预制体未指定，请在编辑器中为 coinPrefab 指定一个预制体。");
                 }
 
                 // 3. 延迟 1 秒后调用 this.manageSceneNodes()
@@ -722,30 +771,30 @@ export class Controller extends Component {
         if (this.targetNode) {
             this.targetNode.active = true;
             this.targetNode.setSiblingIndex(this.targetNode.parent.children.length - 1); // 设置为顶层
-            console.log(`Node "${this.targetNode.name}" has been activated and moved to the top layer.`);
+            //console.log(`Node "${this.targetNode.name}" has been activated and moved to the top layer.`);
 
             // 等待用户点击“我知道了”按钮
             this._setupIKnowButtonListener();
         } else {
-            console.error("Target node is not set!");
+            //console.error("Target node is not set!");
         }
     }
     private _setupIKnowButtonListener() {
         const iKnowButtonNode = this.targetNode.getChildByName("Finish"); // 假设按钮名称是 "IKnowButton"
         if (!iKnowButtonNode) {
-            console.error("IKnowButton node not found!");
+            //console.error("IKnowButton node not found!");
             return;
         }
 
         const iKnowButton = iKnowButtonNode.getComponent(Button);
         if (!iKnowButton) {
-            console.error("Button component not found on IKnowButton node!");
+            //console.error("Button component not found on IKnowButton node!");
             return;
         }
 
         // 添加点击事件监听
         iKnowButton.node.on('click', () => {
-            console.log("User clicked '我知道了', continuing to render prefabs");
+            //console.log("User clicked '我知道了', continuing to render prefabs");
 
             // 隐藏目标 Node
             this.targetNode.active = false;
@@ -757,21 +806,21 @@ export class Controller extends Component {
     private _renderFinalPrefab() {
         const scene = director.getScene();
         if (!scene) {
-            console.error("Scene not found!");
+            //console.error("Scene not found!");
             return;
         }
 
         // 获取 Node 节点
         const rootNode = scene.getChildByName('Node');
         if (!rootNode) {
-            console.error("Node not found!");
+            //console.error("Node not found!");
             return;
         }
 
         // 获取 Canvas 节点
         const canvasNode = rootNode.getChildByName('Canvas');
         if (!canvasNode) {
-            console.error("Canvas not found under Node!");
+            //console.error("Canvas not found under Node!");
             return;
         }
 
@@ -782,37 +831,40 @@ export class Controller extends Component {
             uiInstance.setScale(2, 2, 2); // 正常比例
             uiInstance.setPosition(0, 0, 0); // 居中
             uiInstance.setSiblingIndex(canvasNode.children.length - 1); // 放到最顶层
-            console.log('UI Prefab instantiated and added to Canvas.');
+            //console.log('UI Prefab instantiated and added to Canvas.');
         } else {
-            console.error("UI Prefab is not assigned!");
+            //console.error("UI Prefab is not assigned!");
         }
 
         // 禁用 Main Camera
         const mainCameraNode = scene.getChildByName('Main Camera');
         if (mainCameraNode) {
             mainCameraNode.active = false;
-            console.log('Main Camera disabled.');
+            //console.log('Main Camera disabled.');
         } else {
-            console.error("Main Camera not found in the scene!");
+            //console.error("Main Camera not found in the scene!");
         }
     }
+
+
+
 
     async logUserAction() {
         const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
         const username = localStorage.getItem('currentUsername'); // 从localStorage中获取用户名
         const sessionToken = localStorage.getItem('sessionToken'); // 从localStorage中获取token
-        const level = Global.currentLevelIndex;
-
+        const level = Global.currentLevelIndex ?? 0; // 确保 Level 不为 undefined
+    
         if (!username || !sessionToken) {
-            console.error('No username or sessionToken found.');
+            console.warn('No username or sessionToken found.');
             return;
         }
-
+    
         // 获取当前时间的北京时间
         const now = new Date();
         const offset = 8 * 60 * 60 * 1000; // UTC+8 的时间偏移（毫秒）
         const beijingTime = new Date(now.getTime() + offset).toISOString().replace('T', ' ').slice(0, 23); // 格式化为 "YYYY-MM-DD HH:mm:ss"
-
+    
         // 准备发送的数据
         const data = {
             tableName: 'user_pass', // 表名
@@ -822,27 +874,22 @@ export class Controller extends Component {
                 Timestep: beijingTime, // 使用北京时间
             },
         };
-
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${sessionToken}`,
-                },
-                body: JSON.stringify(data),
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to log user action');
-            }
-
-            const result = await response.json();
-            console.log('User action logged successfully:', result);
-        } catch (error) {
-            console.error('Error logging user action:', error);
-        }
+    
+        // 使用 RequestManager 提交请求
+        const manager = RequestManager.getInstance();
+        manager.addRequest(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionToken}`,
+            },
+            body: JSON.stringify(data),
+        });
+    
+        console.log('✅ User action has been added to the queue:', data);
     }
+
+    
 
 }
 

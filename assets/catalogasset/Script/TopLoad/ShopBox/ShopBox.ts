@@ -30,7 +30,8 @@ export class ShopBox extends Component {
 
 
     protected async start(): Promise<void> {
-        const maxLevel = parseInt(localStorage.getItem('maxLevel'),10)+1;
+        const maxLevel = parseInt(localStorage.getItem('maxLevel'),10);
+        console.log('目录'  + maxLevel)
         TweenTool.Pop(this.Box);
         for (let i = 0; i < 20; i++) {
             let si: Node = instantiate(this.SingleInfo);
@@ -38,7 +39,7 @@ export class ShopBox extends Component {
             si.setPosition(0, 0, 0);
             let singleInfoComp = si.getComponent(SingleInfo);
             si.getComponent(SingleInfo).UpdateStyle(i);
-            singleInfoComp.setClickable(i <= maxLevel - 2);  // 如果关卡小于等于 maxLevel，则可以点击
+            singleInfoComp.setClickable(i <= maxLevel);  // 如果关卡小于等于 maxLevel，则可以点击
         }
     }
     

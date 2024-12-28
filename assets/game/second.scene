@@ -184,9 +184,9 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -14.11,
-      "y": 14.069,
-      "z": 14.11
+      "x": -13.625,
+      "y": 13.588,
+      "z": 13.625
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1497,7 +1497,6 @@
     "mainCamera": {
       "__id__": 5
     },
-    "cubeNode": null,
     "_id": "24RhqEgkxF2JwqZjm+TGXK"
   },
   {
@@ -9926,7 +9925,6 @@
     "__prefab": null,
     "pauseMenu": null,
     "mainCamera": null,
-    "cubeNode": null,
     "_id": "97wkI56klA5pvg9sjAUsAJ"
   },
   {

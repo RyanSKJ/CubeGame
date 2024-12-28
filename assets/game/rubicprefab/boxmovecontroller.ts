@@ -1,5 +1,6 @@
 import { _decorator, Component, Collider, ICollisionEvent,Button, director,Canvas,Camera,Prefab,Node,UITransform,view,instantiate,Layers, renderer } from 'cc';
 import {Global} from '../../catalogasset/Script/Global'
+import {RequestManager} from '../../catalogasset/Scene/RequestManager'
 const { ccclass, property } = _decorator;
 
 @ccclass('CollisionHandler')
@@ -27,19 +28,19 @@ export class CollisionHandler extends Component {
     private _setupIKnowButtonListener() {
             const iKnowButtonNode = this.targetNode.getChildByName("Finish"); // 假设按钮名称是 "IKnowButton"
             if (!iKnowButtonNode) {
-                console.error("IKnowButton node not found!");
+                ////console.error("IKnowButton node not found!");
                 return;
             }
         
             const iKnowButton = iKnowButtonNode.getComponent(Button);
             if (!iKnowButton) {
-                console.error("Button component not found on IKnowButton node!");
+                ////console.error("Button component not found on IKnowButton node!");
                 return;
             }
         
             // 添加点击事件监听
             iKnowButton.node.on('click', () => {
-                console.log("User clicked '我知道了', continuing to render prefabs");
+                ////console.log("User clicked '我知道了', continuing to render prefabs");
         
                 // 隐藏目标 Node
                 this.targetNode.active = false;
@@ -52,15 +53,15 @@ export class CollisionHandler extends Component {
         private _renderFinalPrefab() {
             const scene = director.getScene();
             if (scene) {
-                console.log("当前场景获取成功");
+                ////console.log("当前场景获取成功");
     
                 // 关闭主相机
                 const mainCameraNode = scene.getChildByName('Main Camera');
                 if (mainCameraNode) {
                     mainCameraNode.active = false; // 停止主相机渲染
-                    console.log("主相机已关闭");
+                    ////console.log("主相机已关闭");
                 } else {
-                    console.warn("未找到主相机节点");
+                    ////console.warn("未找到主相机节点");
                 }
     
                 // 获取当前场景中的 Canvas 节点
@@ -68,7 +69,7 @@ export class CollisionHandler extends Component {
                 if (canvasNode) {
                     // 检查 UI Prefab 是否存在
                     if (!this.uiPrefab) {
-                        console.error("UI 预制体未初始化");
+                        ////console.error("UI 预制体未初始化");
                         return;
                     }
     
@@ -83,25 +84,56 @@ export class CollisionHandler extends Component {
                     // 确保 UI 预制体在 Canvas 的最顶层
                     uiInstance.setSiblingIndex(canvasNode.children.length - 1);
     
-                    console.log("UI 预制体已加载并显示");
+                    ////console.log("UI 预制体已加载并显示");
                 } else {
-                    console.error("Canvas not found in the current scene!");
+                    ////console.error("Canvas not found in the current scene!");
                 }
             } else {
-                console.error("无法获取当前场景");
+                ////console.error("无法获取当前场景");
             }
         
+    }
+
+    async updateMaxLevel(newMaxLevel) {
+        const apiUrl = 'http://124.71.181.62:3000/api/updateMaxLevel'; // 替换为你的API地址
+        const username = localStorage.getItem('currentUsername'); // 从 localStorage 中获取用户名
+        const sessionToken = localStorage.getItem('sessionToken'); // 从 localStorage 中获取 token
+    
+        if (!username || !sessionToken) {
+            console.warn('No username or sessionToken found.');
+            return;
+        }
+    
+        // 准备发送的数据
+        const data = {
+            username,
+            maxLevel: newMaxLevel, // 新的 maxLevel
+        };
+    
+        // 使用 RequestManager 提交请求
+        const manager = RequestManager.getInstance();
+        manager.addRequest(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionToken}`,
+            },
+            body: JSON.stringify(data),
+        });
+    
+        console.log('✅ MaxLevel update request has been added to the queue:', data);
     }
     
     onTriggerEnter(event: ICollisionEvent) {
         // 发生碰撞时触发
 
-        console.log('Collision detected with: ', event.otherCollider.node.name);
+        ////console.log('Collision detected with: ', event.otherCollider.node.name);
     
         if (event.otherCollider.node.name === 'lumbermill') {
-            if (parseInt(localStorage.getItem('maxLevel'), 10) < Global.currentLevelIndex) {
-                  localStorage.setItem('maxLevel',Global.currentLevelIndex.toString())
+            if (parseInt(localStorage.getItem('maxLevel'), 10) < Global.currentLevelIndex + 1) {
+                  localStorage.setItem('maxLevel',(Global.currentLevelIndex + 1).toString())
                 }
+                this.updateMaxLevel(Global.currentLevelIndex + 1);
             // 暂停整个游戏逻辑
             //director.pause();
             this.logUserAction();
@@ -109,12 +141,12 @@ export class CollisionHandler extends Component {
             if (this.targetNode) {
                 this.targetNode.active = true;
                 this.targetNode.setSiblingIndex(this.targetNode.parent.children.length - 1); // 设置为顶层
-                console.log(`Node "${this.targetNode.name}" has been activated and moved to the top layer.`);
+                ////console.log(`Node "${this.targetNode.name}" has been activated and moved to the top layer.`);
 
                 // 等待用户点击“我知道了”按钮
                 this._setupIKnowButtonListener();
             } else {
-                console.error("Target node is not set!");
+                ////console.error("Target node is not set!");
             }
     
         }
@@ -123,10 +155,10 @@ export class CollisionHandler extends Component {
         const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
         const username = localStorage.getItem('currentUsername'); // 从localStorage中获取用户名
         const sessionToken = localStorage.getItem('sessionToken'); // 从localStorage中获取token
-        const level = Global.currentLevelIndex;
+        const level = Global.currentLevelIndex ?? 0; // 确保 Level 不为 undefined
     
         if (!username || !sessionToken) {
-            console.error('No username or sessionToken found.');
+            console.warn('No username or sessionToken found.');
             return;
         }
     
@@ -145,25 +177,18 @@ export class CollisionHandler extends Component {
             },
         };
     
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${sessionToken}`,
-                },
-                body: JSON.stringify(data),
-            });
+        // 使用 RequestManager 提交请求
+        const manager = RequestManager.getInstance();
+        manager.addRequest(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionToken}`,
+            },
+            body: JSON.stringify(data),
+        });
     
-            if (!response.ok) {
-                throw new Error('Failed to log user action');
-            }
-    
-            const result = await response.json();
-            console.log('User action logged successfully:', result);
-        } catch (error) {
-            console.error('Error logging user action:', error);
-        }
+        console.log('✅ User action request has been added to the queue:', data);
     }
 
 }

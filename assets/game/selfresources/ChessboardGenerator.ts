@@ -2,6 +2,7 @@ import { _decorator, Component, instantiate, tween, Node, Button, Prefab, Vec3, 
 import { LevelController } from './LevelController'; // 导入LevelController脚本
 import { RotateAndMoveCubeOnKey } from './Cubeflip'; // 导入LevelController脚本
 import { Global } from '../../catalogasset/Script/Global';
+import { RequestManager } from '../../catalogasset/Scene/RequestManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('ChessboardGenerator')
@@ -38,7 +39,7 @@ export class ChessboardGenerator extends Component {
     start() {
         const levelController = this.getComponent(LevelController);
         if (!levelController) {
-            console.error("LevelController component not found!");
+            //console.error("LevelController component not found!");
             return;
         }
         const levelPositions = [
@@ -50,7 +51,7 @@ export class ChessboardGenerator extends Component {
 
         const rows = 5;
         const cols = 4;
-        console.log("yes" + levelController.positions)
+        //console.log("yes" + levelController.positions)
         this.generateChessboard(rows, cols, levelController.positions);
 
     }
@@ -70,17 +71,17 @@ export class ChessboardGenerator extends Component {
                     this.blockedTiles.add(`${i},${j}`);
                     tile.setPosition(new Vec3(x, -1, z));
                 }
-                else{
+                else {
                     tile.setPosition(new Vec3(x, 0, z));
                 }
                 this.tiles[i][j] = tile;
 
                 const positionMatch = positions.some(pos => pos.x === x && pos.y === z);
                 if (positionMatch) {
-                    console.log('yes')
+                    //console.log('yes')
                     this.placePrefab2AtPosition(new Vec2(j, i));
                 }
-                
+
             }
         }
     }
@@ -90,7 +91,7 @@ export class ChessboardGenerator extends Component {
         const col = gridPosition.x;
 
         if (row >= this.tiles.length || col >= this.tiles[0].length || row < 0 || col < 0) {
-            console.error("Position out of bounds");
+            //console.error("Position out of bounds");
             return;
         }
 
@@ -105,17 +106,17 @@ export class ChessboardGenerator extends Component {
         }
 
         this.totalPrefabs2++;
-        console.log(prefab2Instance.position);
+        //console.log(prefab2Instance.position);
     }
 
     async logUserAction() {
         const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
         const username = localStorage.getItem('currentUsername'); // 从localStorage中获取用户名
         const sessionToken = localStorage.getItem('sessionToken'); // 从localStorage中获取token
-        const level = Global.currentLevelIndex;
+        const level = Global.currentLevelIndex ?? 0; // 确保 Level 不为 undefined
     
         if (!username || !sessionToken) {
-            console.error('No username or sessionToken found.');
+            console.warn('❌ 错误：用户名或 Session token 未找到。');
             return;
         }
     
@@ -128,131 +129,146 @@ export class ChessboardGenerator extends Component {
         const data = {
             tableName: 'user_pass', // 表名
             data: {
-                Usr_ID: username,
-                Level: level,
+                Usr_ID: username, // 用户名
+                Level: level, // 当前关卡
                 Timestep: beijingTime, // 使用北京时间
             },
         };
     
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${sessionToken}`,
-                },
-                body: JSON.stringify(data),
-            });
+        // 使用 RequestManager 提交请求
+        const manager = RequestManager.getInstance();
+        manager.addRequest(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionToken}`,
+            },
+            body: JSON.stringify(data),
+        });
     
-            if (!response.ok) {
-                throw new Error('Failed to log user action');
-            }
+        console.log('✅ 用户操作记录请求已加入队列:', data);
+    }
+
+    async updateMaxLevel(newMaxLevel) {
+        const apiUrl = 'http://124.71.181.62:3000/api/updateMaxLevel'; // 替换为你的API地址
+        const username = localStorage.getItem('currentUsername'); // 从 localStorage 中获取用户名
+        const sessionToken = localStorage.getItem('sessionToken'); // 从 localStorage 中获取 token
     
-            const result = await response.json();
-            console.log('User action logged successfully:', result);
-        } catch (error) {
-            console.error('Error logging user action:', error);
+        if (!username || !sessionToken) {
+            console.warn('❌ 错误：用户名或 Session token 未找到。');
+            return;
         }
+    
+        // 准备发送的数据
+        const data = {
+            username,
+            maxLevel: newMaxLevel, // 新的 maxLevel
+        };
+    
+        // 使用 RequestManager 提交请求
+        const manager = RequestManager.getInstance();
+        manager.addRequest(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionToken}`,
+            },
+            body: JSON.stringify(data),
+        });
+    
+        console.log('✅ MaxLevel update request has been added to the queue:', data);
     }
 
     onPrefab2CollisionEnter(event: ITriggerEvent) {
-        console.log(`${event.otherCollider.node.name} collided with prefab2`);
-    
+        //console.log(`${event.otherCollider.node.name} collided with prefab2`);
+
         const prefab2Node = event.selfCollider.node;
         const animationInstance = instantiate(this.animationPrefab);
         animationInstance.setParent(this.node);
         animationInstance.setPosition(prefab2Node.worldPosition);
-    
+
         prefab2Node.active = false;
         this.triggeredPrefabs2++;
-    
+
         if (this.triggeredPrefabs2 >= this.totalPrefabs2) {
             this.logUserAction();
-        // 获取当前的最大关卡值
-const maxLevelString = localStorage.getItem('maxLevel');
-let maxLevel = maxLevelString ? parseInt(maxLevelString, 10) : 0; // 如果没有值则默认为 0
 
-// 将关卡值加 1
-maxLevel += 1;
+            if (parseInt(localStorage.getItem('maxLevel'), 10) < Global.currentLevelIndex + 1) {
+                localStorage.setItem('maxLevel', (Global.currentLevelIndex + 1).toString())
+            }
+            this.updateMaxLevel(Global.currentLevelIndex + 1);
 
-// 更新 localStorage
-localStorage.setItem('maxLevel', maxLevel.toString());
-            if (parseInt(localStorage.getItem('maxLevel'), 10) < Global.currentLevelIndex) {
-                localStorage.setItem('maxLevel',Global.currentLevelIndex.toString())
-              }
-            console.log("All prefab2 instances triggered, starting animation");
-    
             // 找到 i === 0 && j === 0 的 tile
             const targetTile = this.tiles[0][0];
             if (targetTile) {
                 const targetPosition = targetTile.position.clone(); // 当前 tile 位置
                 targetPosition.y = 0; // 修改目标位置的 Y 坐标为 0
-    
+
                 // 先执行 tile 动画
                 tween(targetTile)
                     .to(1.0, { position: targetPosition }, { easing: 'quadInOut' }) // 动画持续时间 1 秒
                     .call(() => {
-                        console.log("Tile animation completed, now activating the target node");
-    
+                        //console.log("Tile animation completed, now activating the target node");
+
                         // 确保目标 Node 激活，并设置为顶层
                         if (this.targetNode) {
                             this.targetNode.active = true;
                             this.targetNode.setSiblingIndex(this.targetNode.parent.children.length - 1); // 设置为顶层
-                            console.log(`Node "${this.targetNode.name}" has been activated and moved to the top layer.`);
-    
+                            //console.log(`Node "${this.targetNode.name}" has been activated and moved to the top layer.`);
+
                             // 等待用户点击“我知道了”按钮
                             this._setupIKnowButtonListener();
                         } else {
-                            console.error("Target node is not set!");
+                            //console.error("Target node is not set!");
                         }
                     })
                     .start();
             } else {
-                console.error("Target tile not found!");
+                //console.error("Target tile not found!");
             }
         }
     }
-    
+
     /**
      * 设置“我知道了”按钮的点击监听
      */
     private _setupIKnowButtonListener() {
         const iKnowButtonNode = this.targetNode.getChildByName("Finish"); // 假设按钮名称是 "IKnowButton"
         if (!iKnowButtonNode) {
-            console.error("IKnowButton node not found!");
+            //console.error("IKnowButton node not found!");
             return;
         }
-    
+
         const iKnowButton = iKnowButtonNode.getComponent(Button);
         if (!iKnowButton) {
-            console.error("Button component not found on IKnowButton node!");
+            //console.error("Button component not found on IKnowButton node!");
             return;
         }
-    
+
         // 添加点击事件监听
         iKnowButton.node.on('click', () => {
-            console.log("User clicked '我知道了', continuing to render prefabs");
-    
+            //console.log("User clicked '我知道了', continuing to render prefabs");
+
             // 隐藏目标 Node
             this.targetNode.active = false;
-    
+
             // 渲染 Prefab
             this._renderFinalPrefab();
         }, this);
     }
-    
+
     /**
      * 渲染最终的 Prefab
      */
     private _renderFinalPrefab() {
-        console.log("Rendering final Prefab...");
+        //console.log("Rendering final Prefab...");
         // 执行渲染 Prefab 的逻辑
         this.finishLevel();
     }
 
     finishLevel() {
-        
-    
+
+
         const canvasNode = director.getScene().getChildByName('Canvas');
         if (canvasNode) {
             const uiInstance = instantiate(this.uiPrefab);
@@ -261,29 +277,29 @@ localStorage.setItem('maxLevel', maxLevel.toString());
             uiInstance.setPosition(0, 0, 0);
             uiInstance.setSiblingIndex(canvasNode.children.length - 1);
         } else {
-            console.error("Canvas not found in the current scene!");
+            //console.error("Canvas not found in the current scene!");
         }
-    
+
         const mainCameraNode = director.getScene().getChildByName('Main Camera');
         if (mainCameraNode) {
             mainCameraNode.active = false;
         } else {
-            console.error("Main Camera not found in the current scene!");
+            //console.error("Main Camera not found in the current scene!");
         }
     }
 
 
 
     onAllPrefabs2Triggered() {
-        console.log("All prefab2 instances have been triggered! Game Over!");
+        //console.log("All prefab2 instances have been triggered! Game Over!");
 
 
         const scene = director.getScene();
         if (scene) {
             scene.children.forEach(rootNode => {
-                console.log(`Processing root node: ${rootNode.name}`);
+                //console.log(`Processing root node: ${rootNode.name}`);
                 rootNode.children.forEach(child => {
-                    console.log(`Destroying child node: ${child.name}`);
+                    //console.log(`Destroying child node: ${child.name}`);
                     if (child.name && child.isValid) {
                         // 停止所有调度的更新函数
                         //director.getScheduler().unscheduleAllForTarget(child);

@@ -1,6 +1,7 @@
 import { _decorator, Component, Label, Button, tween, Node, Vec3 } from 'cc';
 import { TypewriterEffect } from './Tutorial/typer'; // 引入打字机效果
 import {Global} from '../catalogasset/Script/Global'
+import {RequestManager} from '../catalogasset/Scene/RequestManager'
 const { ccclass, property } = _decorator;
 
 @ccclass('DeepSeekAPI')
@@ -113,7 +114,10 @@ export class DeepSeekAPI extends Component {
 
         if (this.iKnowButton) {
             this.iKnowButton.node.active = false; // 初始隐藏 "我知道了" 按钮
-            this.iKnowButton.node.on('click', () => this.logUserAction(), this);
+            if (localStorage.getItem('isAI') === '1') {
+                this.iKnowButton.node.on('click', () => this.logUserAction(JSON.stringify(this.messages.slice(1))), this);
+            }
+            
         }
 
         // 开始 NPC 上下跳动的动画
@@ -124,6 +128,8 @@ export class DeepSeekAPI extends Component {
 
     private async onUserFeedback(feedback: string) {
         if (!this.typewriterEffect) return;
+
+        if (localStorage.getItem('isAI') === '1') {
 
         // 添加用户反馈到消息记录
         const userMessage = { role: "user", content: feedback };
@@ -145,8 +151,18 @@ export class DeepSeekAPI extends Component {
                 this._showButtonWithAnimation(this.iKnowButton!.node);
             }
         } catch (error) {
-            console.error('Error:', error);
+            //console.error('Error:', error);
         }
+    } else {
+        this._hideButtonsWithAnimation([this.suitableButton!.node, this.difficultButton!.node]);
+        if (feedback.indexOf("感到困难") !== -1) {
+            this.logUserAction('感到困难');
+            this._showButtonWithAnimation(this.iKnowButton!.node);
+        } else if (feedback.indexOf("难度合适") !== -1) {
+            this.logUserAction('难度合适');
+            this._showButtonWithAnimation(this.iKnowButton!.node);
+        }
+    }
     }
 
     private async onMoreStrategies() {
@@ -166,78 +182,94 @@ export class DeepSeekAPI extends Component {
 
             // 输出结束后，保留 "我知道了" 按钮
         } catch (error) {
-            console.error('Error:', error);
+            //console.error('Error:', error);
         }
     }
 
     private async callLLMAPI(): Promise<void> {
-        
         const apiUrl = `${this.baseUrl}/v1/chat/completions`;
-
+    
         const payload = {
             model: "deepseek-chat",
             messages: this.messages,
             stream: true // 启用流式返回
         };
-
+    
         const headers = {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${this.apiKey}`
         };
-
-        const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: headers,
-            body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const reader = response.body?.getReader();
-        if (!reader) {
-            throw new Error("Failed to get reader from response.");
-        }
-
-        const decoder = new TextDecoder('utf-8');
-        let fullText = ""; // 存储完整的返回内容
-
-        while (true) {
-            const { done, value } = await reader.read();
-
-            if (done) {
-                break;
+    
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(payload)
+            });
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-
-            // 解码流式数据
-            const chunk = decoder.decode(value, { stream: true });
-            const lines = chunk.split('\n');
-
-            for (const line of lines) {
-                if (line.trim() === '') continue;
-
-                try {
-                    // 解析 JSON 数据
-                    const json = JSON.parse(line.replace(/^data: /, ''));
-                    const content = json.choices[0].delta.content || ""; // 获取增量内容
-
-                    // 拼接返回文本
-                    fullText += content;
-
-                    // 实时将内容传递给打字机组件
-                    if (this.typewriterEffect) {
-                        this.typewriterEffect.appendText(content);
+    
+            const reader = response.body?.getReader();
+            if (!reader) {
+                throw new Error("Failed to get reader from response.");
+            }
+    
+            const decoder = new TextDecoder('utf-8');
+            let fullText = ""; // 存储完整的返回内容
+    
+            while (true) {
+                const { done, value } = await reader.read();
+    
+                if (done) {
+                    break;
+                }
+    
+                // 解码流式数据
+                const chunk = decoder.decode(value, { stream: true });
+                const lines = chunk.split('\n');
+    
+                for (const line of lines) {
+                    if (line.trim() === '') continue;
+    
+                    try {
+                        // 解析 JSON 数据
+                        const json = JSON.parse(line.replace(/^data: /, ''));
+                        const content = json.choices[0].delta.content || ""; // 获取增量内容
+    
+                        // 拼接返回文本
+                        fullText += content;
+    
+                        // 实时将内容传递给打字机组件
+                        if (this.typewriterEffect) {
+                            this.typewriterEffect.appendText(content);
+                        }
+                    } catch (e) {
+                        //console.warn("Failed to parse line:", line, e);
                     }
-                } catch (e) {
-                    console.warn("Failed to parse line:", line, e);
                 }
             }
+    
+            // 将返回内容保存到消息记录中
+            const assistantMessage = { role: "assistant", content: fullText };
+            this.messages.push(assistantMessage); // 保存返回内容
+        } catch (error) {
+            //console.error('Error calling API:', error);
+    
+            // 自定义返回逻辑
+            const fallbackMessage = {
+                role: "assistant",
+                content: "抱歉，目前无法获取建议。以下是一个推荐策略：尝试将目标任务分解为更小的步骤，并逐步完成每个子任务。继续加油！"
+            };
+    
+            this.messages.push(fallbackMessage);
+    
+            // 将自定义返回内容传递给打字机组件
+            if (this.typewriterEffect) {
+                this.typewriterEffect.appendText(fallbackMessage.content);
+            }
         }
-
-        // 将返回内容保存到消息记录中
-        const assistantMessage = { role: "assistant", content: fullText };
-        this.messages.push(assistantMessage); // 保存返回内容
     }
 
     /**
@@ -282,14 +314,14 @@ export class DeepSeekAPI extends Component {
             .start();
     }
 
-    async logUserAction() {
+    async logUserAction(interactionContent: string) {
         const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
         const username = localStorage.getItem('currentUsername'); // 从localStorage中获取用户名
         const sessionToken = localStorage.getItem('sessionToken'); // 从localStorage中获取token
-        const level = Global.currentLevelIndex;
+        const level = Global.currentLevelIndex ?? 0; // 确保 Level 不为 undefined
     
         if (!username || !sessionToken) {
-            console.error('No username or sessionToken found.');
+            console.warn('❌ 错误：用户名或 Session token 未找到。');
             return;
         }
     
@@ -302,31 +334,24 @@ export class DeepSeekAPI extends Component {
         const data = {
             tableName: 'interactai', // 表名
             data: {
-                Usr_ID: username,
-                Level: level,
-                interaction: this.messages.slice(1),
+                Usr_ID: username, // 用户ID
+                Level: level, // 当前关卡
+                interaction: interactionContent, // 动态传入的 interaction
                 Timestep: beijingTime, // 使用北京时间
             },
         };
     
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${sessionToken}`,
-                },
-                body: JSON.stringify(data),
-            });
+        // 使用 RequestManager 提交请求
+        const manager = RequestManager.getInstance();
+        manager.addRequest(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionToken}`,
+            },
+            body: JSON.stringify(data),
+        });
     
-            if (!response.ok) {
-                throw new Error('Failed to log user action');
-            }
-    
-            const result = await response.json();
-            console.log('User action logged successfully:', result);
-        } catch (error) {
-            console.error('Error logging user action:', error);
-        }
+        console.log('✅ 用户交互记录请求已加入队列:', data);
     }
 }

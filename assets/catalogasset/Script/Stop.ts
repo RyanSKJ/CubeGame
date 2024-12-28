@@ -1,6 +1,7 @@
 import { _decorator, Component, Node, director, systemEvent, SystemEvent, EventMouse } from 'cc';
-import { RotateAndMoveCubeOnKey } from '../../game/selfresources/Cubeflip'; // 引入 RotateAndMoveCubeOnKey 的脚本
+
 import { Global } from '../../catalogasset/Script/Global'
+import {RequestManager} from '../../catalogasset/Scene/RequestManager'
 const { ccclass, property } = _decorator;
 
 @ccclass('PauseHandler')
@@ -72,17 +73,19 @@ export class PauseHandler extends Component {
         }
         // 处理全局点击事件逻辑...
     }
-    async logPlayerAction(
-        Operation: string,
-    ) {
+    async logPlayerAction(Operation: string) {
         const apiUrl = 'http://124.71.181.62:3000/api/insertData'; // 替换为你的API地址
     
         // 1️⃣ 获取 localStorage 数据
         const username = localStorage.getItem('currentUsername');
         const sessionToken = localStorage.getItem('sessionToken');
     
+        if (!username || !sessionToken) {
+            console.warn('❌ 错误：用户名或 sessionToken 未找到。');
+            return;
+        }
     
-        // 3️⃣ 获取当前时间（北京时间，精确到毫秒）
+        // 2️⃣ 获取当前时间（北京时间，精确到毫秒）
         function padStart(value: string | number, targetLength: number, padChar: string = '0'): string {
             const str = String(value);
             return str.length >= targetLength ? str : padChar.repeat(targetLength - str.length) + str;
@@ -91,42 +94,40 @@ export class PauseHandler extends Component {
         const now = new Date();
         const offset = 8 * 60 * 60 * 1000; // UTC+8 的时间偏移（毫秒）
         const beijingTime = new Date(now.getTime() + offset);
-        const formattedTime = `${beijingTime.getFullYear()}-${padStart(beijingTime.getMonth() + 1, 2)}-${padStart(beijingTime.getDate(), 2)} ${padStart(beijingTime.getHours(), 2)}:${padStart(beijingTime.getMinutes(), 2)}:${padStart(beijingTime.getSeconds(), 2)}.${padStart(beijingTime.getMilliseconds(), 3)}`;
+        const formattedTime = `${beijingTime.getFullYear()}-${padStart(beijingTime.getMonth() + 1, 2)}-${padStart(
+            beijingTime.getDate(),
+            2
+        )} ${padStart(beijingTime.getHours(), 2)}:${padStart(beijingTime.getMinutes(), 2)}:${padStart(
+            beijingTime.getSeconds(),
+            2
+        )}.${padStart(beijingTime.getMilliseconds(), 3)}`;
     
-        // 4️⃣ 获取当前的关卡
+        // 3️⃣ 获取当前的关卡
         const level = Global.currentLevelIndex ?? 0; // 确保 Level 不会是 undefined
     
-    
-        // 6️⃣ 组织请求数据
+        // 4️⃣ 组织请求数据
         const data: any = {
             tableName: 'user_operate',
             data: {
-                Usr_ID: username,          // 玩家ID
-                Operation: Operation,      // 操作类型
-                Timestep: formattedTime,   // 时间戳（北京时间，精确到毫秒）
-                Level: level,              // 当前关卡
+                Usr_ID: username, // 玩家ID
+                Operation: Operation, // 操作类型
+                Timestep: formattedTime, // 时间戳（北京时间，精确到毫秒）
+                Level: level, // 当前关卡
             },
         };
     
-        // 7️⃣ 发送请求
-        try {
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${sessionToken}`,
-                },
-                body: JSON.stringify(data),
-            });
+        // 5️⃣ 使用 RequestManager 提交请求
+        const manager = RequestManager.getInstance();
+        manager.addRequest(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionToken}`,
+            },
+            body: JSON.stringify(data),
+        });
     
-            if (!response.ok) {
-                throw new Error('❌ 错误：无法记录玩家操作');
-            }
-    
-            const result = await response.json();
-            console.log('✅ 玩家操作记录成功：', result);
-        } catch (error) {
-            console.error('❌ 记录玩家操作时发生错误：', error);
-        }
+        console.log('✅ 玩家操作记录请求已加入队列:', data);
     }
+    
 }

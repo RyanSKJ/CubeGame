@@ -31,12 +31,12 @@
           "uuid": "e8af6817-c319-4e1d-b264-22b129041642"
         },
         {
-          "url": "db://assets/game/second.scene",
-          "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b"
-        },
-        {
           "url": "db://assets/catalogasset/Scene/Scene.scene",
           "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
+        },
+        {
+          "url": "db://assets/game/second.scene",
+          "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b"
         }
       ],
       "startScene": "4f57e74b-5746-4c7c-b432-75809f4087b3"
@@ -103,6 +103,26 @@
         "__version__": "1.0.1"
       },
       "1735142611953": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      },
+      "1735315832659": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      },
+      "1735316040424": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      },
+      "1735316086042": {
+        "orientation": "auto",
+        "embedWebDebugger": false,
+        "__version__": "1.0.1"
+      },
+      "1735401396792": {
         "orientation": "auto",
         "embedWebDebugger": false,
         "__version__": "1.0.1"

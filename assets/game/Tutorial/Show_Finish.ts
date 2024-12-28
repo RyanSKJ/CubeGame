@@ -63,7 +63,7 @@ export class SceneController extends Component {
 
         // 动态生成对话内容
         const currentLevel = Global.currentLevelIndex;
-        if(localStorage.getItem('isAI')) {
+        if(localStorage.getItem('isAI') === '1') {
             const dialogueText = `恭喜你通过了第 ${currentLevel + 1} 关卡，你觉得通过这个关卡还算轻松吗？`;
 
 
@@ -71,12 +71,12 @@ export class SceneController extends Component {
         this.typewriterEffect.startTypingQueue([dialogueText]);
         this.typewriterEffect.node.once('dialogue-finished', this._showIKnowButton, this);
         } else{
-            const dialogueText = `恭喜你通过了第 ${currentLevel + 1} 关卡！`;
+            const dialogueText = `恭喜你通过了第 ${currentLevel + 1} 关卡，你觉得通过这个关卡还算轻松吗？`;
 
 
         // 如果需要使用打字机效果，传递对话
         this.typewriterEffect.startTypingQueue([dialogueText]);
-        this.typewriterEffect.node.once('dialogue-finished', this._showIKnowButton2, this);
+        this.typewriterEffect.node.once('dialogue-finished', this._showIKnowButton, this);
         }
         
     }

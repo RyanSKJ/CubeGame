@@ -34,12 +34,12 @@
         "uuid": "e8af6817-c319-4e1d-b264-22b129041642"
       },
       {
-        "url": "db://assets/game/second.scene",
-        "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b"
-      },
-      {
         "url": "db://assets/catalogasset/Scene/Scene.scene",
         "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
+      },
+      {
+        "url": "db://assets/game/second.scene",
+        "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b"
       }
     ],
     "bundleConfigs": [],
@@ -50,95 +50,13 @@
   },
   "BuildTaskManager": {
     "taskMap": {
-      "1735125026309": {
+      "1735401396792": {
         "type": "build",
-        "id": "1735125026309",
+        "id": "1735401396792",
         "progress": 1,
         "state": "success",
         "stage": "build",
-        "message": "2024-12-25 19:10:33 build success in 7 s!",
-        "detailMessage": "// ---- build task cocos-service：onBeforeCompressSettings ----\r",
-        "options": {
-          "name": "Cube_Elimination",
-          "server": "",
-          "platform": "android",
-          "buildPath": "project://new_build",
-          "debug": false,
-          "md5Cache": false,
-          "skipCompressTexture": false,
-          "sourceMaps": false,
-          "overwriteProjectSettings": {
-            "macroConfig": {
-              "cleanupImageCache": "inherit-project-setting"
-            },
-            "includeModules": {
-              "physics": "inherit-project-setting",
-              "physics-2d": "inherit-project-setting",
-              "gfx-webgl2": "off"
-            }
-          },
-          "nativeCodeBundleMode": "wasm",
-          "polyfills": {
-            "asyncFunctions": false
-          },
-          "experimentalEraseModules": false,
-          "startSceneAssetBundle": false,
-          "bundleConfigs": [],
-          "useBuiltinServer": false,
-          "mainBundleIsRemote": false,
-          "mainBundleCompressionType": "merge_dep",
-          "useSplashScreen": true,
-          "bundleCommonChunk": false,
-          "packAutoAtlas": true,
-          "startScene": "4f57e74b-5746-4c7c-b432-75809f4087b3",
-          "outputName": "android-001",
-          "taskName": "android-001",
-          "scenes": [
-            {
-              "url": "db://assets/loginscene.scene",
-              "uuid": "f7a61ece-aa9f-4b4f-ae10-0703f3e0ddac"
-            },
-            {
-              "url": "db://assets/game/StartScene.scene",
-              "uuid": "4f57e74b-5746-4c7c-b432-75809f4087b3"
-            },
-            {
-              "url": "db://assets/game/choose.scene",
-              "uuid": "dcef1e8f-eefa-4370-b9b3-0871ec139941"
-            },
-            {
-              "url": "db://assets/game/flip.scene",
-              "uuid": "e8af6817-c319-4e1d-b264-22b129041642"
-            },
-            {
-              "url": "db://assets/game/second.scene",
-              "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b"
-            },
-            {
-              "url": "db://assets/game/adjust.scene",
-              "uuid": "b6d719cb-89f1-4a4e-8e59-48bf4cb6845f"
-            },
-            {
-              "url": "db://assets/catalogasset/Scene/Scene.scene",
-              "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
-            }
-          ],
-          "wasmCompressionMode": false,
-          "packages": {},
-          "__version__": "1.3.8",
-          "buildMode": "normal",
-          "logDest": "project://temp/builder/log/android12-25-2024 19-10.log"
-        },
-        "time": "12-25-2024 19:10:26",
-        "dirty": false
-      },
-      "1735142611953": {
-        "type": "build",
-        "id": "1735142611953",
-        "progress": 1,
-        "state": "success",
-        "stage": "build",
-        "message": "2024-12-26 00:03:41 build success in 9 s!",
+        "message": "2024-12-28 23:56:46 build success in 9 s!",
         "detailMessage": "handle single json\r",
         "options": {
           "name": "Cube_Elimination",
@@ -173,8 +91,8 @@
           "bundleCommonChunk": false,
           "packAutoAtlas": true,
           "startScene": "4f57e74b-5746-4c7c-b432-75809f4087b3",
-          "outputName": "web-mobile-001",
-          "taskName": "web-mobile-001",
+          "outputName": "web-mobile",
+          "taskName": "web-mobile",
           "scenes": [
             {
               "url": "db://assets/loginscene.scene",
@@ -197,21 +115,21 @@
               "uuid": "e8af6817-c319-4e1d-b264-22b129041642"
             },
             {
-              "url": "db://assets/game/second.scene",
-              "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b"
-            },
-            {
               "url": "db://assets/catalogasset/Scene/Scene.scene",
               "uuid": "cf40d8b9-2421-48c4-bda6-248956ba17bd"
+            },
+            {
+              "url": "db://assets/game/second.scene",
+              "uuid": "aeff041b-b368-4fd2-9176-9ea6cfa8c88b"
             }
           ],
           "wasmCompressionMode": false,
           "packages": {},
           "__version__": "1.3.8",
           "buildMode": "normal",
-          "logDest": "project://temp/builder/log/web-mobile12-26-2024 00-03.log"
+          "logDest": "project://temp/builder/log/web-mobile12-28-2024 23-56.log"
         },
-        "time": "12-26-2024 00:03:31",
+        "time": "12-28-2024 23:56:36",
         "dirty": false
       }
     }

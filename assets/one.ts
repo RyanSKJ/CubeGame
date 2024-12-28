@@ -32,8 +32,8 @@ export class LoginController extends Component {
     }
 
     async login(username: string, password: string) {
-        const apiUrl = 'http://124.71.181.62:3000/api/login'; // 替换为API服务器地址
-
+        const apiUrl = 'http://124.71.181.62:3000/api/login'; // 使用环境变量配置 API 地址
+    
         try {
             const response = await fetch(apiUrl, {
                 method: 'POST',
@@ -42,33 +42,31 @@ export class LoginController extends Component {
                 },
                 body: JSON.stringify({ username, password }),
             });
-
+    
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Network response was not ok');
             }
-
+    
             const data = await response.json();
-            //console.log(data)
-
+    
             if (data.success) {
                 console.log('Login successful!');
-                
-                // 记录session或token
-                localStorage.setItem('sessionToken', data.token); // 假设服务器返回token作为session标识
+    
+                // 记录 session 或 token
+                localStorage.setItem('sessionToken', data.token);
                 localStorage.setItem('currentUsername', username);
-                localStorage.setItem('maxLevel', data.maxLevel);
-                localStorage.setItem('isAI', data.AI);
-                console.log(localStorage.getItem('isAI'))
-
-                // 登录成功后加载游戏场景
-                const maxlevel = await this.fetchMaxLevel() + 2;
-                localStorage.setItem('maxLevel',maxlevel.toString());
+                localStorage.setItem('maxLevel', String(data.maxLevel)); // 确保存储为字符串
+                localStorage.setItem('isAI', String(data.AI));          // 确保存储为字符串
+                localStorage.setItem('name', data.name);
+    
+                // 加载游戏场景
                 this.loadGameScene();
             } else {
                 console.error('Login failed:', data.message);
             }
         } catch (error) {
-            console.error('Error during login:', error);
+            console.error('Error during login:', error.message);
         }
     }
 
