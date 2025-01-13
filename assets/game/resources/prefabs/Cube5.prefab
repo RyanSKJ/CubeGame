@@ -374,7 +374,7 @@
     "node": {
       "__id__": 9
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 14
     },
@@ -533,7 +533,7 @@
     "node": {
       "__id__": 16
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 21
     },
@@ -692,7 +692,7 @@
     "node": {
       "__id__": 23
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 28
     },
@@ -851,7 +851,7 @@
     "node": {
       "__id__": 30
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 35
     },
@@ -1010,7 +1010,7 @@
     "node": {
       "__id__": 37
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 42
     },
@@ -1169,7 +1169,7 @@
     "node": {
       "__id__": 44
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 49
     },
@@ -1328,7 +1328,7 @@
     "node": {
       "__id__": 51
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 56
     },
@@ -1487,7 +1487,7 @@
     "node": {
       "__id__": 58
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 63
     },
@@ -1646,7 +1646,7 @@
     "node": {
       "__id__": 65
     },
-    "_enabled": false,
+    "_enabled": true,
     "__prefab": {
       "__id__": 70
     },
@@ -1694,7 +1694,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 73
     },
@@ -1731,7 +1731,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 75
     },
@@ -1766,7 +1766,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 77
     },
@@ -1801,7 +1801,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 79
     },
@@ -1836,7 +1836,7 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true,
+    "_enabled": false,
     "__prefab": {
       "__id__": 81
     },
